@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
 
-class DatabaseSeeder extends Seeder
+class TakkenSeed extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(Users::class);
-        $this->call(TakkenSeed::class);
+        $descriptionKapoenen   = '';
+        $descriptionWelpen     = '';
+        $descriptionJongGivers = '';
     }
 }

@@ -1,0 +1,12 @@
+body {
+    padding-top: 75px;
+}
+
+.border {
+    border: 1.2px solid #aac12b;
+}
+
+.background {
+    padding-top: 75px;
+    background: #bdd732 url('../img/background.png') no-repeat fixed center 110px;
+}
