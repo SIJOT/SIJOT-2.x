@@ -66,7 +66,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="{{URL::to('/')}}/auth/login"> Login </a>
+                        <a href="{{ URL::to('/login') }}"> Login </a>
                     </li>
                 </ul>
             @elseif(Auth::check())
@@ -78,15 +78,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
-                            <span class=""></span>
-                            Leiding
-                        </a>
-                    </li>
-                    <li>
                         <a href="{{URL::to('/')}}">
                             <span class=""></span>
                             Verhuur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ Url::to('') }}">
+                            <span class=""> Cloud </span>
                         </a>
                     </li>
                 </ul>
@@ -102,9 +101,19 @@
                                     Account configuratie
                                 </a>
                             </li>
-                            <li class="divider"></span>
+
+                            {{-- User management --}}
+                            @if(Auth::user()->role === 2 || Auth::user()->name === 'Tim Joosten')
+                                <li>
+                                    <a href="">
+                                        Login beheer.
+                                    </a>
+                                </li>
+                            @endif
+                            {{-- end user management --}}
+                            <li class="divider">
                             <li>
-                                <a href="{{URL::to('/')}}/auth/logout">
+                                <a href="{{ URL::to('/logout') }}">
                                     Logout
                                 </a>
                             </li>

@@ -11,9 +11,14 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 /**
+ * MySQL Database columns.
+ *
  * @property string password
  * @property string name
  * @property string email
+ * @property string role
+ * @property int blocked
+ * @property mixed id
  */
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract,

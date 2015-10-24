@@ -60,8 +60,25 @@
                             </h2>
                         </div>
 
-                        {{-- Description --}}
-                        {{ $Tak->Beschrijving }}
+                            {{-- Description --}}
+                            @if (! empty($Tak->Beschrijving))
+                                {{$Tak->Beschrijving}}
+                            @else
+                                <div class="alert alert-warning">
+                                    <h4> Oh :( </h4>
+                                    <p>
+                                        Wij konden helaas geen tak beschrijving vinden.
+                                        Mogelijk heeft de administrator er geen in gegeven.
+                                    </p>
+
+                                    <p>
+                                        Denkt u dat dit een fout is? Dan kont u ons bereiken op
+                                        <a href="mailto:contact@st-joris-turnhout.be">
+                                            Contact@st-joris-turnhout.be.
+                                        </a>
+                                    </p>
+                                </div>
+                            @endif
                         @endforeach
                     </div>
                 </div>

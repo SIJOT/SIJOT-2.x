@@ -145,9 +145,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        /**
+        /*
          * Added providers
          */
+        Barryvdh\TranslationManager\ManagerServiceProvider::class,
     ],
 
     /*

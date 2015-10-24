@@ -6,7 +6,6 @@ use Pusher;
 use App\Info;
 use App\Activiteiten;
 use App\Http\Requests;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 class TakkenViewController extends Controller
@@ -33,7 +32,7 @@ class TakkenViewController extends Controller
     /**
      * Get All the groups.
      *
-     * @link   {GET} /takken
+     * @link   {GET} www.domain.tld/takken
      * @return \Illuminate\View\View
      */
     public function TakAll()
@@ -41,10 +40,22 @@ class TakkenViewController extends Controller
         $data['title']  = 'De Takken';
         $data['active'] = 1;
 
-        return View('front-end.tak', $data);
+        // Get Tak info out of the MySQL DB.
+        $data['takken']     = Info::all();
+        $data['kapoenen']   = Info::where('URI_fragment', '=', 'kapoenen')->get();
+        $data['welpen']     = Info::where('URI_fragment', '=', 'welpen')->get();
+        $data['jongGivers'] = Info::where('URI_fragment', '=', 'jong-givers')->get();
+        $data['givers']     = Info::where('URI_fragment', '=', 'givers')->get();
+        $data['jins']       = Info::where('URI_fragment', '=', 'jins')->get();
+        $data['leiding']    = Info::where('URI_fragment', '=', 'leiding')->get();
+
+        return View('front-end.takken', $data);
     }
 
     /**
+     * Get the group information.
+     *
+     * @param $fragment
      * @return \Illuminate\View\View
      */
     public function Tak($fragment)
@@ -61,14 +72,21 @@ class TakkenViewController extends Controller
      * [VIEW] Update the group.
      *
      * @link   {GET} /backend/takken/update/{fragment}
-     * @param  $fragment
      * @return \Illuminate\View\View
+     * @internal param $fragment
      */
-    public function getUpdate($fragment)
+    public function getUpdate()
     {
         $data['title']     = 'Update tak';
         $data['active']    = 1;
-        $data['groupData'] = Info::where('URI_fragment', '=', $fragment)->get();
+
+        // Get Tak info out of the MySQL DB.
+        $data['kapoenen']   = Info::where('URI_fragment', '=', 'kapoenen')->get();
+        $data['welpen']     = Info::where('URI_fragment', '=', 'welpen')->get();
+        $data['jongGivers'] = Info::where('URI_fragment', '=', 'jong-givers')->get();
+        $data['givers']     = Info::where('URI_fragment', '=', 'givers')->get();
+        $data['jins']       = Info::where('URI_fragment', '=', 'jins')->get();
+        $data['leiding']    = Info::where('URI_fragment', '=', 'leiding')->get();
 
         return View('back-end.group-update' , $data);
     }

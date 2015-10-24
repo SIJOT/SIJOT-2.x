@@ -16,20 +16,21 @@ Route::get('/', 'HomeController@index');
 Route::get('/takken', 'TakkenViewController@TakAll');
 Route::get('/takken/{fragment}', 'TakkenViewController@Tak');
 
-// Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+/**
+ * Authorization routes.
+ */
+Route::get('/login', 'AuthorizationController@viewLogin');
+Route::post('/login', 'AuthorizationController@verifyLogin');
 
-// Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
-
-// Logout routes..
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::get('/logout', 'AuthorizationController@getLogout');
 
 /**
  * Back-end routes.
  */
-Route::get('/backend/takken/update/{fragment}', 'TakkenViewController@getUpdate');
+Route::get('/backend/takken/update', 'TakkenViewController@getUpdate');
 Route::post('/backend/takken/update', 'TakkenViewController@postUpdate');
+
+/**
+ * Backend: User management.
+ */
+Route::get('/backend/acl', 'UserManagement@getIndex');

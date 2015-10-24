@@ -23,7 +23,7 @@
                             </div>
                         @endif
 
-                    <form method="POST" action="{{URL::to('/')}}/auth/login">
+                    <form method="POST" action="{{URL::to('/login')}}">
                         {{-- CSRF Token --}}
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">

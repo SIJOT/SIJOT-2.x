@@ -4,6 +4,10 @@
         {{-- Load the header file --}}
         @include('partials.header')
 
+        {{-- TinyMCE editor --}}
+        <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+        <script>tinymce.init({selector:'textarea'});</script>
+
         <!-- TODO: set this to external css file. -->
         <style>
             .top-padding-10 {
@@ -70,7 +74,28 @@
                             <div role="tabpanel" class="tab-pane active" id="kapoenen">
                                 <div class="row top-padding-10">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        Fuck
+                                        @foreach($kapoenen as $value1)
+                                            <form method="" action="">
+                                                <label for="title"> Tak: </label>
+                                                <input class="form-control" id="title" placeholder="Tak" />
+                                                <br />
+
+                                                <label for="subtitle"> Sub titel </label>
+                                                <input class="form-control" id="subtitle" placeholder="Sub titel" />
+                                                <br>
+
+                                                <label for="beschrijving"> Beschrijving </label>
+                                                <textarea></textarea>
+                                                <br>
+
+                                                <button class="btn btn-success" type="submit">
+                                                    Aanpassen
+                                                </button>
+                                                <button class="btn btn-danger">
+                                                    Reset
+                                                </button>
+                                            </form>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -78,25 +103,146 @@
                             <div role="tabpanel" class="tab-pane" id="welpen">
                                 <div class="row top-padding-10">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        Hoer
+                                        @foreach($welpen as $value2)
+                                            <form method="" action="">
+                                                <label for="title"> Tak: </label>
+                                                <input class="form-control" id="title" placeholder="Tak" />
+                                                <br />
+
+                                                <label for="subtitle"> Sub titel </label>
+                                                <input class="form-control" id="subtitle" placeholder="Sub titel" />
+                                                <br>
+
+                                                <label for="beschrijving"> Beschrijving </label>
+                                                <textarea></textarea>
+                                                <br>
+
+                                                <button class="btn btn-success" type="submit">
+                                                    Aanpassen
+                                                </button>
+                                                <button class="btn btn-danger">
+                                                    Reset
+                                                </button>
+                                            </form>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
 
                             <div role="tabpanel" class="tab-pane" id="jongGivers">
-                                ..ss.
+                                <div class="row top-padding-10">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        @foreach($jongGivers as $value3)
+                                            <form method="" action="">
+                                                <label for="title"> Tak: </label>
+                                                <input class="form-control" id="title" placeholder="Tak" />
+                                                <br />
+
+                                                <label for="subtitle"> Sub titel </label>
+                                                <input class="form-control" id="subtitle" placeholder="Sub titel" />
+                                                <br>
+
+                                                <label for="beschrijving"> Beschrijving </label>
+                                                <textarea></textarea>
+                                                <br>
+
+                                                <button class="btn btn-success" type="submit">
+                                                    Aanpassen
+                                                </button>
+                                                <button class="btn btn-danger">
+                                                    Reset
+                                                </button>
+                                            </form>
+                                        @endforeach
+                                    </div>
+                                </div>
                             </div>
 
                             <div role="tabpanel" class="tab-pane" id="givers">
-                                gi
+                                <div class="row top-padding-10">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        @foreach($givers as $value4)
+                                            <form method="" action="">
+                                                <label for="title"> Tak: </label>
+                                                <input class="form-control" id="title" placeholder="Tak" />
+                                                <br />
+
+                                                <label for="subtitle"> Sub titel </label>
+                                                <input class="form-control" id="subtitle" placeholder="Sub titel" />
+                                                <br>
+
+                                                <label for="beschrijving"> Beschrijving </label>
+                                                <textarea></textarea>
+                                                <br>
+
+                                                <button class="btn btn-success" type="submit">
+                                                    Aanpassen
+                                                </button>
+                                                <button class="btn btn-danger">
+                                                    Reset
+                                                </button>
+                                            </form>
+                                        @endforeach
+                                    </div>
+                                </div>
                             </div>
 
                             <div role="tabpanel" class="tab-pane" id="jins">
-                                kkkk
+                                <div class="row top-padding-10">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        @foreach($jins as $value5)
+                                            <form method="" action="">
+                                                <label for="title"> Tak: </label>
+                                                <input class="form-control" id="title" placeholder="Tak" />
+                                                <br />
+
+                                                <label for="subtitle"> Sub titel </label>
+                                                <input class="form-control" id="subtitle" placeholder="Sub titel" />
+                                                <br>
+
+                                                <label for="beschrijving"> Beschrijving </label>
+                                                <textarea></textarea>
+                                                <br>
+
+                                                <button class="btn btn-success" type="submit">
+                                                    Aanpassen
+                                                </button>
+                                                <button class="btn btn-danger">
+                                                    Reset
+                                                </button>
+                                            </form>
+                                        @endforeach
+                                    </div>
+                                </div>
                             </div>
 
                             <div role="tabpanel" class="tab-pane" id="leiding">
-                                dfgdfghjfghdf
+                                <div class="row top-padding-10">
+                                    <div class="row-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        @foreach($leiding as $value6)
+                                            <form method="" action="">
+                                                <label for="title"> Tak: </label>
+                                                <input class="form-control" id="title" placeholder="Tak" value="{{ $value6->Title }}" />
+                                                <br />
+
+                                                <label for="subtitle"> Sub titel </label>
+                                                <input class="form-control" id="subtitle" placeholder="Sub titel" />
+                                                <br>
+
+                                                <label for="beschrijving"> Beschrijving </label>
+                                                <textarea></textarea>
+                                                <br>
+
+                                                <button class="btn btn-success" type="submit">
+                                                    Aanpassen
+                                                </button>
+                                                <button class="btn btn-danger">
+                                                    Reset
+                                                </button>
+                                            </form>
+                                        @endforeach
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         {{-- End tab content --}}
@@ -109,8 +255,8 @@
         @include('partials.footer')
 
         {{-- Pusher includes --}}
-        <script src="https://js.pusher.com/2.2/pusher.min.js"></script>
         <script src="{{URL::to('/') }}/js/jquery.bootstrap-growl.min.js"></script>
+        <script src="https://js.pusher.com/2.2/pusher.min.js"></script>
 
         {{-- Add the pusher partial --}}
         @include('partials.pusher')

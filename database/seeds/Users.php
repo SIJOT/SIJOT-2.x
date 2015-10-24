@@ -17,6 +17,7 @@ class Users extends Seeder
         $user->name     = 'Tim Joosten';
         $user->email    = 'Topairy@gmail.com';
         $user->password = Hash::make('root1995!');
+        $user->role     = '1';
         $user->save();
     }
 }
