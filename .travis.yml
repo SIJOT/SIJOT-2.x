@@ -16,6 +16,8 @@ addons:
       - nodejs
 before_script:
   - composer install
+  - php artisan migrate
+  - php artisan db:seed
 
 script:
   - phpunit
