@@ -253,12 +253,5 @@
 
         {{-- Load the footer partial --}}
         @include('partials.footer')
-
-        {{-- Pusher includes --}}
-        <script src="{{URL::to('/') }}/js/jquery.bootstrap-growl.min.js"></script>
-        <script src="https://js.pusher.com/2.2/pusher.min.js"></script>
-
-        {{-- Add the pusher partial --}}
-        @include('partials.pusher')
     </body>
 </html>

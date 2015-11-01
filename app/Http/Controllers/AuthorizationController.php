@@ -46,7 +46,7 @@ class AuthorizationController extends Controller
      */
     public function verifyLogin()
     {
-        $restrictions['email']     = Input::get('email');
+        $restrictions['email']    = Input::get('email');
         $restrictions['password'] = Input::get('password');
 
         if (Auth::attempt($restrictions)) {
@@ -73,7 +73,10 @@ class AuthorizationController extends Controller
             }
 
             // Logging instance
-            $logging = Lang::get('logging.loggedIn', ['user' => Auth::user()->name]);
+            $logging = Lang::get('logging.loggedIn', [
+                'user' => Auth::user()->name
+            ]);
+
             Log::info($logging);
 
             /** @var string, $redirectUrl */
@@ -117,16 +120,17 @@ class AuthorizationController extends Controller
                 $m->to($user->email)->subject(Lang::get('emails.subjectRegistration'));
             });
 
-            $loggingData['name'] = $users->name;
-            $loggingData['id']   = $users->id;
+            $loggingData['name']  = $users->name;
+            $loggingData['users'] = User::user()->name;
 
             Log::info(Lang::get('logging.registrationSuccess', $loggingData));
 
         } else {
             $logging =  Lang::get('logging.registrationError');
             Log::error($logging);
-            // TODO: Set logic to flash message and letting know that the registration failed
         }
+
+        return Redirect::back();
     }
 
     /**
@@ -142,8 +146,7 @@ class AuthorizationController extends Controller
 
         Auth::logout();
 
-        return Redirect::to('/')
-            ->with($data);
+        return Redirect::to('/');
     }
 
     /**
@@ -157,19 +160,26 @@ class AuthorizationController extends Controller
         $user->blocked  = 1;
 
         if ($user->save()) {
-            $logging = Lang::get('logging.');
+            $logging = Lang::get('logging.', [
+                'name' => Auth::user()->name
+            ]);
+
             Log::warning($logging);
         } else {
-            $logging = Lang::get('logging.');
+            $logging = Lang::get('logging.', [
+                'name' => Auth::user()->name
+            ]);
+
             Log::warning($logging);
         }
+
+        return Redirect::back();
     }
 
     /**
      * Enable login.
      *
-     * TODO: Add blocked column to the database.
-     *
+     * @link
      * @param $id, integer, user id.
      */
     public function unBlockUser($id)
@@ -178,11 +188,42 @@ class AuthorizationController extends Controller
         $user->blocked = 0;
 
         if ($user->save()) {
-            $logging = Lang::get('logging.', []);
+            $logging = Lang::get('logging.unblockUserSuccess', [
+                'name' => Auth::user()->name]
+            );
+
             Log::info($logging);
         } else {
-            $logging = Lang::get('logging.', []);
+            $logging = Lang::get('logging.unblockUserFailure', [
+                'name' => Auth::user()->name]
+            );
+
             Log::warning($logging);
         }
+
+        return Redirect::back();
+    }
+
+    /**
+     * Delete a user out of the system.
+     *
+     * @link
+     * @param $id, integer, user id.
+     */
+    public function deleteUser($id)
+    {
+        // Dragons are here! I'm scared.
+        // TODO: write delete method.
+        // TODO: Affected tables, notifications, user, permissions
+
+        User::destroy($id);
+        Permission::where('user_id', $id)->delete();
+        Notifications::where('user_id', $id)->delete();
+
+        $logging = Lang::get('', [
+
+        ]);
+
+        Log::info($logging);
     }
 }

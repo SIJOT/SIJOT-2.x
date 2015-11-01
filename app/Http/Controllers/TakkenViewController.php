@@ -108,8 +108,10 @@ class TakkenViewController extends Controller
 
 
         // Check if it can be updated in the MySQL database.
-        // If not, Make a flash session. And kick my ass back to the shithole.
-        if (! $group->save) {
+        // If not, Make a flash session. And kick my ass back to the system.
+
+        // Make lang files.
+        if (! $group->save()) {
             $this->pusher->trigger('channel_takken', 'takken_notification', [
                 'class'   => 'error',
                 'message' => 'Wij konden de gegevens niet aanpassen.'

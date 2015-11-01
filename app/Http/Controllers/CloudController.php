@@ -18,7 +18,8 @@ class CloudController extends Controller
 
     public function index()
     {
-
+        $data['title']  = '';
+        $data['active'] = 2;
     }
 
     public function uploadFile()
@@ -42,7 +43,12 @@ class CloudController extends Controller
         }
     }
 
-    public function deleteFile()
+    public function deleteFile($id)
+    {
+
+    }
+
+    public function downloadFile()
     {
 
     }

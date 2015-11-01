@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(Users::class);
         $this->call(TakkenSeed::class);
+        $this->call(user_group_seeder::class);
     }
 }

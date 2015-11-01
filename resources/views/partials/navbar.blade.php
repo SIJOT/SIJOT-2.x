@@ -105,7 +105,7 @@
                             {{-- User management --}}
                             @if(Auth::user()->role === 2 || Auth::user()->name === 'Tim Joosten')
                                 <li>
-                                    <a href="">
+                                    <a href="{{ URL::to('/backend/acl') }}">
                                         Login beheer.
                                     </a>
                                 </li>

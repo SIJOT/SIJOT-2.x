@@ -12,6 +12,7 @@ class UserManagement extends Controller
         // $this->middleware('auth');
 
         // TODO: Need be created.
+        // TODO: set middleware
         // $this->middleware('admin');
     }
 
@@ -23,15 +24,36 @@ class UserManagement extends Controller
     public function getIndex()
     {
         $data['title']  = 'Gebruikers beheer';
-        $data['active'] = '';
+        $data['active'] = 0;
 
         // Get the MySQL Data group by group.
-        $data['gebruikers']     = User::all();
-        $data['leiding']        = User::where('role', '=', 1)->get();
-        $data['administrators'] = User::where('role', '=', 2)->get();
-        $data['ouders']         = User::where('role', '=', 0)->get();
-
+        $data['gebruikers'] = User::paginate(10);
+        // {{ gebruikers->render() }} to display the pagination.
 
         return View('back-end.userManagement', $data);
+    }
+
+    /**
+     * Get the profile for the user.
+     *
+     * @param $id, integer, the user profile id.
+     * @return \Illuminate\View\View
+     */
+    public function UserProfile($id)
+    {
+        $data['title'] = 'Gebruikers profiel';
+        $data['active'] = 0;
+        $data['permission'] = [];
+
+        $user = User::find($id)->get();
+
+        if (count($user) === 1) {
+            foreach($user as $info) {
+                $data['username'] = $info->name;
+                $data['email']    = $info->email;
+            }
+        }
+
+        return View('back-end.profile', $data);
     }
 }

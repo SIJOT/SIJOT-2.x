@@ -31,6 +31,27 @@ Route::get('/backend/takken/update', 'TakkenViewController@getUpdate');
 Route::post('/backend/takken/update', 'TakkenViewController@postUpdate');
 
 /**
+ * Rental routes.
+ */
+Route::get('/backend/rental', 'VerhuurBackendController@indx');
+Route::get('/backend/rental', 'VerhuurBackendController@');
+Route::get('/backend/rental', 'VerhuurBackendController@');
+Route::get('/backend/rental', 'VerhuurBackendController@');
+Route::get('/backend/rental', 'VerhuurBackendController@');
+
+/**
  * Backend: User management.
  */
+Route::get('/backend/acl/profile/{id}', 'UserManagement@UserProfile');
 Route::get('/backend/acl', 'UserManagement@getIndex');
+Route::get('/backend/acl/block/{id}', 'AuthorizationController@blockUser');
+Route::get('/backend/acl/unblock/{id}', 'AuthorizationController@unBlockUser');
+Route::get('/backend/acl/delete/{id}', 'AuthorizationController@deleteUser');
+
+/**
+ * Log API.
+ */
+
+/**
+ * Cloud routes.
+ */

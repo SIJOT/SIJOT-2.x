@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
 use Pusher;
@@ -49,9 +50,9 @@ class verhuurBackendController extends Controller
     {
         $data['title']  = 'Verhuur control panel';
         $data['active'] = 8;
-        $data['dbData'] = []; // TODO: Setup eloqunet query.
+        $data['dbData'] = Verhuring::all(); // TODO: Setup eloqunet query.
 
-        return View('', $data);
+        return View('back-end.rentalIndex', $data);
     }
 
     /**
@@ -90,6 +91,16 @@ class verhuurBackendController extends Controller
                 'class'   => 'info',
                 'message' => 'Er is een nieuwe verhuur aanvraag gebeurd',
             ]);
+
+            // TODO: Write mailing logic.
+            // TODO: One to the requester.
+            // TODO: One to every person that activated the notification system.
+
+            $notificationMembers = Notifications::where('verhuring', 1)->get();
+
+            foreach($notificationMembers as $person) {
+
+            }
         }
 
         return Redirect::back();
@@ -127,14 +138,20 @@ class verhuurBackendController extends Controller
         $status->status  = 1;
 
         if ($status->save()) {
-            $logging = Lang::get('', []);
-            Log::info('');
+            $logging = Lang::get('rental.optionSucces', [
+                'user' => Auth::user()->name
+            ]);
 
-            Redirect::back();
+            Log::info($logging);
         } else {
-            $logging = Lang::get('', []);
-            Log::warning();
+            $logging = Lang::get('rental.optionFailure', [
+                'user' => Auth::user()->name
+            ]);
+
+            Log::warning($logging);
         }
+
+        return Redirect::back();
     }
 
     /**
@@ -142,7 +159,7 @@ class verhuurBackendController extends Controller
      *
      * @link: [GET] www.domain.tld/rental/confirm.
      * @middleware, Rental, Admin.
-     * @param $id, integer, The id of the rental request.
+     * @param $id, int, The id of the rental request.
      */
     public function confirmed($id)
     {
@@ -150,10 +167,18 @@ class verhuurBackendController extends Controller
         $status->status = 2;
 
         if ($status->save()) {
-            Redirect::back();
+            $logging = Lang::get('logging.RentalSuccess');
+            Log::info($logging, [
+                'user' => Auth::user()->name
+            ]);
         } else {
-
+            $logging = Lang::get('logging.RentalFailure');
+            Log::info($logging, [
+                'user' => Auth::user()->name
+            ]);
         }
+
+        return Redirect::back();
     }
 
     /**
@@ -168,7 +193,23 @@ class verhuurBackendController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $verhuring = Verhuring::find($id);
+
+        if ($verhuring->save()) {
+            $logging = Lang::get(':user changed a rental', [
+                'user' => Auth::user()->name
+            ]);
+
+            Log::info($logging);
+        } else {
+            $logging = Lang::get(':user tried to change a rental', [
+                'user' => Auth::user()->name
+            ]);
+
+            Log::info($logging);
+        }
+
+        return Redirect::back();
     }
 
     /**
@@ -183,7 +224,11 @@ class verhuurBackendController extends Controller
      */
     public function destroy($id)
     {
-        $logging = Lang::get('');
+        Verhuring::destroy($id);
+
+        $logging = Lang::get('logging.rentalDelete', [
+            'user' => Auth::user()->user
+        ]);
         Log::info($logging);
     }
 }
