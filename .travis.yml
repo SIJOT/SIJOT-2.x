@@ -27,4 +27,4 @@ before_install:
   - pip install --user codecov
   - mysql -e "create database IF NOT EXISTS test;" -uroot
 after_success:
-  - codecov
+    - bash <(curl -s https://codecov.io/bash)
