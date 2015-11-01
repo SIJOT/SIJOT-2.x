@@ -16,8 +16,7 @@ before_script:
 
 script:
   - phpunit
-
-script
+  
 # code coverage
 before_install:
   - pip install --user codecov
