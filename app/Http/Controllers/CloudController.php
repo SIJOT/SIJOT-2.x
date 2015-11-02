@@ -48,7 +48,7 @@ class CloudController extends Controller
 
     }
 
-    public function downloadFile()
+    public function downloadFile($id)
     {
 
     }

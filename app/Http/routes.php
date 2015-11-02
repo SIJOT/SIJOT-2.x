@@ -55,3 +55,7 @@ Route::get('/backend/acl/delete/{id}', 'AuthorizationController@deleteUser');
 /**
  * Cloud routes.
  */
+Route::get('/cloud/index', 'CloudController@index');
+Route::post('/cloud/upload', 'CloudController@uploadFile');
+Route::get('/cloud/delete/{id}', 'CloudController@deleteFile');
+Route::get('/cloud/download/{id}', 'CloudController@downloadFile');
