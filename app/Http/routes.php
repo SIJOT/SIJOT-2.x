@@ -33,11 +33,11 @@ Route::post('/backend/takken/update', 'TakkenViewController@postUpdate');
 /**
  * Rental routes.
  */
-Route::get('/backend/rental', 'VerhuurBackendController@indx');
-Route::get('/backend/rental', 'VerhuurBackendController@');
-Route::get('/backend/rental', 'VerhuurBackendController@');
-Route::get('/backend/rental', 'VerhuurBackendController@');
-Route::get('/backend/rental', 'VerhuurBackendController@');
+Route::get('/backend/rental', 'VerhuurBackendController@index');
+Route::get('/backend/rentald', 'VerhuurBackendController@');
+Route::get('/backend/rentalz', 'VerhuurBackendController@');
+Route::get('/backend/rentalr', 'VerhuurBackendController@');
+Route::get('/backend/rentale', 'VerhuurBackendController@');
 
 /**
  * Backend: User management.

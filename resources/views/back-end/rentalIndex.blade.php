@@ -2,11 +2,11 @@
 <html>
     <head>
         {{-- header component --}}
-        @include('components.header')
+        @include('partials.header')
     </head>
     <body>
         {{-- navbar component --}}
-        @include('components.navbar')
+        @include('partials.navbar')
 
         <div class="container">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -21,6 +21,6 @@
         </div>
 
         {{-- footer component --}}
-        @include('components.footer')
+        @include('partials.footer')
     </body>
 </html>
