@@ -15,4 +15,8 @@ class CloudTest extends TestCase
     {
         $this->visit('/cloud/index');
     }
+
+    public function testCloudDelete() {
+        $this->visit('/cloud/delete/1');
+    }
 }
