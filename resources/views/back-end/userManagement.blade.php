@@ -41,7 +41,7 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                     {{-- Session and validator block --}}
                                     <!-- TODO: Set flash session method in it with or (||) method -->
-                                    @if(count($errors->all()) > 0)
+                                    @if(! empty($errors) && count($errors->all()) > 0)
                                         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                                             <div class="alert alert-danger">
                                                 <h4>Oops! Foutieve invoer!</h4>
