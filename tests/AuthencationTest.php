@@ -11,7 +11,6 @@ class AuthencationTest extends TestCase
 
     public function testLogout()
     {
-        Auth::loginUsingId(1);
         $this->visit('/logout');
     }
 
