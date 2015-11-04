@@ -6,6 +6,8 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class TakkenTest extends TestCase
 {
+    use WithoutMiddleware, DatabaseTransactions, DatabaseMigrations;
+
     public function testKapoenenUrl()
     {
         // Front-end

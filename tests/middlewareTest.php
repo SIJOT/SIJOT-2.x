@@ -7,6 +7,8 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class middlewareTest extends TestCase
 {
+    use WithoutMiddleware, DatabaseTransactions, DatabaseMigrations;
+
     /**
      * A basic test example.
      *

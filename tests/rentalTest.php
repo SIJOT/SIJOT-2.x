@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 
 class rentalTest extends TestCase
 {
+    use WithoutMiddleware, DatabaseTransactions, DatabaseMigrations;
+
     /**
      * A basic test example.
      *
