@@ -11,12 +11,18 @@ class CloudTest extends TestCase
      *
      * @return void
      */
-    public function testCloudIndex()
+    public function testCloudRoutes()
     {
         $this->visit('/cloud/index');
+        $this->visit('/cloud/download/1');
+        $this->visit('/cloud/delete/1');
+        $this->post('/cloud/upload');
     }
 
-    public function testCloudDelete() {
-        $this->visit('/cloud/delete/1');
+    public function testHyperlinks()
+    {
+        // Navbar
+
+        // Content
     }
 }

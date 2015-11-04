@@ -72,19 +72,19 @@
             @elseif(Auth::check())
                 <ul class="nav navbar-nav navbar">
                     <li>
-                        <a href="">
+                        <a href="{{ Url::to('/backend/takken/update') }}">
                             <span class=""></span>
                             Takken
                         </a>
                     </li>
                     <li>
-                        <a href="{{URL::to('/')}}">
+                        <a href="{{URL::to('/backend/rental')}}">
                             <span class=""></span>
                             Verhuur
                         </a>
                     </li>
                     <li>
-                        <a href="{{ Url::to('') }}">
+                        <a href="{{ Url::to('/cloud/index') }}">
                             <span class=""> Cloud </span>
                         </a>
                     </li>

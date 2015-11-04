@@ -8,31 +8,16 @@ class TakkenTest extends TestCase
 {
     public function testKapoenenUrl()
     {
+        // Front-end
         $this->visit('/takken/kapoenen');
-    }
-
-    public function testWelpenUrl()
-    {
         $this->visit('/takken/welpen');
-    }
-
-    public function testJongGiverUri()
-    {
         $this->visit('/takken/jong-givers');
-    }
-
-    public function testGiversUri()
-    {
         $this->visit('/takken/givers');
-    }
-
-    public function testJinsUri()
-    {
         $this->visit('/takken/jins');
-    }
-
-    public function testLeidingUri()
-    {
         $this->visit('/takken/leiding');
+
+        // Back-end
+        $this->visit('/backend/takken/update');
+        $this->post('/backend/takken/update');
     }
 }

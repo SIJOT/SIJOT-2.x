@@ -11,9 +11,8 @@ class UsermanagementTest extends TestCase
      *
      * @return void
      */
-    public function testConsoleIndexPage()
+    public function testUsermanagementRoutes()
     {
-        $url = $this->call('GET', '/backend/acl');
-        $this->assertEquals(200, $url->getStatusCode());
+        $this->visit('/backend/acl');
     }
 }
