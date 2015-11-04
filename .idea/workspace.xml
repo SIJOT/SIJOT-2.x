@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e1592bce-24ef-47f2-9c50-5110cedacf65" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/AuthencationTest.php" afterPath="$PROJECT_DIR$/tests/AuthencationTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SIJOT-4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,21 +62,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="rentalTest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/rentalTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.375">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UsermanagementTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/UsermanagementTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.375">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state vertical-scroll-proportion="-8.75">
+              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -96,10 +85,20 @@
       <file leaf-file-name="AuthencationTest.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/AuthencationTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29950082">
-              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.12479201">
+              <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.875">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding>
-                <element signature="e#7#59#0#PHP" expanded="true" />
+                <element signature="e#23#59#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -123,7 +122,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2015_10_23_163259_Permissions_table.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/Registervalidation.php" />
         <option value="$PROJECT_DIR$/app/Permission.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_10_24_135207_Session_table.php" />
@@ -161,8 +159,9 @@
         <option value="$PROJECT_DIR$/tests/middlewareTest.php" />
         <option value="$PROJECT_DIR$/tests/TakkenTest.php" />
         <option value="$PROJECT_DIR$/tests/rentalTest.php" />
-        <option value="$PROJECT_DIR$/tests/UsermanagementTest.php" />
         <option value="$PROJECT_DIR$/resources/views/back-end/userManagement.blade.php" />
+        <option value="$PROJECT_DIR$/app/User.php" />
+        <option value="$PROJECT_DIR$/tests/UsermanagementTest.php" />
         <option value="$PROJECT_DIR$/tests/AuthencationTest.php" />
       </list>
     </option>
@@ -839,13 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.75">
-          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="33" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Verhuring.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1034,11 +1026,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/UsermanagementTest.php">
+    <entry file="file://$PROJECT_DIR$/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.375">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="-1.875">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="e#23#59#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1050,13 +1044,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tests/UsermanagementTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.75">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/AuthencationTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29950082">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding>
-            <element signature="e#7#59#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.12479201">
+          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>

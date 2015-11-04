@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 
 class AuthencationTest extends TestCase
@@ -11,6 +12,9 @@ class AuthencationTest extends TestCase
 
     public function testLogout()
     {
+        Artisan::call('db:seed');
+        Auth::loginUsingId(1);
+
         $this->visit('/logout');
     }
 
