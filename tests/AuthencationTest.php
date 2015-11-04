@@ -15,7 +15,11 @@ class AuthencationTest extends TestCase
         Artisan::call('db:seed');
         Auth::loginUsingId(1);
 
-        $this->visit('/logout');
+        $response = $this->call('GET', 'logout');
+        $this->assertEquals(302, $response->status());
+
+        // $url = $this->visit('/logout');
+        // $url->seePageIs('/');
     }
 
     public function testLoginView() {

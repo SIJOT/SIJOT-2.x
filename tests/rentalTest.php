@@ -21,11 +21,14 @@ class rentalTest extends TestCase
 
         // Navbar
         if (Auth::check()) {
-            $baseUrl->click('Sint-Joris')->seePageIs('/');
             $baseUrl->click('Takken')->seePageIs('/backend/takken/update');
             $baseUrl->click('Verhuur')->seePageIs('/backend/rental');
             $baseUrl->click('Cloud')->seePageIs('/cloud/index');
         }
+
+        $baseUrl->click('Sint-Joris')->seePageIs('/');
+        //$baseUrl->click()->seePageIs();
+       // $baseUrl->click()->seePageIs();
 
         // Content
         //$baseUrl->click('')->seePageis('');

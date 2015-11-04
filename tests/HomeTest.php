@@ -16,5 +16,9 @@ class HomeTest extends TestCase
     public function testIndexUrl()
     {
         $this->visit('/');
+
+        // check hyperlinks navbar
+
+        // Check hyperlinks Content
     }
 }
