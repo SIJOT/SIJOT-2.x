@@ -16,7 +16,6 @@ class CloudTest extends TestCase
         $this->visit('/cloud/index');
         $this->visit('/cloud/download/1');
         $this->visit('/cloud/delete/1');
-        $this->post('/cloud/upload');
     }
 
     public function testHyperlinks()

@@ -92,7 +92,7 @@ class AuthorizationController extends Controller
      *
      * @param Registervalidation $input
      */
-    public function postRegister(Registervalidation $input)
+    public function Register(Registervalidation $input)
     {
         // User insert
         $users           = new User();

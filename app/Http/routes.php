@@ -34,16 +34,17 @@ Route::post('/backend/takken/update', 'TakkenViewController@postUpdate');
  * Rental routes.
  */
 Route::get('/backend/rental', 'VerhuurBackendController@index');
-Route::get('/backend/rentald', 'VerhuurBackendController@');
-Route::get('/backend/rentalz', 'VerhuurBackendController@');
-Route::get('/backend/rentalr', 'VerhuurBackendController@');
-Route::get('/backend/rentale', 'VerhuurBackendController@');
+// Route::get('/backend/rentald', 'VerhuurBackendController@');
+// Route::get('/backend/rentalz', 'VerhuurBackendController@');
+// Route::get('/backend/rentalr', 'VerhuurBackendController@');
+// Route::get('/backend/rentale', 'VerhuurBackendController@');
 
 /**
  * Backend: User management.
  */
 Route::get('/backend/acl/profile/{id}', 'UserManagement@UserProfile');
 Route::get('/backend/acl', 'UserManagement@getIndex');
+Route::post('/backend/acl/register', 'AuthorizationController@Register');
 Route::get('/backend/acl/block/{id}', 'AuthorizationController@blockUser');
 Route::get('/backend/acl/unblock/{id}', 'AuthorizationController@unBlockUser');
 Route::get('/backend/acl/delete/{id}', 'AuthorizationController@deleteUser');

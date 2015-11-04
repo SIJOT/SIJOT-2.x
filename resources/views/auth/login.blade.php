@@ -13,15 +13,15 @@
                     <div class="form-wrap">
                         <h1>Leidings gedeelte!</h1>
 
-                        @if (count($errors) > 0)
+                        <?php if (! empty($errors) && count($errors) > 0): ?>
                             <div class="alert alert-danger">
                                 <ul>
-                                    @foreach ($errors->all() as $error)
+                                    <?php foreach($errors->all() as $error): ?>
                                         <li>{{ $error }}</li>
-                                    @endforeach
+                                    <?php endforeach; ?>
                                 </ul>
                             </div>
-                        @endif
+                        <?php endif; ?>
 
                     <form method="POST" action="{{URL::to('/login')}}">
                         {{-- CSRF Token --}}
