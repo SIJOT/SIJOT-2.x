@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications;
+use Illuminate\Support\Facades\Gate;
 use Pusher;
 use App\User;
 use App\Permission;
@@ -20,6 +22,8 @@ use App\Http\Requests\Registervalidation;
 class AuthorizationController extends Controller
 {
     public $pusher;
+    public $permission;
+    public $authMiddleware = ['viewLogin', 'verifyLogin', 'getLogout'];
 
     public function __construct()
     {
@@ -29,6 +33,15 @@ class AuthorizationController extends Controller
             env('PUSHER_SECRET'),
             env('PUSHER_ID')
         );
+
+        if(Auth::check()) {
+            $this->permission = Permission::where('user_id', Auth::user()->id)
+                ->get();
+        } else {
+            $this->permission = 0;
+        }
+
+        $this->middleware('auth', ['except' =>$this->authMiddleware]);
     }
 
     /**
@@ -54,7 +67,8 @@ class AuthorizationController extends Controller
             $userRole = Auth::user()->role;
 
             // Set the permission table to a session.
-            $permissionsQuery = Permission::where('user_id', Auth::user()->id)->get();
+            $permissionsQuery = Permission::where('user_id', Auth::user()->id)
+                ->get();
 
             Session::push('permission', $permissionsQuery);
 
@@ -94,6 +108,10 @@ class AuthorizationController extends Controller
      */
     public function Register(Registervalidation $input)
     {
+        if (Gate::denies('leden-beheer', $this->permission)) {
+            return Redirect::back();
+        }
+
         // User insert
         $users           = new User();
         $users->name     = $input->name;
@@ -156,6 +174,10 @@ class AuthorizationController extends Controller
      */
     public function blockUser($id)
     {
+        if (Gate::denies('leden-beheer', $this->permission)) {
+            return Redirect::back();
+        }
+
         $user           = User::find($id);
         $user->blocked  = 1;
 
@@ -184,6 +206,10 @@ class AuthorizationController extends Controller
      */
     public function unBlockUser($id)
     {
+        if (Gate::denies('leden-beheer', $this->permission)) {
+           return Redirect::back();
+        }
+
         $user          = User::find($id);
         $user->blocked = 0;
 
@@ -215,13 +241,16 @@ class AuthorizationController extends Controller
         // Dragons are here! I'm scared.
         // TODO: write delete method.
         // TODO: Affected tables, notifications, user, permissions
+        if (Gate::denies('leden-beheer', $this->permission)) {
+            return Redirect::back();
+        }
 
         User::destroy($id);
         Permission::where('user_id', $id)->delete();
         Notifications::where('user_id', $id)->delete();
 
         $logging = Lang::get('', [
-
+            'user' => Auth::user()->name
         ]);
 
         Log::info($logging);

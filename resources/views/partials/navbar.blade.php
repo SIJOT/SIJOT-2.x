@@ -71,11 +71,24 @@
                 </ul>
             @elseif(Auth::check())
                 <ul class="nav navbar-nav navbar">
-                    <li>
-                        <a href="{{ Url::to('/backend/takken/update') }}">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <span class=""></span>
                             Takken
                         </a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="{{ URL::to('/backend/takken/update') }}">
+                                    Wijzig tak info.
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    Actieve takken.
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="{{URL::to('/backend/rental')}}">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1820037558">
+  <component name="DataSourceManagerImpl" format="xml" hash="3912563607">
     <data-source source="LOCAL" name="MySQL - SN1145@localhost" uuid="248441d9-bd6b-44c7-bc51-a3d847fe2d97">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -13,7 +13,6 @@
         <property name="characterSetResults" value="utf8" />
         <property name="yearIsDateType" value="false" />
       </driver-properties>
-      <libraries />
     </data-source>
   </component>
 </project>

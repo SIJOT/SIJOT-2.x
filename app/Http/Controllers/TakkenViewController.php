@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
 use Pusher;
 use App\Info;
 use App\Activiteiten;
@@ -126,5 +127,38 @@ class TakkenViewController extends Controller
 
         // Redirect to the previous page.
         return Redirect::back();
+    }
+
+    public function activateGroups()
+    {
+        $tak = new Groep();
+
+        // Scouts en gidsen vlaanderen
+        $tak->segvl_kapoenen   = Input::has('kapoenen')   ? true : false;
+        $tak->segvl_welpen     = Input::has('welpen')     ? true : false;
+        $tak->segvl_jonggivers = Input::has('jongGivers') ? true : false;
+        $tak->segvl_givers     = Input::has('givers')     ? true : false;
+        $tak->segvl_jins       = Input::has('jins')       ? true : false;
+        $tak->segvl_leiding    = Input::has('leiding')    ? true : false;
+
+        // FOS Scouting
+        $tak->bevers           = Input::has('Bevers') ? true : false;
+        $tab->zeehonden        = Input::has('zeehouden') ? true : false;
+
+
+        // Les Scouts
+        $tak->ls_baladins      = Input::has('baladins')   ? true : false;
+        $tak->ls_louveteaux    = Input::has('louveteaux') ? true : false;
+        $tak->ls_eclaireurs    = Input::has('eclaireurs') ? true : false;
+        $tak->ls_poinniers     = input::has('pionniers')  ? true : false;
+
+        if ($tak->save()) {
+
+        }
+    }
+
+    public function getAllgroups($id)
+    {
+        return View('', $data);
     }
 }

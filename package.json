@@ -1,0 +1,33 @@
+{
+  "name": "sijot",
+  "version": "1.0.0",
+  "description": "[![codecov.io](https://codecov.io/github/Tjoosten/scouts-en-gidsen-template/coverage.svg?branch=master)](https://codecov.io/github/Tjoosten/scouts-en-gidsen-template?branch=master) [![Build Status](https://travis-ci.org/Tjoosten/scouts-en-gidsen-template.svg?branch=master)](https://travis-ci.org/Tjoosten/scouts-en-gidsen-template)",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.5",
+    "gulp": "^3.9.0",
+    "gulp-help": "^1.6.1",
+    "gulp-sass": "^2.1.0",
+    "laravel-elixir": "^3.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tjoosten/scouts-en-gidsen-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tjoosten/scouts-en-gidsen-template/issues"
+  },
+  "homepage": "https://github.com/Tjoosten/scouts-en-gidsen-template#readme",
+  "devDependencies": {
+    "gulp-ruby-sass": "^2.0.5"
+  }
+}

@@ -22,4 +22,6 @@ class TakkenTest extends TestCase
         $this->visit('/backend/takken/update');
         $this->post('/backend/takken/update');
     }
+
+
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
@@ -48,9 +49,13 @@ class verhuurBackendController extends Controller
      */
     public function index()
     {
+        // todo: add button to enable and disable notifications.
+        // todo: add ownload button and method
+        // todo: add search form and method.
+
         $data['title']  = 'Verhuur control panel';
         $data['active'] = 8;
-        $data['dbData'] = Verhuring::all(); // TODO: Setup eloqunet query.
+        $data['dbData'] = Verhuring::all();
 
         return View('back-end.rentalIndex', $data);
     }
@@ -101,6 +106,8 @@ class verhuurBackendController extends Controller
             foreach($notificationMembers as $person) {
 
             }
+
+            // Requester mailing method.
         }
 
         return Redirect::back();
@@ -152,6 +159,14 @@ class verhuurBackendController extends Controller
         }
 
         return Redirect::back();
+    }
+
+    public function downloadContract()
+    {
+        $pdf = App::make('dompdf.wrapper');
+        $pdfStream = $pdf->loadView('pdf.verhuurContract', []);
+
+        return $pdfStream->download('verhuurContract.pdf');
     }
 
     /**

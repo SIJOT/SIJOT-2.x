@@ -12,9 +12,13 @@ class PermissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('permissions', function(Blueprint $t) {
+        Schema::create('cms_permissions', function(Blueprint $t) {
             $t->increments('id');
             $t->integer('user_id');
+            $t->integer('cloud');
+            $t->integer('verhuurbeheer');
+            $t->integer('ledenbeheer');
+            $t->integer('media');
         });
     }
 
@@ -25,6 +29,6 @@ class PermissionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('permissions');
+        Schema::drop('cms_permissions');
     }
 }

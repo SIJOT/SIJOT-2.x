@@ -148,7 +148,7 @@ return [
         /*
          * Added providers
          */
-        Barryvdh\TranslationManager\ManagerServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -201,6 +201,7 @@ return [
         /**
          * Added facades
          */
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

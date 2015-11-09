@@ -46,4 +46,11 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    /**
+     * Set the permission relation.
+     */
+    public function permission() {
+        return $this->hasOne('App\Permission', 'user_id', 'id');
+    }
 }

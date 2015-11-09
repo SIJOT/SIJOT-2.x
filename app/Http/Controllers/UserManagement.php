@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Permission;
 use App\User;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Redirect;
 
 class UserManagement extends Controller
 {
@@ -14,6 +18,15 @@ class UserManagement extends Controller
         // TODO: Need be created.
         // TODO: set middleware
         // $this->middleware('admin');
+        $this->middleware('auth');
+
+        if(Auth::check()) {
+            $this->permission = Permission::where('user_id', Auth::user()->id)
+                ->get();
+        } else {
+            $this->permission = 0;
+        }
+
     }
 
     /**
@@ -23,6 +36,10 @@ class UserManagement extends Controller
      */
     public function getIndex()
     {
+        if(Gate::denies('leden-beheer', $this->permission)) {
+            return Redirect::back();
+        }
+
         $data['title']  = 'Gebruikers beheer';
         $data['active'] = 0;
 
@@ -41,6 +58,10 @@ class UserManagement extends Controller
      */
     public function UserProfile($id)
     {
+        if(Gate::denies('leden-beheer', $this->permission)) {
+            return Redirect::back();
+        }
+
         $data['title'] = 'Gebruikers profiel';
         $data['active'] = 0;
         $data['permission'] = [];

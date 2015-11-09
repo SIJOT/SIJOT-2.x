@@ -16,7 +16,6 @@ class rentalTest extends TestCase
      */
     public function testRentalHyperlinksIndexBackend()
     {
-
         $baseUrl = $this->visit('/backend/rental');
 
         // Navbar

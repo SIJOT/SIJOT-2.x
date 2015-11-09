@@ -19,11 +19,8 @@ class AuthencationTest extends TestCase
         $url->seePageIs('/');
     }
 
-    public function testLoginView() {
-        $form = $this->visit('/login');
-        $form->type('topairy@gmail.com', 'email');
-        $form->type('root1995!', 'password');
-        $form->press('Log in');
-
+    public function testLoginView()
+    {
+        $this->call('get', '/login');
     }
 }

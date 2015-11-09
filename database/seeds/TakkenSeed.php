@@ -1,5 +1,6 @@
 <?php
 
+use App\Info;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -12,6 +13,9 @@ class TakkenSeed extends Seeder
      */
     public function run()
     {
+        // Truncate the table
+        Info::truncate();
+
         DB::table('Takken_info')->insert([
             [
                 'Title' => 'De Kapoenen',

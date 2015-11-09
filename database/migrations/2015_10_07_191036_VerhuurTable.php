@@ -18,6 +18,7 @@ class VerhuurTable extends Migration
             $t->string('Eind_datum', 255);
             $t->string('Groep', 255);
             $t->string('Email', 255);
+            $t->integer('Status');
             $t->string('GSM');
             $t->timestamps();
         });

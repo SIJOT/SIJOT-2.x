@@ -2,6 +2,7 @@
 
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class Users extends Seeder
@@ -14,7 +15,9 @@ class Users extends Seeder
     public function run()
     {
         // Truncate method.
+        DB::statement("SET foreign_key_checks=0");
         User::truncate();
+        DB::statement("SET foreign_key_checks=1");
 
         // Input method.
         $user           = new User();
