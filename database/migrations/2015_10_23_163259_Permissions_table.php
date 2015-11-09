@@ -19,6 +19,7 @@ class PermissionsTable extends Migration
             $t->integer('verhuurbeheer');
             $t->integer('ledenbeheer');
             $t->integer('media');
+            $t->timestamps();
         });
     }
 

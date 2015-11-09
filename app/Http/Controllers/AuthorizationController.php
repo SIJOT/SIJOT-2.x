@@ -22,7 +22,6 @@ use App\Http\Requests\Registervalidation;
 class AuthorizationController extends Controller
 {
     public $pusher;
-    public $permission;
     public $authMiddleware = ['viewLogin', 'verifyLogin', 'getLogout'];
 
     public function __construct()
@@ -35,8 +34,11 @@ class AuthorizationController extends Controller
         );
 
         if(Auth::check()) {
-            $this->permission = Permission::where('user_id', Auth::user()->id)
-                ->get();
+            $this->permission = Permission::where('user_id', Auth::user()->id)->get();
+
+            foreach($this->permission as $output) {
+                $this->ledenbeheer = $output->ledenbeheer;
+            }
         } else {
             $this->permission = 0;
         }
@@ -108,7 +110,7 @@ class AuthorizationController extends Controller
      */
     public function Register(Registervalidation $input)
     {
-        if (Gate::denies('leden-beheer', $this->permission)) {
+        if (Gate::denies('leden-beheer', $this->ledenbeheer)) {
             return Redirect::back();
         }
 
@@ -174,7 +176,7 @@ class AuthorizationController extends Controller
      */
     public function blockUser($id)
     {
-        if (Gate::denies('leden-beheer', $this->permission)) {
+        if (Gate::denies('leden-beheer', $this->ledenbeheer)) {
             return Redirect::back();
         }
 
@@ -206,7 +208,7 @@ class AuthorizationController extends Controller
      */
     public function unBlockUser($id)
     {
-        if (Gate::denies('leden-beheer', $this->permission)) {
+        if (Gate::denies('leden-beheer', $this->ledenbeheer)) {
            return Redirect::back();
         }
 
@@ -241,7 +243,7 @@ class AuthorizationController extends Controller
         // Dragons are here! I'm scared.
         // TODO: write delete method.
         // TODO: Affected tables, notifications, user, permissions
-        if (Gate::denies('leden-beheer', $this->permission)) {
+        if (Gate::denies('leden-beheer', $this->ledenbeheer)) {
             return Redirect::back();
         }
 

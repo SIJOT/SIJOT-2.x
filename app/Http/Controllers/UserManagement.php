@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Redirect;
 
 class UserManagement extends Controller
 {
+    public $ledenbeheer;
+
     public function __construct()
     {
         // $this->middleware('auth');
@@ -21,12 +23,14 @@ class UserManagement extends Controller
         $this->middleware('auth');
 
         if(Auth::check()) {
-            $this->permission = Permission::where('user_id', Auth::user()->id)
-                ->get();
+            $this->permission = Permission::where('user_id', Auth::user()->id)->get();
+
+            foreach($this->permission as $output) {
+                $this->ledenbeheer = $output->ledenbeheer;
+            }
         } else {
             $this->permission = 0;
         }
-
     }
 
     /**
@@ -36,7 +40,7 @@ class UserManagement extends Controller
      */
     public function getIndex()
     {
-        if(Gate::denies('leden-beheer', $this->permission)) {
+        if(Gate::denies('leden-beheer', $this->ledenbeheer)) {
             return Redirect::back();
         }
 
@@ -58,7 +62,7 @@ class UserManagement extends Controller
      */
     public function UserProfile($id)
     {
-        if(Gate::denies('leden-beheer', $this->permission)) {
+        if(Gate::denies('leden-beheer', $this->ledenbeheer)) {
             return Redirect::back();
         }
 

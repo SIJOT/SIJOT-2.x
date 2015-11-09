@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Groep;
 use Illuminate\Support\Facades\Input;
 use Pusher;
 use App\Info;
@@ -142,8 +143,8 @@ class TakkenViewController extends Controller
         $tak->segvl_leiding    = Input::has('leiding')    ? true : false;
 
         // FOS Scouting
-        $tak->bevers           = Input::has('Bevers') ? true : false;
-        $tab->zeehonden        = Input::has('zeehouden') ? true : false;
+        $tak->bevers           = Input::has('Bevers')     ? true : false;
+        $tab->zeehonden        = Input::has('zeehouden')  ? true : false;
 
 
         // Les Scouts
