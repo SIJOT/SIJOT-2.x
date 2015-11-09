@@ -4,3 +4,15 @@
 [![Build Status](https://travis-ci.org/Tjoosten/scouts-en-gidsen-template.svg?branch=master)](https://travis-ci.org/Tjoosten/scouts-en-gidsen-template)
 
 A template for Belgian scouting groups. 
+
+## Table of contents
+
+## Quickstart
+
+## Bugs and feature requests. 
+
+## Versioning 
+
+## Copyright and license 
+
+
