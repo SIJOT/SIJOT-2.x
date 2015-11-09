@@ -15,6 +15,7 @@ A template for Belgian scouting groups.
 ## Quickstart
 
 ## Bugs and feature requests. 
+Have a bug or a feature request? Please first read the [issue guidelines]() and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue]().
 
 ## Versioning 
 
