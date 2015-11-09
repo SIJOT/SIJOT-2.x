@@ -7,6 +7,11 @@ A template for Belgian scouting groups.
 
 ## Table of contents
 
+- [Quickstart]() 
+- [Bugs and feature requests]()
+- [Versioning]()
+- [Copyright and license]()
+
 ## Quickstart
 
 ## Bugs and feature requests. 
