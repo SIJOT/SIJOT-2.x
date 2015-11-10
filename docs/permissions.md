@@ -45,3 +45,5 @@ class AuthServiceProvider extends ServiceProvider
     }
 }
 ```
+
+You easily can add or change permission roles. 
