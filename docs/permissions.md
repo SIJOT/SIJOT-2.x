@@ -10,4 +10,5 @@ Has permission for:
 - Block and unblock a user. 
 - Delete a user. 
 - Listing view for all the user. 
-- Register a new login. 
+- Register a new login.
+
