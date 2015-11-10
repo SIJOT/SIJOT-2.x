@@ -7,6 +7,8 @@ The first release of this project. There are no big changes.
 
 #### Added:
 
+#6 Added [license](LICENSE) file.
+
 #### Changed: 
 
 #### Deprecated: 
