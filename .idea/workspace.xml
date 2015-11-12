@@ -4,13 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/app/Http/Controllers/AuthorizationController.php" line="47" mnemonic="5" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1592bce-24ef-47f2-9c50-5110cedacf65" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/emails/verhuurNotificatie.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/VerhuurBackendController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/VerhuurBackendController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/NotificationSeed.php" afterPath="$PROJECT_DIR$/database/seeds/NotificationSeed.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/emails/verhuurAanvraag.blade.php" afterPath="$PROJECT_DIR$/resources/views/emails/verhuurAanvraag.blade.php" />
-    </list>
+    <list default="true" id="e1592bce-24ef-47f2-9c50-5110cedacf65" name="Default" comment="" />
     <ignored path="SIJOT-4.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -48,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VerhuurBackendController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.7892272">
-              <caret line="128" column="75" selection-start-line="128" selection-start-column="75" selection-end-line="128" selection-end-column="75" />
+              <caret line="128" column="8" selection-start-line="128" selection-start-column="8" selection-end-line="128" selection-end-column="8" />
               <folding>
                 <element signature="e#40#62#0#PHP" expanded="true" />
               </folding>
@@ -1132,7 +1126,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VerhuurBackendController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7892272">
-          <caret line="128" column="75" selection-start-line="128" selection-start-column="75" selection-end-line="128" selection-end-column="75" />
+          <caret line="128" column="8" selection-start-line="128" selection-start-column="8" selection-end-line="128" selection-end-column="8" />
           <folding>
             <element signature="e#40#62#0#PHP" expanded="true" />
           </folding>
