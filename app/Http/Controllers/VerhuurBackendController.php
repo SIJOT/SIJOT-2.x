@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Notifications;
+use App\User;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
@@ -113,7 +114,7 @@ class verhuurBackendController extends Controller
 
             if (! Auth::check()) {
                 // TODO: Rewrite this.
-                Mail::send('emails.verhuurAanvraag', ['users' => $input], function ($m) use ($input) {
+                Mail::send('emails.verhuurAanvraag', ['data' => $input], function ($m) use ($input) {
                     $m->to($input->Email)->subject('Aanvraag verhuur | St-joris Turnhout');
                     $m->from('topairy@gmail.com', 'Tim Joosten');
                 });
@@ -122,7 +123,12 @@ class verhuurBackendController extends Controller
             $notificationMembers = Notifications::where('verhuring', 1)->get();
 
             foreach($notificationMembers as $person) {
+                $user = User::find($person->id);
 
+                Mail::send('emails.verhuurNotificatie', ['data' => $input], function ($m) use ($user) {
+                    $m->to($user->email, $user->name)->subject('Notificatie verhuur | St-joris Turnhout');
+                    $m->from('topairy@gmail.com', 'Tim Joosten');
+                });
             }
 
             // Requester mailing method.
