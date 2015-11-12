@@ -27,6 +27,11 @@ return [
  /**
   * Website Info.
   */
-  'websiteName'    => 'Sint-Joris', 
-  'websiteContact' => 'Contact@qst-joris-turnhout.be',
+ 'websiteName'    => 'Sint-Joris', 
+ 'websiteContact' => 'Contact@qst-joris-turnhout.be',
+ 
+ /**
+  * Various.
+  */
+ 'broadcast'      => 
 ];
