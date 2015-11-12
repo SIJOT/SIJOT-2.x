@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Pusher;
 use App\Verhuring;
 use Illuminate\Http\Request;
@@ -112,8 +113,8 @@ class verhuurBackendController extends Controller
 
             if (! Auth::check()) {
                 // TODO: Rewrite this.
-                Mail::send('emails.registration', ['users' => $user], function ($m) use ($user) {
-                    $m->to($user->email, $user->name)->subject('Aanvraag verhuur');
+                Mail::send('emails.verhuurAanvraag', ['users' => $input], function ($m) use ($input) {
+                    $m->to($input->Email)->subject('Aanvraag verhuur | St-joris Turnhout');
                     $m->from('topairy@gmail.com', 'Tim Joosten');
                 });
             }
@@ -121,11 +122,7 @@ class verhuurBackendController extends Controller
             $notificationMembers = Notifications::where('verhuring', 1)->get();
 
             foreach($notificationMembers as $person) {
-                // Todo: Rewrite this.
-                Mail::send('emails.registration', ['users' => $user], function ($m) use ($user) {
-                    $m->to($user->email, $user->name)->subject('Registratie St-Joris Turnhout');
-                    $m->from('topairy@gmail.com', 'Tim Joosten');
-                });
+
             }
 
             // Requester mailing method.
