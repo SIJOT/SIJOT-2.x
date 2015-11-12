@@ -160,8 +160,6 @@ class AuthorizationController extends Controller
 
     /**
      * Throw the user out of the backend.
-     *
-     * TODO: Need URL route in routes.php
      */
     public function getLogout() {
 
@@ -245,8 +243,6 @@ class AuthorizationController extends Controller
     public function deleteUser($id)
     {
         // Dragons are here! I'm scared.
-        // TODO: write delete method.
-        // TODO: Affected tables, notifications, user, permissions
         if (Gate::denies('leden-beheer', $this->ledenbeheer)) {
             return Redirect::back();
         }

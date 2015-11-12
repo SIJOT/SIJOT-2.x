@@ -25,13 +25,13 @@
             <img class="img-thumbnail img-circle" src="/img/front-1.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
             <h2 class="font-heading">Takken</h2>
             <p>Benieuwd in welke tak je zit? Of wil je gewoon je tak-pagina bezoeken? Wel u kunt hem in een paar klikken bezoeken. Want elke tak heeft zijn eigen pagina. Das straf he! Nee helemaal niet! U vind hier ook alle beschrijvingen van takken. </p>
-            <p><a class="btn btn-default" href="/index.php/Takken">Lees meer »</a></p>
+            <p><a class="btn btn-default" href="{{ Url::to('/takken') }}">Lees meer »</a></p>
         </div>
         <div class="col-lg-4">
             <img class="img-thumbnail img-circle" src="/img/front-3.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
             <h2 class="font-heading">Verhuur</h2>
             <p>Bent u jeugdbeweging of organisatie die een kamplaats of overnachtingsplaats zoekt? Dan bent u hier aan het juiste adres wij stellen namelijk onze lokalen te huur aan jullie. Indien u geintresseerd bent kunt hier op onze verhuur pagina meer vinden. </p>
-            <p><a class="btn btn-default" href="/index.php/Verhuur">Lees meer »</a></p>
+            <p><a class="btn btn-default" href="{{ Url::to('/verhuur') }}">Lees meer »</a></p>
         </div>
     </div>
     <hr>

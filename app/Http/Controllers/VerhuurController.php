@@ -17,21 +17,26 @@ class VerhuurController extends Controller
     public function index()
     {
         $data['title'] = 'Verhuur';
-
         return view('front-end.verhuurIndex', $data);
     }
 
+    /**
+     * [VIEW] Show the form for creating a new resource. - Client
+     *
+     * @link   [GET] www.domain.tld/rental/new
+     * @return \Illuminate\Http\Response
+     */
     public function aanvragen()
     {
-        $data['title'] = 'Verhuur | Aanvraag';
+        // TODO: Set validation errors to the view.
 
+        $data['title'] = 'Verhuur | Aanvraag';
         return view('front-end.verhuurAanvraag', $data);
     }
 
     public function bereikbaarheid()
     {
-       $data['title'] = 'Verhuur | Bereikbaarheid';
-
+        $data['title'] = 'Verhuur | Bereikbaarheid';
         return view('front-end.verhuurBereikbaarheid', $data);
     }
 

@@ -33,6 +33,16 @@ Route::get('/backend/takken/update', 'TakkenViewController@getUpdate');
 Route::post('/backend/takken/update', 'TakkenViewController@postUpdate');
 
 /**
+ * Ontbijt routes.
+ */
+
+/**
+ * Notification routes.
+ */
+Route::get('/notification/uit/{id}', 'notificationsController@VerhuurUit');
+Route::get('/notification/aan/{id}', 'notificationsController@VerhuurAan');
+
+/**
  * Rental routes.
  */
 // Front-end
@@ -60,11 +70,6 @@ Route::get('/backend/acl/unblock/{id}', 'AuthorizationController@unBlockUser');
 Route::get('/backend/acl/delete/{id}', 'AuthorizationController@deleteUser');
 
 // Password reset routes...
-
-
-/**
- * Log API.
- */
 
 /**
  * Cloud routes.

@@ -31,6 +31,37 @@
                     {{-- rental index --}}
                     <div role="tabpanel" class="tab-pane active" id="rental">
                         <div style="padding-top: 10px;">
+                            <div style="margin-bottom: 7px;" class="row">
+                                <div class="col-md-6">
+                                    <span class="pull-left">
+                                        <form action="Verhuur/Search" method="POST" class="form-inline">
+                                            <input type="text" name="Term" placeholder="Search" class="form-control">
+                                            <button class="btn btn-danger" type="submit">
+                                                <span class="fa fa-search"></span>
+                                            </button>
+                                        </form>
+                                    </span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <span class="pull-right">
+                                        @if($notificationStatus === 1)
+                                        <a role="button" class="btn btn-success" title="Notificaties is ingeschakeld" href="{{ Url::to('/notification/uit/' . Auth::user()->id) }}">
+                                            Notificaties <span class="badge">Aan</span>
+                                        </a>
+                                        @elseif($notificationStatus === 0)
+                                        <a role="button" class="btn btn-danger" title="Notificaties zijn uitgeschakeld" href="{{ Url::to('/notification/aan/' . Auth::user()->id) }}">
+                                            Notificaties <span class="badge">Uit</span>
+                                        </a>
+                                        @endif
+
+                                        <a href="Verhuur/Download_verhuringen" class="btn btn-info">
+                                            <span class="octicon octicon-cloud-download"></span> Download
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+
                             <table class="table table-condensed table-bordered">
                                 <thead>
                                     <tr>

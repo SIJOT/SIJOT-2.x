@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\VerhuurBroadCast;
 use App\Notifications;
 use App\User;
 use Illuminate\Support\Facades\App;
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Redirect;
 class verhuurBackendController extends Controller
 {
     public $pusher;
+
+    // todo: set $m->from from hardcoded to dynamic with the config facade - Mailing.
 
     /**
      * Class constructor.
@@ -54,29 +57,21 @@ class verhuurBackendController extends Controller
      */
     public function index()
     {
-        // todo: add button to enable and disable notifications.
-        // todo: add ownload button and method
-        // todo: add search form and method.
+        // todo: add download method
+        // todo: add search  method.
 
         $data['title']  = 'Verhuur control panel';
         $data['active'] = 8;
         $data['dbData'] = Verhuring::all();
 
+        $notificationsQuery = Notifications::where('user_id', Auth::user()->id)
+            ->get();
+
+        foreach($notificationsQuery as $notification) {
+            $data['notificationStatus'] = $notification->verhuring;
+        }
+
         return View('back-end.rentalIndex', $data);
-    }
-
-    /**
-     * [VIEW] Show the form for creating a new resource. - Client
-     *
-     * @link   [GET] www.domain.tld/rental/new
-     * @return \Illuminate\Http\Response
-     */
-    public function createClient()
-    {
-        $data['title']  = '';
-        $data['active'] = 8;
-
-        return View('front-end.verhuur-aanvraag', $data);
     }
 
     /**
@@ -88,7 +83,7 @@ class verhuurBackendController extends Controller
      */
     public function store(Requests\RentalValidator $input)
     {
-        $old_sep = array("/","-");
+        $old_sep = ["/","-"];
         $new_sep = ".";
         // Values
         $Start = str_replace($old_sep, $new_sep, $input->StartDatum);
@@ -103,21 +98,18 @@ class verhuurBackendController extends Controller
         $rental->Status      = 0;
 
         if ($rental->save()) {
-            $this->pusher->trigger('verhuur_channel', 'verhuur_notification', [
-                'class'   => 'info',
-                'message' => 'Er is een nieuwe verhuur aanvraag gebeurd',
-            ]);
-
-            // TODO: Write mailing logic.
-            // TODO: One to the requester.
-            // TODO: One to every person that activated the notification system.
-
             if (! Auth::check()) {
-                // TODO: Rewrite this.
                 Mail::send('emails.verhuurAanvraag', ['data' => $input], function ($m) use ($input) {
                     $m->to($input->Email)->subject('Aanvraag verhuur | St-joris Turnhout');
                     $m->from('topairy@gmail.com', 'Tim Joosten');
                 });
+
+                $pusherData['class']   = '';
+                $pusherData['message'] = 'Er is een nieuwe verhuring aangevraagd.';
+
+                $this->pusher->trigger('channel_verhuur', 'verhuur_notification', $pusherData);
+
+                Log::info('Verhuur bevestiging is naar de aanvrager verzonden.');
             }
 
             $notificationMembers = Notifications::where('verhuring', 1)->get();
@@ -129,6 +121,8 @@ class verhuurBackendController extends Controller
                     $m->to($user->email, $user->name)->subject('Notificatie verhuur | St-joris Turnhout');
                     $m->from('topairy@gmail.com', 'Tim Joosten');
                 });
+
+                Log::info('Verhuur notificatie mail is verzonden.');
             }
 
             // Requester mailing method.
