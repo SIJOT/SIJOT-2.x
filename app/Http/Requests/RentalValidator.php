@@ -33,11 +33,11 @@ class RentalValidator extends Request
     public function rules()
     {
         return [
-            'Gsm'        => 'required',
+            // 'Gsm'        => 'required',
             'Email'      => 'required',
             'Groep'      => 'required',
             'EindDatum'  => 'required',
-            'StartDatum' => 'reduired',
+            'StartDatum' => 'required',
         ];
     }
 }

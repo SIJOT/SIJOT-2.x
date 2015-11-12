@@ -14,7 +14,7 @@
                 {{-- tab navigation pills --}}
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active">
-                        <a href="#rentals" aria-controls="rentals" role="tab" data-toggle="tab">
+                        <a href="#rental" aria-controls="rentals" role="tab" data-toggle="tab">
                             @lang('rental.navRental')
                         </a>
                     </li>
@@ -46,7 +46,7 @@
                                     @foreach($dbData as $data)
                                         <tr>
                                             <td><code>#{{ $data->id }}</code></td>
-                                            <td> {{ $data->Start_datum }} - {{ $data->Eind_datum }} </td>
+                                            <td> {{ date('d-m-Y', $data->Start_Datum) }} - {{ date('d-m-Y', $data->Eind_datum) }} </td>
 
                                             <td>
                                                 @if($data->Status == 0)
@@ -75,14 +75,14 @@
                                             <td>
                                                 <div class="btn-toolbar">
                                                     <div class="btn-group">
-                                                        <a href="{{ URL::to('' . $data->id) }}"
+                                                        <a href="{{ URL::to('/backend/rental/confirm/' . $data->id) }}"
                                                            data-toggle="tooltip" title="Bevestig"
                                                            class="@if($data->Status == 2) disabled @endif btn btn-xs btn-success">
 
                                                             {{-- bevestigd --}}
                                                             <span class="octicon octicon-issue-closed"></span>
                                                         </a>
-                                                        <a href="{{ URL::to('' . $data->id) }}"
+                                                        <a href="{{ URL::to('/backend/rental/option/' . $data->id) }}"
                                                            data-toggle="tooltip" title="Optie"
                                                            class="@if($data->Status == 1) disabled @endif btn btn-xs btn-success">
 
@@ -92,7 +92,7 @@
                                                     </div>
 
                                                     <div class="btn-group">
-                                                        <a href="{{ URL::to('' . $data->id) }}"
+                                                        <a href="{{ URL::to('/backend/rental/delete/' . $data->id) }}"
                                                            data-toggle="tooltip" title="Verwijder"
                                                            class="btn btn-xs btn-danger">
 
@@ -109,6 +109,37 @@
                         </div>
                     </div>
                     {{-- end rental index --}}
+
+                    {{-- Add verhuring --}}
+                    <div role="tabpanel" class="tab-pane" id="new">
+                        <div style="padding-top: 10px;">
+                            <form action="/rental/insert" method="POST">
+                                {{-- CSRF token --}}
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                                <label for="start">Start datum:</label>
+                                <input name="StartDatum" placeholder="Start datum..." id="start" class="form-control" type="text">
+                                <br>
+
+                                <label for="eind">Eind datum:</label>
+                                <input name="EindDatum" placeholder="Eind datum..." id="eind" class="form-control" type="text">
+                                <br>
+
+                                <label for="groep">Groep:</label>
+                                <input name="Groep" placeholder="groep..." id="groep" class="form-control" type="text">
+                                <br>
+
+                                <label for="email">Email:</label>
+                                <input name="Email" placeholder="email adres..." id="email" type="text" class="form-control">
+                                <br>
+
+                                <button type="submit" class="btn btn-success">
+                                    Toevoegen
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    {{-- End add verhuring --}}
                 </div>
                 {{-- end tab navigation --}}
 

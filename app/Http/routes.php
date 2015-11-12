@@ -10,6 +10,8 @@
  | and give it the controller to call when that URI is requested.
  |
  */
+use App\Events\UserRegistration;
+
 Route::get('/', 'HomeController@index');
 
 // Group routes.
@@ -33,12 +35,19 @@ Route::post('/backend/takken/update', 'TakkenViewController@postUpdate');
 /**
  * Rental routes.
  */
+// Front-end
+Route::get('/verhuur', 'Verhuurcontroller@index');
+Route::post('/rental/insert', 'VerhuurBackendController@store');
+Route::get('/verhuur/aanvragen', 'Verhuurcontroller@aanvragen');
+Route::get('/verhuur/bereikbaarheid', 'VerhuurController@bereikbaarheid');
+Route::get('/verhuur/kalender', 'VerhuurController@kalender');
+
+// Backend
 Route::get('/backend/rental', 'VerhuurBackendController@index');
 Route::get('/backend/rental/contract', 'VerhuurBackendController@downloadContract');
-// Route::get('/backend/rentald', 'VerhuurBackendController@');
-// Route::get('/backend/rentalz', 'VerhuurBackendController@');
-// Route::get('/backend/rentalr', 'VerhuurBackendController@');
-// Route::get('/backend/rentale', 'VerhuurBackendController@');
+Route::get('/backend/rental/option/{id}', 'VerhuurBackendController@option');
+Route::get('/backend/rental/confirm/{id}', 'VerhuurBackendController@confirmed');
+Route::get('/backend/rental/delete/{id}', 'VerhuurBackendController@destroy');
 
 /**
  * Backend: User management.
@@ -49,6 +58,9 @@ Route::post('/backend/acl/register', 'AuthorizationController@Register');
 Route::get('/backend/acl/block/{id}', 'AuthorizationController@blockUser');
 Route::get('/backend/acl/unblock/{id}', 'AuthorizationController@unBlockUser');
 Route::get('/backend/acl/delete/{id}', 'AuthorizationController@deleteUser');
+
+// Password reset routes...
+
 
 /**
  * Log API.

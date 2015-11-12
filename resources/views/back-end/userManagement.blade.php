@@ -55,10 +55,21 @@
                                         </div>
                                     @endif
                                     {{-- Session and validator block --}}
-                                    <form action="" method="POST">
+                                    <form action="{{ Url::to('/backend/acl/register') }}" method="POST">
+                                        {{-- CSRF validation --}}
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
                                         <label for="Name">Naam:</label>
-                                        <input id="name" type="text" class="form-control" name="" placeholder="Gebruikersnaam">
+                                        <input id="name" type="text" class="form-control" name="name" placeholder="Gebruikersnaam">
                                         <br />
+
+                                        <label for="Email">Email adres:</label>
+                                        <input id="Email" type="text" class="form-control" name="email" placeholder="Email adres">
+                                        <br />
+
+                                        <button type="submit" class="btn btn-danger">
+                                            Aanmaken
+                                        </button>
                                     </form>
                                 </div>
                             </div>
@@ -101,7 +112,8 @@
                                                     {{-- BTN group for the handlings--}}
                                                     <td>
                                                         <div class="btn-group">
-                                                            <a href="" class="btn btn-xs btn-danger">
+
+                                                            <a href="{{ Url::to('/backend/acl/delete/' . $user->id) }}" class="btn btn-xs btn-danger">
                                                                 <span class=""></span> Verwijderen
                                                             </a>
 
@@ -129,7 +141,7 @@
                                     </table>
 
                                     {{-- Pagination method --}}
-                                        {{ $gebruikers->render() }}
+                                    <?php echo $gebruikers->render(); ?>
                                     {{-- End pagination method --}}
                                 </div>
                             </div>

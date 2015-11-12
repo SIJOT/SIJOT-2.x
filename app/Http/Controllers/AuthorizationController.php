@@ -34,16 +34,18 @@ class AuthorizationController extends Controller
         );
 
         if(Auth::check()) {
-            $this->permission = Permission::where('user_id', Auth::user()->id)->get();
+            $this->permissionQuery = Permission::where('user_id', Auth::user()->id)->get();
 
-            foreach($this->permission as $output) {
-                $this->ledenbeheer = $output->ledenbeheer;
+            foreach($this->permissionQuery as $output) {
+                $this->ledenbeheer   = $output->ledenbeheer;
+                $this->verhuurbeheer = $output->verhuurbeheer;
             }
+
         } else {
             $this->permission = 0;
         }
 
-        $this->middleware('auth', ['except' =>$this->authMiddleware]);
+        $this->middleware('auth', ['except' => $this->authMiddleware]);
     }
 
     /**
@@ -69,10 +71,12 @@ class AuthorizationController extends Controller
             $userRole = Auth::user()->role;
 
             // Set the permission table to a session.
-            $permissionsQuery = Permission::where('user_id', Auth::user()->id)
-                ->get();
+            $permissionsQuery = Permission::where('user_id', Auth::user()->id)->get();
+            Session::put('permission', $permissionsQuery);
+            Session::save();
 
-            Session::push('permission', $permissionsQuery);
+            // var_dump(Session::get('permission')->first()->ledenbeheer);
+            // die();
 
             if ($userRole === 2) {
                 // Administrator
@@ -94,6 +98,8 @@ class AuthorizationController extends Controller
             ]);
 
             Log::info($logging);
+
+            // Set user_id to the session.
 
             /** @var string, $redirectUrl */
             return Redirect::to($redirectUrl);
@@ -118,30 +124,29 @@ class AuthorizationController extends Controller
         $users           = new User();
         $users->name     = $input->name;
         $users->email    = $input->email;
-        $users->password = Hash::make($input->password);
+        $users->password = Hash::make('sijot');
+        $users->save();
 
-        // ->save(); = save the record.
-        $registration = $users->save();
-        // Last inserted id: $registration->id;
-
-        // Permissions insert
         $permissions = new Permission();
-        $permissions->user_id = $registration->id;
+        $permissions->user_id = $users->id;
 
-        // ->save(); = save the record.
-        $permissions->save();
-        // Last inserted id: $permissions->id;
+        $notifications = new Notifications();
+        $notifications->user_id = $users->id;
+
 
         // Save the values.
-        if ($registration && $permissions->save()) {
-            $user = User::find($registration->id);
+        if ($notifications->save() && $users->save() && $permissions->save()) {
+            $user = User::findOrFail($users->id);
 
-            Mail::send('emails.registration', ['user' => $user], function ($m) use ($user) {
-                $m->to($user->email)->subject(Lang::get('emails.subjectRegistration'));
+            // dd($user);
+
+            Mail::send('emails.registration', ['users' => $user], function ($m) use ($user) {
+                $m->to($user->email, $user->name)->subject('Registratie St-Joris Turnhout');
+                $m->from('topairy@gmail.com', 'Tim Joosten');
             });
 
             $loggingData['name']  = $users->name;
-            $loggingData['users'] = User::user()->name;
+            $loggingData['users'] = Auth::user()->name;
 
             Log::info(Lang::get('logging.registrationSuccess', $loggingData));
 
@@ -156,7 +161,6 @@ class AuthorizationController extends Controller
     /**
      * Throw the user out of the backend.
      *
-     * TODO: Needs php unit test case.
      * TODO: Need URL route in routes.php
      */
     public function getLogout() {
@@ -256,5 +260,7 @@ class AuthorizationController extends Controller
         ]);
 
         Log::info($logging);
+
+        return Redirect::back();
     }
 }

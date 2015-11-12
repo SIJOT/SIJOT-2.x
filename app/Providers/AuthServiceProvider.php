@@ -33,11 +33,15 @@ class AuthServiceProvider extends ServiceProvider
 
         $gate->define('leden-beheer', function ($user, $value) {
             // dd($query);
-            return $user->id === $value;
+            // var_dump($user->id);
+            // var_dump($value);
+
+            // return $user->id === $value
+            return $value === (int) 1;
         });
 
-        $gate->define('verhuur-beheer', function ($user, $permission) {
-            return $user->id === $permission->verhuurbeheer;
+        $gate->define('verhuur-beheer', function ($user, $value) {
+            return $value === (int) 1;
         });
 
         $gate->define('cloud', function ($user, $permission) {

@@ -12,7 +12,7 @@
         <div id="navbar" class="collapse navbar-collapse">
             @if(! Auth::check())
                 <ul class="nav navbar-nav">
-                    <li @if($active === 1) class="active" @endif>
+                    <li @if(Request::is('takken')) class="active" @endif>
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             Takken
                         </a>
@@ -56,10 +56,34 @@
                             <li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="{{URL::to('/')}}">
+                    <li @if(Request::is('verhuur')) class="active" @endif>
+                        <a href="{{ URL::to('/verhuur') }}">
                             <span class="fa fa-home"></span>
                             Verhuur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class=""></span>
+                            Planning
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span></span>
+                            Foto's
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class=""></span>
+                            Info
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:contact@st-joris-turnhout.be">
+                            <span class="fa fa-envelope"></span>
+                            Contact
                         </a>
                     </li>
                 </ul>
@@ -90,12 +114,14 @@
                             </li>
                         </ul>
                     </li>
+                    @can('verhuur-beheer', Session::get('permission')->first()->verhuurbeheer)
                     <li>
-                        <a href="{{URL::to('/backend/rental')}}">
+                        <a href="{{Url::to('/backend/rental')}}">
                             <span class=""></span>
                             Verhuur
                         </a>
                     </li>
+                    @endcan
                     <li>
                         <a href="{{ Url::to('/cloud/index') }}">
                             <span class=""> Cloud </span>
@@ -116,13 +142,13 @@
                             </li>
 
                             {{-- User management --}}
-                            @if(Auth::user()->role === 2 || Auth::user()->name === 'Tim Joosten')
+                            @can('leden-beheer', Session::get('permission')->first()->ledenbeheer)
                                 <li>
                                     <a href="{{ URL::to('/backend/acl') }}">
                                         Login beheer.
                                     </a>
                                 </li>
-                            @endif
+                            @endcan
                             {{-- end user management --}}
                             <li class="divider">
                             <li>

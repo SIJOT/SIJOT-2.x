@@ -1,5 +1,6 @@
 <?php
 
+use App\Verhuring;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -31,5 +32,10 @@ class rentalTest extends TestCase
 
         // Content
         //$baseUrl->click('')->seePageis('');
+    }
+
+    public function testRentalHyperlinks()
+    {
+
     }
 }

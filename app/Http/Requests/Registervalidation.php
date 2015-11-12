@@ -33,7 +33,6 @@ class Registervalidation extends Request
         // resources/<country iso code>/validation.php
 
         return [
-            'password' => 'required',
             'name'     => 'required',
             'email'    => 'required'
         ];

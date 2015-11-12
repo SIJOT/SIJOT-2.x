@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
@@ -28,6 +29,8 @@ class verhuurBackendController extends Controller
             env('PUSHER_SECRET'),
             env('PUSHER_ID')
         );
+
+        $this->middleware('auth', ['except' => ['store']]);
 
         // TODO: create and register rental middlware?
         // $this->middleware('auth');
@@ -83,12 +86,18 @@ class verhuurBackendController extends Controller
      */
     public function store(Requests\RentalValidator $input)
     {
+        $old_sep = array("/","-");
+        $new_sep = ".";
+        // Values
+        $Start = str_replace($old_sep, $new_sep, $input->StartDatum);
+        $Eind  = str_replace($old_sep, $new_sep, $input->EindDatum);
+
         $rental              = new Verhuring();
-        $rental->Start_datum = $input->StartDatum;
-        $rental->Eind_datum  = $input->EindDatum;
+        $rental->Start_datum = strtotime($Start);
+        $rental->Eind_datum  = strtotime($Eind);
         $rental->Groep       = $input->Groep;
         $rental->Email       = $input->Email;
-        $rental->GSM         = $input->Gsm;
+        // $rental->GSM         = $input->Gsm;
         $rental->Status      = 0;
 
         if ($rental->save()) {
@@ -101,10 +110,22 @@ class verhuurBackendController extends Controller
             // TODO: One to the requester.
             // TODO: One to every person that activated the notification system.
 
+            if (! Auth::check()) {
+                // TODO: Rewrite this.
+                Mail::send('emails.registration', ['users' => $user], function ($m) use ($user) {
+                    $m->to($user->email, $user->name)->subject('Aanvraag verhuur');
+                    $m->from('topairy@gmail.com', 'Tim Joosten');
+                });
+            }
+
             $notificationMembers = Notifications::where('verhuring', 1)->get();
 
             foreach($notificationMembers as $person) {
-
+                // Todo: Rewrite this.
+                Mail::send('emails.registration', ['users' => $user], function ($m) use ($user) {
+                    $m->to($user->email, $user->name)->subject('Registratie St-Joris Turnhout');
+                    $m->from('topairy@gmail.com', 'Tim Joosten');
+                });
             }
 
             // Requester mailing method.
@@ -245,5 +266,7 @@ class verhuurBackendController extends Controller
             'user' => Auth::user()->user
         ]);
         Log::info($logging);
+
+        return Redirect::back();
     }
 }
