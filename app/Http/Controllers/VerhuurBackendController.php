@@ -67,8 +67,12 @@ class verhuurBackendController extends Controller
         $notificationsQuery = Notifications::where('user_id', Auth::user()->id)
             ->get();
 
-        foreach($notificationsQuery as $notification) {
-            $data['notificationStatus'] = $notification->verhuring;
+        if (count($notificationsQuery) == 1) {
+            foreach($notificationsQuery as $notification) {
+                $data['notificationStatus'] = $notification->verhuring;
+            }
+        } else {
+            $data['notificationStatus'] = 3;
         }
 
         return View('back-end.rentalIndex', $data);

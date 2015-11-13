@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\emailValidator;
 use App\Permission;
 use App\User;
 use App\Http\Requests;
@@ -80,5 +81,22 @@ class UserManagement extends Controller
         }
 
         return View('back-end.profile', $data);
+    }
+
+    /**
+     * Method so change the user his credentials
+     *
+     * @param emailValidator $input
+     * @param $id
+     */
+    public function changeCredentials(emailValidator $input, $id)
+    {
+        $user = User::find($id);
+        $user->name = $input->name;
+        $user->email = $input->email;
+
+        if (! $user->save) {
+
+        }
     }
 }

@@ -14,7 +14,7 @@ class NotificationSeed extends Seeder
         App\Notifications::truncate();
 
         $permission = new App\Notifications();
-        $permission->user_id     = 1;
+        $permission->user_id   = 1;
         $permission->verhuring = 1;
         $permission->save();
     }

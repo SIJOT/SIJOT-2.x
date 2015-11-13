@@ -1,20 +1,21 @@
 <?php
 
-use App\User;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class middlewareTest extends TestCase
+class DatabaseFactoriesTest extends TestCase
 {
-
+    use DatabaseTransactions;
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function testAuthMiddleware()
+    public function testExample()
     {
+        $verhuring = factory(App\Verhuring::class, 2)->make();
 
+        $this->assertEquals(1, $verhuring[0]->id);
     }
 }

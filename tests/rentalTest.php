@@ -17,21 +17,32 @@ class rentalTest extends TestCase
      */
     public function testRentalHyperlinksIndexBackend()
     {
-        $baseUrl = $this->visit('/backend/rental');
+        $user = factory(App\User::class)->make();
+        factory(App\Permission::class)->make([
+            'user_id' => $user->id
+        ]);
+
+        $baseUrl = $this->actingAs($user)
+            ->visit('/backend/rental');
 
         // Navbar
         if (Auth::check()) {
-            $baseUrl->click('Takken')->seePageIs('/backend/takken/update');
-            $baseUrl->click('Verhuur')->seePageIs('/backend/rental');
+            // $baseUrl->click('Takken')->seePageIs('/backend/takken/update');
+            // $baseUrl->click('Verhuur')->seePageIs('/backend/rental');
             $baseUrl->click('Cloud')->seePageIs('/cloud/index');
         }
 
-        $baseUrl->click('Sint-Joris')->seePageIs('/');
-        //$baseUrl->click()->seePageIs();
-       // $baseUrl->click()->seePageIs();
+        // $baseUrl->click('Sint-Joris')->seePageIs('/');
+        // $baseUrl->click()->seePageIs();
+        // $baseUrl->click()->seePageIs();
 
         // Content
         //$baseUrl->click('')->seePageis('');
+    }
+
+    public function testRentalFrontEndHyperlinks()
+    {
+
     }
 
     public function testRentalHyperlinks()

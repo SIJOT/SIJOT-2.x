@@ -22,6 +22,26 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Verhuring::class, function(Faker\Generator $faker) {
     return [
-        'email' => 'test',
+
+        'Start_Datum' => $faker->date('Y-m-d'),
+        'Eind_Datum' => $faker->date('Y-m-d'),
+        'Email' => $faker->email,
+        'Status' => $faker->text,
+        'GSM' => $faker->phoneNumber,
+    ];
+});
+
+$factory->define(App\Notifications::class, function(Faker\Generator $faker) {
+    return [
+        'user_id' => 1,
+        'verhuring' => 1
+    ];
+});
+
+$factory->define(App\Permission::class, function(Faker\Generator $faker) {
+    return [
+
+        'user_id' => 1,
+        'verhuring' => 1
     ];
 });

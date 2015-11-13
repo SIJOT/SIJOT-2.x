@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UsermanagementTest extends TestCase
 {
-    use WithoutMiddleware, DatabaseTransactions, DatabaseMigrations;
+    use WithoutMiddleware;
 
     /**
      * A basic test example.

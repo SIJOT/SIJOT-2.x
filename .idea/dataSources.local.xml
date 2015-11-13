@@ -7,5 +7,11 @@
       <schema-pattern>SN1145.*</schema-pattern>
       <default-schemas>SN1145.*</default-schemas>
     </data-source>
+    <data-source name="MySQL - laravel5@localhost" uuid="f73403f3-4708-47c0-9574-1a4e54144d43">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>laravel5.*</schema-pattern>
+      <default-schemas>laravel5.*</default-schemas>
+    </data-source>
   </component>
 </project>

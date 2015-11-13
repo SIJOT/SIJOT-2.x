@@ -114,7 +114,7 @@
                             </li>
                         </ul>
                     </li>
-                    @can('verhuur-beheer', Session::get('permission')->first()->verhuurbeheer)
+                    @can('verhuur-beheer', Auth::user()->permission->verhuurbeheer)
                     <li>
                         <a href="{{Url::to('/backend/rental')}}">
                             <span class=""></span>
@@ -142,13 +142,11 @@
                             </li>
 
                             {{-- User management --}}
-                            @can('leden-beheer', Session::get('permission')->first()->ledenbeheer)
                                 <li>
                                     <a href="{{ URL::to('/backend/acl') }}">
                                         Login beheer.
                                     </a>
                                 </li>
-                            @endcan
                             {{-- end user management --}}
                             <li class="divider">
                             <li>

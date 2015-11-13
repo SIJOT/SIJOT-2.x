@@ -8,14 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthencationTest extends TestCase
 {
-    use WithoutMiddleware, DatabaseTransactions, DatabaseMigrations;
 
     public function testLogout()
     {
-        Artisan::call('db:seed');
-        Auth::loginUsingId(1);
+        $user = factory(App\User::class)->make();
 
-        $url = $this->visit('/logout');
+        $url = $this->actingAs($user)->visit('/logout');
         $url->seePageIs('/');
     }
 

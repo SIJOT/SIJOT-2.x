@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class HomeTest extends TestCase
 {
-    use WithoutMiddleware, DatabaseTransactions, DatabaseMigrations;
+
 
     /**
      * A basic functional test example.

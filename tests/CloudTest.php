@@ -6,7 +6,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class CloudTest extends TestCase
 {
-    use WithoutMiddleware, DatabaseTransactions, DatabaseMigrations;
 
     /**
      * A basic test example.
