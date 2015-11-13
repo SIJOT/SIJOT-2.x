@@ -70,7 +70,8 @@ class AuthorizationController extends Controller
             // Get the role from the user.
             $userRole = Auth::user()->role;
 
-            // dd(Auth::user()->permission->verhuurbeheer);
+            // var_dump(Session::get('permission')->first()->ledenbeheer);
+            // die();
 
             if ($userRole === 2) {
                 // Administrator
