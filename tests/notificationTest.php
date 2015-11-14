@@ -15,7 +15,11 @@ class notificationTest extends TestCase
      */
     public function testVerhuurNotificationOut()
     {
-        $user = factory(App\User::class)->make();
         $this->visit('/notification/uit/1');
+    }
+
+    public function testVerhuurNotificationAan()
+    {
+        $this->visit('/notification/aan/1');
     }
 }
