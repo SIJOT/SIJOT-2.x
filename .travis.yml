@@ -1,6 +1,8 @@
 services:
   - mysql
 
+sudo: required
+
 # testing
 language: php
 php:

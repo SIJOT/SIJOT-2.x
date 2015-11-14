@@ -48,7 +48,7 @@ Route::get('/notification/aan/{id}', 'notificationsController@VerhuurAan');
 // Front-end
 Route::get('/verhuur', 'Verhuurcontroller@index');
 Route::post('/rental/insert', 'VerhuurBackendController@store');
-Route::get('/verhuur/aanvragen', 'Verhuurcontroller@aanvragen');
+Route::get('/verhuur/aanvragen', 'VerhuurController@aanvragen');
 Route::get('/verhuur/bereikbaarheid', 'VerhuurController@bereikbaarheid');
 Route::get('/verhuur/kalender', 'VerhuurController@kalender');
 
