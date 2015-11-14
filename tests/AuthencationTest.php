@@ -21,4 +21,12 @@ class AuthencationTest extends TestCase
     {
         $this->call('get', '/login');
     }
+
+    public function testLoginMethod()
+    {
+        $this->post('/login', [
+            'email' => 'example@domain.be',
+            'password' => bcrypt('test')
+        ]);
+    }
 }
