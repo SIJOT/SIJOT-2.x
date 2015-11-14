@@ -13,7 +13,6 @@
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'id' => 1,
         'name' => $faker->name,
         'email' => $faker->email,
         'password' => bcrypt(str_random(10)),
@@ -23,7 +22,6 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Verhuring::class, function(Faker\Generator $faker) {
     return [
-
         'Start_Datum' => $faker->date('Y-m-d'),
         'Eind_Datum' => $faker->date('Y-m-d'),
         'Email' => $faker->email,
@@ -33,9 +31,11 @@ $factory->define(App\Verhuring::class, function(Faker\Generator $faker) {
 });
 
 $factory->define(App\Notifications::class, function(Faker\Generator $faker) use($factory) {
+    $id = $faker->numberBetween(1, 4);
     return [
-        'user_id' => 1,
-        'verhuring' => 1
+        'id' => $id,
+        'user_id' => $id,
+        'verhuring' => 0
     ];
 });
 

@@ -31,6 +31,6 @@ class notificationsController extends Controller
         $notification->verhuring = 0;
         $notification->save();
 
-        return Redirect::back();
+        return Redirect::to('/backend/rental');
     }
 }
