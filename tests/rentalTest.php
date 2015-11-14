@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class rentalTest extends TestCase
 {
-    use WithoutMiddleware, DatabaseTransactions, DatabaseMigrations;
+    use DatabaseTransactions, DatabaseMigrations;
 
     /**
      * A basic test example.
@@ -18,12 +18,14 @@ class rentalTest extends TestCase
     public function testRentalHyperlinksIndexBackend()
     {
         $user = factory(App\User::class)->make();
-        factory(App\Permission::class)->make([
+        $perm = factory(App\Permission::class)->make([
             'user_id' => $user->id
         ]);
 
         $baseUrl = $this->actingAs($user)
+            ->withSession((array) $perm)
             ->visit('/backend/rental');
+
 
         // Navbar
         if (Auth::check()) {
@@ -40,12 +42,24 @@ class rentalTest extends TestCase
         //$baseUrl->click('')->seePageis('');
     }
 
-    public function testRentalFrontEndHyperlinks()
+    public function testRentalFrontEndHyperlink()
     {
-
+        $this->visit('/verhuur')
+            ->see('Verhuur')
+            ->see('Bereikbaarheid');
     }
 
-    public function testRentalHyperlinks()
+    public function testRentalFrontEndHyperlinkBereikbaarheid()
+    {
+        $this->visit('/verhuur/bereikbaarheid');
+    }
+
+    public function testRentalFrontEndHyperlinkKalender()
+    {
+        $this->visit('/verhuur/kalender');
+    }
+
+    public function testRentalFrontEndHyperlinkAanvraag()
     {
 
     }

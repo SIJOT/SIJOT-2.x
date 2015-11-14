@@ -13,6 +13,7 @@
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
+        'id' => 1,
         'name' => $faker->name,
         'email' => $faker->email,
         'password' => bcrypt(str_random(10)),
@@ -31,17 +32,17 @@ $factory->define(App\Verhuring::class, function(Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Notifications::class, function(Faker\Generator $faker) {
+$factory->define(App\Notifications::class, function(Faker\Generator $faker) use($factory) {
     return [
         'user_id' => 1,
         'verhuring' => 1
     ];
 });
 
-$factory->define(App\Permission::class, function(Faker\Generator $faker) {
+$factory->define(App\Permission::class, function(Faker\Generator $faker) use($factory) {
     return [
 
-        'user_id' => 1,
-        'verhuring' => 1
+        'user_id' => factory(App\User::class)->create()->id,
+        'verhuurbeheer' => 1
     ];
 });

@@ -115,14 +115,14 @@
                         </ul>
                     </li>
                     @if(isset(Auth::user()->permission->verhuurbeheer))
-                    @can('verhuur-beheer', Auth::user()->permission->verhuurbeheer)
-                    <li>
-                        <a href="{{Url::to('/backend/rental')}}">
-                            <span class=""></span>
-                            Verhuur
-                        </a>
-                    </li>
-                    @endcan
+                        @can('verhuur-beheer', Auth::user()->permission->verhuurbeheer)
+                            <li>
+                                <a href="{{Url::to('/backend/rental')}}">
+                                    <span class=""></span>
+                                    Verhuur
+                                </a>
+                            </li>
+                        @endcan
                     @endif
                     <li>
                         <a href="{{ Url::to('/cloud/index') }}">
