@@ -47,7 +47,6 @@ class CloudController extends Controller
 
     public function deleteFile($id)
     {
-
     }
 
     public function downloadFile($id)

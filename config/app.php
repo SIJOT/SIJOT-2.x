@@ -202,7 +202,6 @@ return [
          * Added facades
          */
         'PDF' => Barryvdh\DomPDF\Facade::class,
-
     ],
 
 ];
