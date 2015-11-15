@@ -13,6 +13,7 @@ class authorizationTest extends TestCase
      */
     public function testProfilePage()
     {
-        $this->visit('/backend/acl/profile/1');
+        $user = factory(App\User::class)->make();
+        $this->actingAs($user)->visit('/backend/acl/profile/1');
     }
 }
