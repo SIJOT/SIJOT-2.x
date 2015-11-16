@@ -8,9 +8,7 @@ class CloudTest extends TestCase
 {
 
     /**
-     * A basic test example.
-     *
-     * @return void
+     * @group all
      */
     public function testCloudRoutes()
     {
@@ -19,6 +17,9 @@ class CloudTest extends TestCase
         $this->visit('/cloud/delete/1');
     }
 
+    /**
+     * @group all
+     */
     public function testHyperlinks()
     {
         // Navbar
