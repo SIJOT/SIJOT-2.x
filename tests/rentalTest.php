@@ -11,9 +11,7 @@ class rentalTest extends TestCase
     use DatabaseTransactions, DatabaseMigrations;
 
     /**
-     * A basic test example.
-     *
-     * @return void
+     * @group all
      */
     public function testRentalHyperlinksIndexBackend()
     {
@@ -42,6 +40,9 @@ class rentalTest extends TestCase
         //$baseUrl->click('')->seePageis('');
     }
 
+    /**
+     * @group all
+     */
     public function testRentalFrontEndHyperlink()
     {
         $this->visit('/verhuur')
@@ -49,16 +50,25 @@ class rentalTest extends TestCase
             ->see('Bereikbaarheid');
     }
 
+    /**
+     * @group all
+     */
     public function testRentalFrontEndHyperlinkBereikbaarheid()
     {
         $this->visit('/verhuur/bereikbaarheid');
     }
 
+    /**
+     * @group all
+     */
     public function testRentalFrontEndHyperlinkKalender()
     {
         $this->visit('/verhuur/kalender');
     }
 
+    /**
+     * @group all
+     */
     public function testRentalFrontEndHyperlinkAanvraag()
     {
 
