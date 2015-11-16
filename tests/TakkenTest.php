@@ -10,6 +10,7 @@ class TakkenTest extends TestCase
     use DatabaseTransactions, DatabaseMigrations;
 
     /**
+     * @group all
      * @group takken
      */
     public function testKapoenenUrl()
@@ -19,6 +20,7 @@ class TakkenTest extends TestCase
     }
     
     /**
+     * @group all
      * @group takken 
      */
     public function testWelpenUrl()
@@ -27,6 +29,7 @@ class TakkenTest extends TestCase
     }
     
     /**
+     * @group all
      * @group takken
      */
     public function testJongGiversUrl()
@@ -35,6 +38,7 @@ class TakkenTest extends TestCase
     }
     
     /**
+     * @group all
      * @group takken
      */
     public function testGiversUrl() 
@@ -43,6 +47,7 @@ class TakkenTest extends TestCase
     }
     
     /**
+     * @group all
      * @group takken
      */
     public function testJinsUrl()
@@ -51,6 +56,7 @@ class TakkenTest extends TestCase
     }
     
     /**
+     * @group all
      * @group takken 
      */
     public function testLeidingUrl() 
@@ -59,6 +65,7 @@ class TakkenTest extends TestCase
     }
     
     /**
+     * @group all
      * @group takken
      */
     public function testVariousUrl()
