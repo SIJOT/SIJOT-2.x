@@ -50,7 +50,7 @@ class databaseTest extends TestCase
                     ->save(factory(App\Notifications::class)->make());
             });
 
-        $ArrayUserData = $users->load('permission')[0];
-        $ArrayUserPerm = $users->load('permission')[0]['notification'];
+        $ArrayUserData = $users->load('notification')[0];
+        $ArrayUserPerm = $users->load('notification')[0]['notification'];
     }
 }
