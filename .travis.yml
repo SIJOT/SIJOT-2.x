@@ -1,34 +1,32 @@
 services:
-  - mysql
-
-sudo: required
+  - mysql                                                           # Install mysql server
 
 # testing
 language: php
 php:
   - "5.5"
-  - "5.6"
+  - "5.6"                                                     
   # - "7.0"
-  - hhvm
-sudo: false
+  - hhvm                                                            # Test for HHVM
+sudo: false                                                         # Disable sudo permission
 env:
-addons:
+addons:                                                             # Install nodeJS 
   apt:
     packages:
       - nodejs
 before_script:
   - composer install
-  - php artisan migrate
-  - php artisan db:seed
+  - php artisan migrate                                             # Create the database tables.
+  - php artisan db:seed                                             # Insert rows in the database
 
 script:
-  - phpunit
-  - vendor/bin/phpunit --coverage-clover=coverage.xml
+  - phpunit                                                         # Run phpunit
+  - vendor/bin/phpunit --coverage-clover=coverage.xml               # Calculate coverage
   
 # code coverage
 before_install:
   - pip install --user codecov
-  - mysql -e "create database IF NOT EXISTS laravel5_test;" -uroot
-  - mysql -e "create database IF NOT EXISTS test;" -uroot
+  - mysql -e "create database IF NOT EXISTS laravel5_test;" -uroot  # Create database laravel5_test for phpunit
+  - mysql -e "create database IF NOT EXISTS test;" -uroot           # Create database test for production 
 after_success:
-    - bash <(curl -s https://codecov.io/bash)
+    - bash <(curl -s https://codecov.io/bash)                       # Push statistics to http://www.codecov.io
