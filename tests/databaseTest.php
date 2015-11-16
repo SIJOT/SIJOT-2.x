@@ -36,7 +36,8 @@ class databaseTest extends TestCase
     }
     
     /**
-     * TODO: write testing logic
+     * TODO: write testing logic.
+     */
     public function testNotificationsRelation()
     {
         
