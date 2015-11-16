@@ -34,9 +34,5 @@
         <group>database</group>
         <group>takken</group>
     </include>
-    <exclude>
-        <group>name</group>
-        <group>takken</group>
-    </exclude>
   </groups>
 </phpunit>
