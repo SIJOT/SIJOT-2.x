@@ -39,9 +39,4 @@ class VerhuurController extends Controller
         $data['title'] = 'Verhuur | Bereikbaarheid';
         return view('front-end.verhuurBereikbaarheid', $data);
     }
-
-    public function kalender()
-    {
-
-    }
 }

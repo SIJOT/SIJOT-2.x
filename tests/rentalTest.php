@@ -72,9 +72,7 @@ class rentalTest extends TestCase
      */
     public function testRentalFrontEndHyperlinkAanvraag()
     {
-        $this->visit('/verhuur/aanvragen')
-            ->type('10.10.216', 'StartDatum')
-            ->seePageIs('verhuur/aanvragen');
+        $this->visit('/verhuur/aanvragen');
     }
 
     /**

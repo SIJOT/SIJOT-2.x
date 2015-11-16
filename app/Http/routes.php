@@ -50,7 +50,7 @@ Route::get('/verhuur', 'VerhuurController@index');
 Route::post('/rental/insert', 'VerhuurBackendController@store');
 Route::get('/verhuur/aanvragen', 'VerhuurController@aanvragen');
 Route::get('/verhuur/bereikbaarheid', 'VerhuurController@bereikbaarheid');
-Route::get('/verhuur/kalender', 'VerhuurController@kalender');
+Route::get('/verhuur/kalender', 'VerhuurBackendController@getCalendar');
 
 // Backend
 Route::get('/backend/rental', 'VerhuurBackendController@index');

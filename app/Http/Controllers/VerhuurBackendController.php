@@ -149,7 +149,7 @@ class verhuurBackendController extends Controller
         // MySQL Database
         //
         // SELECT * FROM Verhuur; <- MySQL Query
-        $data['MySQL'] = Verhuring::where()->get();
+        $data['MySQL'] = Verhuring::all();
 
         return View('front-end.verhuur-kalender', $data);
     }
