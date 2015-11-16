@@ -35,7 +35,9 @@ class verhuurBackendController extends Controller
             env('PUSHER_ID')
         );
 
-        $this->middleware('auth', ['except' => ['store']]);
+        $this->middleware('auth', ['except' => [
+            'store', 'getCalendar'
+        ]]);
 
         // TODO: create and register rental middlware?
         // $this->middleware('auth');
