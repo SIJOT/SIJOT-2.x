@@ -73,4 +73,13 @@ class rentalTest extends TestCase
     {
         $this->visit('/verhuur/aanvragen');
     }
+
+    /**
+     * @group all
+     */
+    public function testRentalDelete()
+    {
+        factory(App\Verhuring::class)->make();
+        $this->visit('/backend/rental/delete/1');
+    }
 }
