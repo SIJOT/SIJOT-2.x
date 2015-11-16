@@ -35,7 +35,6 @@ $factory->define(App\Verhuring::class, function(Faker\Generator $faker) {
 $factory->define(App\Notifications::class, function(Faker\Generator $faker) use($factory) {
     $id = $faker->numberBetween(1, 4);
     return [
-        'id' => 1,
         'user_id' => $id,
         'verhuring' => 0,
     ];
