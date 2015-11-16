@@ -32,7 +32,7 @@ $factory->define(App\Verhuring::class, function(Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Notifications::class, function(Faker\Generator $faker) use($factory) {
+$factory->define(App\Notifications::class, function(Faker\Generator $faker) {
     $id = $faker->numberBetween(1, 4);
     return [
         'user_id' => $id,
@@ -40,9 +40,16 @@ $factory->define(App\Notifications::class, function(Faker\Generator $faker) use(
     ];
 });
 
-$factory->define(App\Permission::class, function(Faker\Generator $faker) use($factory) {
+$factory->define(App\Permission::class, function(Faker\Generator $faker) {
     return [
         'user_id' => 1,
         'verhuurbeheer' => 1
     ];
+});
+
+$factory->define(App\Takken::class, function(Faker\Generator $faker) {
+    return [
+      'user_id' => 1, 
+      'verhuring' => 1
+    ]; 
 });
