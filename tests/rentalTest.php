@@ -71,6 +71,6 @@ class rentalTest extends TestCase
      */
     public function testRentalFrontEndHyperlinkAanvraag()
     {
-
+        $this->visit('/verhuur/aanvragen');
     }
 }
