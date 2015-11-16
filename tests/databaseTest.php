@@ -34,4 +34,11 @@ class databaseTest extends TestCase
 
         // User permissions assertions.
     }
+    
+    /**
+     * TODO: write testing logic
+    public function testNotificationsRelation()
+    {
+        
+    }
 }
