@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class AuthencationTest extends TestCase
 {
 
+    /**
+     * @group all
+     */
     public function testLogout()
     {
         $user = factory(App\User::class)->make();
@@ -17,11 +20,17 @@ class AuthencationTest extends TestCase
         $url->seePageIs('/');
     }
 
+    /**
+     * @group all
+     */
     public function testLoginView()
     {
         $this->call('get', '/login');
     }
-
+    
+    /**
+     * @group all
+     */
     public function testLoginMethod()
     {
         $this->post('/login', [
