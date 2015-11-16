@@ -17,6 +17,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->email,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
+        'role' => $faker->numberBetween(0, 1),
+        'blocked' => $faker->numberBetween(0, 1),
     ];
 });
 
@@ -33,16 +35,15 @@ $factory->define(App\Verhuring::class, function(Faker\Generator $faker) {
 $factory->define(App\Notifications::class, function(Faker\Generator $faker) use($factory) {
     $id = $faker->numberBetween(1, 4);
     return [
-        'id' => $id,
+        'id' => 1,
         'user_id' => $id,
-        'verhuring' => 0
+        'verhuring' => 0,
     ];
 });
 
 $factory->define(App\Permission::class, function(Faker\Generator $faker) use($factory) {
     return [
-
-        'user_id' => factory(App\User::class)->create()->id,
+        'user_id' => 1,
         'verhuurbeheer' => 1
     ];
 });
