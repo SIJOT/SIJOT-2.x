@@ -37,6 +37,13 @@ class databaseTest extends TestCase
         $this->assertArrayHasKey('updated_at', $ArrayUserData);
 
         // User permissions assertions.
+        $this->assertArrayHasKey('user_id', $ArrayUserPerm);
+        $this->assertArrayHasKey('cloud', $ArrayUserPerm);
+        $this->assertArrayHasKey('verhuurbeheer', $ArrayUserPerm);
+        $this->assertArrayHasKey('ledenbeheer', $ArrayUserPerm);
+        $this->assertArrayHasKey('media', $ArrayUserPerm);
+        $this->assertArrayHasKey('created_at', $ArrayUserData);
+        $this->assertArrayHasKey('updated_at', $ArrayUserData);
     }
     
     /**
@@ -67,5 +74,10 @@ class databaseTest extends TestCase
         $this->assertArrayHasKey('updated_at', $ArrayUserData);
         
         // Notification assertions.
+        $this->assertArrayHasKey('created_at', $ArrayUserNoti);
+        $this->assertArrayHasKey('updated_at', $ArrayUserNoti);
+        $this->assertArrayHasKey('verhuring', $ArrayUserNoti);
+        $this->assertArrayHasKey('user_id', $ArrayUserNoti);
+        $this->assertArrayHasKey('id', $ArrayUserNoti);
     }
 }

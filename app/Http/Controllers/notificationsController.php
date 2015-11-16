@@ -18,7 +18,7 @@ class notificationsController extends Controller
 
     public function VerhuurAan($id)
     {
-        $notification = Notifications::find($id);
+        $notification = Notifications::where('user_id', $id);
         $notification->verhuring = 1;
         $notification->save();
 
@@ -27,7 +27,7 @@ class notificationsController extends Controller
 
     public function VerhuurUit($id)
     {
-        $notification = Notifications::find($id);
+        $notification = Notifications::where('user_id', $id);
         $notification->verhuring = 0;
         $notification->save();
 
