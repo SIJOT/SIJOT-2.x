@@ -5,6 +5,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class rentalTest extends TestCase
 {
@@ -71,7 +72,9 @@ class rentalTest extends TestCase
      */
     public function testRentalFrontEndHyperlinkAanvraag()
     {
-        $this->visit('/verhuur/aanvragen');
+        $this->visit('/verhuur/aanvragen')
+            ->type('10.10.216', 'StartDatum')
+            ->seePageIs('verhuur/aanvragen');
     }
 
     /**
@@ -79,12 +82,6 @@ class rentalTest extends TestCase
      */
     public function testPostRentalInsertmethod()
     {
-        $this->post('/rental/insert', [
-            'StartDatum' => 'data',
-            'Einddatum' => 'data',
-            'Groep' => 'test',
-            'Email' => 'Sally'
-        ]);
     }
 
     /**
