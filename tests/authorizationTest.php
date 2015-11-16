@@ -7,9 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class authorizationTest extends TestCase
 {
     /**
-     * A basic test example.
-     *
-     * @return void
+     * @group all
      */
     public function testProfilePage()
     {

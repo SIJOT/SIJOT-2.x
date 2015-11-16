@@ -29,4 +29,11 @@
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>
     </php>
+    <groups>
+    <include>
+        <group>all</group>
+        <group>database</group>
+        <group>takken</group>
+    </include>
+  </groups>
 </phpunit>

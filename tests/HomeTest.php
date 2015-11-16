@@ -9,9 +9,7 @@ class HomeTest extends TestCase
 
 
     /**
-     * A basic functional test example.
-     *
-     * @return void
+     * @group all
      */
     public function testIndexUrl()
     {

@@ -53,4 +53,9 @@ class User extends Model implements AuthenticatableContract,
     public function permission() {
         return $this->hasOne('App\Permission', 'user_id', 'id');
     }
+    
+    public function notification()
+    {
+      return $this->hasOne('App\Notifications', 'user_id', 'id');
+    }
 }
