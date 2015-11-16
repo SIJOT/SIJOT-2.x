@@ -78,6 +78,27 @@ class rentalTest extends TestCase
     /**
      * @group all
      */
+    public function testRentalsetToOption()
+    {
+        $user = factory(App\User::class)->make();
+    }
+
+    /**
+     * @group all
+     */
+    public function testRentalSetToConfirmed()
+    {
+        $user = factory(App\User::class)->make();
+        $verhuring = factory(App\Verhuring::class)->make([
+            'id' => 5
+        ]);
+
+        $this->actingAs($user)->visit('/backend/rental/confirm/'. $verhuring->id);
+    }
+
+    /**
+     * @group all
+     */
     public function testPostRentalInsertmethod()
     {
     }

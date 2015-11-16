@@ -202,7 +202,7 @@ class verhuurBackendController extends Controller
      */
     public function confirmed($id)
     {
-        $status         = Verhuring::find($id);
+        $status         = Verhuring::findOrNew($id);
         $status->status = 2;
 
         if ($status->save()) {
@@ -232,7 +232,7 @@ class verhuurBackendController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $verhuring = Verhuring::find($id);
+        $verhuring = Verhuring::findOrNew($id);
 
         if ($verhuring->save()) {
             $logging = Lang::get(':user changed a rental', [
