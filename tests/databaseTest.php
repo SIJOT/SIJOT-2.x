@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class databaseTest extends TestCase
 {
     /**
+     * @group all
      * @group database
      */
     public function testPermissionsRelation()
@@ -39,6 +40,7 @@ class databaseTest extends TestCase
     }
     
     /**
+     * @group all
      * @group database
      */
     public function testNotificationsRelation()
