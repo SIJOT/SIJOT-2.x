@@ -6,6 +6,9 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class databaseTest extends TestCase
 {
+    /**
+     * @group database
+     */
     public function testPermissionsRelation()
     {
         $users = factory(App\User::class, 3)
@@ -36,10 +39,18 @@ class databaseTest extends TestCase
     }
     
     /**
-     * TODO: write testing logic.
+     * @group database
      */
     public function testNotificationsRelation()
     {
-        
+         $users = factory(App\User::class, 3)
+            ->create()
+            ->each(function($user) {
+                $user->notification()
+                    ->save(factory(App\Notifications::class)->make());
+            });
+
+        $ArrayUserData = $users->load('permission')[0];
+        $ArrayUserPerm = $users->load('permission')[0]['notification'];
     }
 }
