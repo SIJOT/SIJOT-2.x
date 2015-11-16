@@ -9,9 +9,7 @@ class UsermanagementTest extends TestCase
     use WithoutMiddleware;
 
     /**
-     * A basic test example.
-     *
-     * @return void
+     * @group all
      */
     public function testUsermanagementRoutes()
     {
