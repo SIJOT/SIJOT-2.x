@@ -77,6 +77,19 @@ class rentalTest extends TestCase
     /**
      * @group all
      */
+    public function testPostRentalInsertmethod()
+    {
+        $this->post('/rental/insert', [
+            'StartDatum' => 'data',
+            'Einddatum' => 'data',
+            'Groep' => 'test',
+            'Email' => 'Sally'
+        ]);
+    }
+
+    /**
+     * @group all
+     */
     public function testRentalDelete()
     {
         factory(App\Verhuring::class)->make();

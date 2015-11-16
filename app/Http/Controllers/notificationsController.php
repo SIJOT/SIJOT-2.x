@@ -22,7 +22,7 @@ class notificationsController extends Controller
         $notification->verhuring = 1;
         $notification->save();
 
-        return Redirect::to('/backend/rental');
+        return Redirect::back();
     }
 
     public function VerhuurUit($id)
@@ -31,6 +31,6 @@ class notificationsController extends Controller
         $notification->verhuring = 0;
         $notification->save();
 
-        return Redirect::to('/backend/rental');
+        return Redirect::back();
     }
 }
