@@ -6,14 +6,19 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class notificationTest extends TestCase
 {
-    use DatabaseTransactions, DatabaseMigrations;
+    use DatabaseTransactions, DatabaseMigrations, WithoutMiddleware;
 
     /**
      * @group all
      */
     public function testVerhuurNotificationOut()
     {
-        $this->visit('/notification/uit/1');
+        $user = factory(App\User::class)->make();
+        $verhuur = factory(App\Verhuring::class)->make([
+            'id' => 1
+        ]);
+
+        $this->actingAs($user)->visit('/notification/uit/'. $verhuur->id);
     }
     
     /**
@@ -21,6 +26,11 @@ class notificationTest extends TestCase
      */
     public function testVerhuurNotificationAan()
     {
-        $this->visit('/notification/aan/1');
+        $user = factory(App\User::class)->make();
+        $verhuur = factory(App\Verhuring::class)->make([
+            'id' => 1
+        ]);
+
+        $this->actingAs($user)->visit('/notification/aan/'. $verhuur->id);
     }
 }

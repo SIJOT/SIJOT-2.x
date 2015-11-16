@@ -18,16 +18,16 @@ class notificationsController extends Controller
 
     public function VerhuurAan($id)
     {
-        $notification = Notifications::where('user_id', $id);
+        $notification = Notifications::findOrNew($id);
         $notification->verhuring = 1;
         $notification->save();
 
-        return Redirect::back();
+        return Redirect::to('/backend/rental');
     }
 
     public function VerhuurUit($id)
     {
-        $notification = Notifications::where('user_id', $id);
+        $notification = Notifications::findOrNew($id);
         $notification->verhuring = 0;
         $notification->save();
 
