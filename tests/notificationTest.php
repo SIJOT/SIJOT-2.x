@@ -9,15 +9,16 @@ class notificationTest extends TestCase
     use DatabaseTransactions, DatabaseMigrations;
 
     /**
-     * A basic test example.
-     *
-     * @return void
+     * @group all
      */
     public function testVerhuurNotificationOut()
     {
         $this->visit('/notification/uit/1');
     }
-
+    
+    /**
+     * @group all
+     */
     public function testVerhuurNotificationAan()
     {
         $this->visit('/notification/aan/1');
