@@ -51,6 +51,19 @@ class databaseTest extends TestCase
             });
 
         $ArrayUserData = $users->load('notification')[0];
-        $ArrayUserPerm = $users->load('notification')[0]['notification'];
+        $ArrayUserNoti = $users->load('notification')[0]['notification'];
+        
+        // User data assertions.
+        $this->assertArrayHasKey('id', $ArrayUserData);
+        $this->assertArrayHasKey('name', $ArrayUserData);
+        $this->assertArrayHasKey('email', $ArrayUserData);
+        $this->assertArrayHasKey('password', $ArrayUserData);
+        $this->assertArrayHasKey('role', $ArrayUserData);
+        $this->assertArrayHasKey('blocked', $ArrayUserData);
+        $this->assertArrayHasKey('remember_token', $ArrayUserData);
+        $this->assertArrayHasKey('created_at', $ArrayUserData);
+        $this->assertArrayHasKey('updated_at', $ArrayUserData);
+        
+        // Notification assertions.
     }
 }
