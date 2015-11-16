@@ -20,7 +20,7 @@ before_script:
   - php artisan db:seed                                             # Insert rows in the database
 
 script:
-  - phpunit --group takken                                                 # Run phpunit
+  - phpunit                                                         # Run phpunit
   - vendor/bin/phpunit --coverage-clover=coverage.xml               # Calculate coverage
   
 # code coverage
