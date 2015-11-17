@@ -22,16 +22,6 @@ class UserManagement extends Controller
         // TODO: set middleware
         // $this->middleware('admin');
         $this->middleware('auth');
-
-        if(Auth::check()) {
-            $this->permission = Permission::where('user_id', Auth::user()->id)->get();
-
-            foreach($this->permission as $output) {
-                $this->ledenbeheer = $output->ledenbeheer;
-            }
-        } else {
-            $this->permission = 0;
-        }
     }
 
     /**
