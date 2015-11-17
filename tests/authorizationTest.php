@@ -22,7 +22,7 @@ class authorizationTest extends TestCase
             
         // $user = factory(App\User::class)->make(['id' => 5]);
         // factory(App\Permission::class)->make(['user_id' => 5]);
-        $this->actingAs($users[0])->visit('/backend/acl/profile/' . $users[0]->id);
+        $this->actingAs($users[0])->visit('/backend/acl/profile/'.$users[0]->id);
     }
 
     /**
