@@ -43,7 +43,7 @@ $factory->define(App\Notifications::class, function(Faker\Generator $faker) {
 $factory->define(App\Permission::class, function(Faker\Generator $faker) {
     return [
         'user_id' => 1,
-        'verhuurbeheer' => 1
+        'verhuurbeheer' => 1,
         'ledenbeheer' => 1
     ];
 });
