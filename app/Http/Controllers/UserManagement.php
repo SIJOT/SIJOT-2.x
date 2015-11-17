@@ -41,8 +41,6 @@ class UserManagement extends Controller
      */
     public function getIndex()
     {
-        dd(Auth::user());
-        
         if(Gate::denies('leden-beheer', $this->ledenbeheer)) {
             return Redirect::back();
         }
@@ -65,7 +63,7 @@ class UserManagement extends Controller
      */
     public function UserProfile($id)
     {
-        if(Gate::denies('leden-beheer', $this->ledenbeheer)) {
+        if(Gate::denies('leden-beheer', Auth::user()->permission->ledenbeheer)) {
             return Redirect::back();
         }
 
