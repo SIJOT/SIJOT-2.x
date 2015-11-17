@@ -61,7 +61,7 @@ class UserManagement extends Controller
         $data['active'] = 0;
         $data['permission'] = [];
 
-        $user = User::find($id)->get();
+        $user = User::where('id'; Auth::user()->id)->get();
 
         if (count($user) === 1) {
             foreach($user as $info) {
