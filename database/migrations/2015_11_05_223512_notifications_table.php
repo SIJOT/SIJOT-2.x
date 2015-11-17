@@ -14,7 +14,7 @@ class NotificationsTable extends Migration
     {
         Schema::create('notifications', function(Blueprint $t) {
             $t->increments('id');
-            $t->integer('user_id');
+            $t->integer('user_id')->unique();
             $t->integer('verhuring');
             $t->timestamps();
 
