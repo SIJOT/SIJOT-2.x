@@ -14,7 +14,7 @@ class PermissionsTable extends Migration
     {
         Schema::create('cms_permissions', function(Blueprint $t) {
             $t->increments('id');
-            $t->integer('user_id');
+            $t->integer('user_id')->unique();
             $t->integer('cloud');
             $t->integer('verhuurbeheer');
             $t->integer('ledenbeheer');
