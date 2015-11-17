@@ -23,6 +23,7 @@ class AuthorizationController extends Controller
 {
     public $pusher;
     public $authMiddleware = ['viewLogin', 'verifyLogin', 'getLogout'];
+    public $ledenbeheer;
 
     public function __construct()
     {
@@ -40,6 +41,7 @@ class AuthorizationController extends Controller
                 $this->ledenbeheer   = $output->ledenbeheer;
                 $this->verhuurbeheer = $output->verhuurbeheer;
             }
+
 
         } else {
             $this->permission = 0;
