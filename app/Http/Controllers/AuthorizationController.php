@@ -175,7 +175,7 @@ class AuthorizationController extends Controller
      */
     public function blockUser($id)
     {
-        if (Gate::denies('leden-beheer', $this->ledenbeheer)) {
+        if (Gate::denies('leden-beheer', Auth::user()->permission->ledenbeheer)) {
             return Redirect::back();
         }
 

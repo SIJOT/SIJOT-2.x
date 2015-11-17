@@ -32,11 +32,13 @@ class authorizationTest extends TestCase
      */
     public function testBlockuserMethod()
     {
-        $user = factory(App\User::class)->make([
-            'id' => 5
-        ]);
+        $user = factory(App\User::class, 3)
+            ->create()
+            ->each(function($u) {
+                $u->permission()->save(factory(App\Permission::class)->make());
+            })->load('permission');
 
-        $this->actingAs($user)->visit('/backend/acl/block/'. $user->id);
+        $this->actingAs($user[0])->visit('/backend/acl/block/'. $user[0]->id);
     }
 
     /**
