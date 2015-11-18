@@ -108,7 +108,13 @@ class rentalTest extends TestCase
      */
     public function testRentalDelete()
     {
-        factory(App\Verhuring::class)->make();
-        $this->visit('/backend/rental/delete/1');
+        $user = factory(App\User::class, 3)
+            ->create()
+            ->each(function($u) {
+                $u->permission()->save(factory(App\Permission::class)->make());
+            })->load('permission');
+
+
+        $this->actingAs($user[0])->visit('/backend/rental/delete/1');
     }
 }

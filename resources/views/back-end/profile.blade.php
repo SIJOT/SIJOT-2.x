@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-10">
-                    <h1> Gebruikersnaam </h1>
+                    <h1> {{ $username }} </h1>
                 </div>
                 <div class="col-sm-2">
                     <a href="/users" class="pull-right">
@@ -28,28 +28,11 @@
                         <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> 2.13.2014</li>
                         <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> Yesterday</li>
                         <li class="list-group-item text-right"><span class="pull-left"><strong>Real name</strong></span> Joseph Doe</li>
-
                     </ul>
 
                     <div class="panel panel-default">
                         <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
                         <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
-                    </div>
-
-
-                    <ul class="list-group">
-                        <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-                        <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
-                        <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
-                        <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
-                        <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
-                    </ul>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Social Media</div>
-                        <div class="panel-body">
-                            <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
-                        </div>
                     </div>
 
                 </div>{{-- end col-3 --}}
@@ -72,15 +55,35 @@
                                         <thead>
                                             <tr>
                                                 <th> Recht type: </th>
-                                                <th> Ja: / Nee:</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <form action="" method="post">
                                                 @foreach($permission as $right)
                                                     <tr>
-                                                        <td>{{ $right->type }}</td>
-                                                        <td>{{ $right->active }}</td>
+                                                        <td>Login beheer</td>
+                                                        <td class="text-center">
+                                                            <input type="checkbox" name="" value="" @if($right->ledenbeheer === 1) checked @endif>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Verhuur beheer</td>
+                                                        <td class="text-center">
+                                                            <input type="checkbox" name="" value="" @if($right->verhuurbeheer === 1) checked @endif>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>SIJOT cloud</td>
+                                                        <td class="text-center">
+                                                            <input type="checkbox" name="" value="" @if($right->cloud === 1) checked @endif>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>SIJOT media</td>
+                                                        <td class="text-center">
+                                                            <input type="checkbox" name="" value="" @if($right->media === 1) checked @endif>
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             </form>

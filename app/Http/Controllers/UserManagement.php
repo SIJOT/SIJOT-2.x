@@ -59,7 +59,7 @@ class UserManagement extends Controller
 
         $data['title'] = 'Gebruikers profiel';
         $data['active'] = 0;
-        $data['permission'] = [];
+        $data['permission'] = Permission::where('user_id', $id)->get();
 
         $user = User::where('id', $id)->get();
 

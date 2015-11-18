@@ -7,6 +7,7 @@ use App\Notifications;
 use App\User;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -110,12 +111,14 @@ class verhuurBackendController extends Controller
                     $m->from('topairy@gmail.com', 'Tim Joosten');
                 });
 
+                Log::info('Verhuur bevestiging is naar de aanvrager verzonden.');
+            }
+
+            if (Config::get('platform.broadcast') === true) {
                 $pusherData['class']   = '';
                 $pusherData['message'] = 'Er is een nieuwe verhuring aangevraagd.';
 
                 $this->pusher->trigger('channel_verhuur', 'verhuur_notification', $pusherData);
-
-                Log::info('Verhuur bevestiging is naar de aanvrager verzonden.');
             }
 
             $notificationMembers = Notifications::where('verhuring', 1)->get();
