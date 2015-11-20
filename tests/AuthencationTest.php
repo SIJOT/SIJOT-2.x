@@ -25,6 +25,7 @@ class AuthencationTest extends TestCase
      */
     public function testDeleteUser()
     {
+        // User with the right permission
         $users = factory(App\User::class, 3)
             ->create()
             ->each(function($user) {
@@ -33,6 +34,20 @@ class AuthencationTest extends TestCase
             });
 
         $this->actingAs($users[0])->visit('/backend/acl/delete/'. $users[0]->id);
+
+        // User with the wrong permission.
+        $user = factory(App\User::class, 3)
+            ->create()
+            ->each(function($user) {
+                $user->permission()
+                    ->save(factory(App\Permission::class)->make([
+                        'ledenbeheer' => 0
+                    ]));
+            });
+
+        $this->actingAs($user[0])
+            ->visit('/backend/acl/delete/'. $user[0]->id)
+            ->assertResponseOk();
     }
 
     /**
