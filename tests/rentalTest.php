@@ -115,6 +115,6 @@ class rentalTest extends TestCase
             })->load('permission');
 
 
-        $this->actingAs($user[0])->visit('/backend/rental/delete/1');
+        $this->actingAs($user[0])->visit('/backend/rental/delete/'. $user[0]->id);
     }
 }

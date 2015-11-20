@@ -23,6 +23,21 @@ class AuthencationTest extends TestCase
     /**
      * @group all
      */
+    public function testDeleteUser()
+    {
+        $users = factory(App\User::class, 3)
+            ->create()
+            ->each(function($user) {
+                $user->permission()
+                    ->save(factory(App\Permission::class)->make());
+            });
+
+        $this->actingAs($users[0])->visit('/backend/acl/delete/'. $users[0]->id);
+    }
+
+    /**
+     * @group all
+     */
     public function testLoginView()
     {
         $this->call('get', '/login');
