@@ -39,10 +39,6 @@ class verhuurBackendController extends Controller
         $this->middleware('auth', ['except' => [
             'store', 'getCalendar'
         ]]);
-
-        // TODO: create and register rental middlware?
-        // $this->middleware('auth');
-        // $this->middleware('rental')
     }
 
     /**
@@ -115,7 +111,7 @@ class verhuurBackendController extends Controller
             }
 
             if (Config::get('platform.broadcast') === true) {
-                $pusherData['class']   = '';
+                $pusherData['class']   = 'alert alert-success';
                 $pusherData['message'] = 'Er is een nieuwe verhuring aangevraagd.';
 
                 $this->pusher->trigger('channel_verhuur', 'verhuur_notification', $pusherData);
@@ -256,10 +252,12 @@ class verhuurBackendController extends Controller
 
     /**
      * Remove a rental with a soft delete.
+     *
      * TODO:  create laravel cronjonb for this.
+     * TODO:  Add if else with the gate function.
      *
      * @link       [GET] www.domain.tld/rental/remove
-     * @middleware Rental, Admin
+     * @middleware Auth
      * @param      int  $id, The rental id.
      *
      * @return     \Illuminate\Http\Response
@@ -271,6 +269,7 @@ class verhuurBackendController extends Controller
         $logging = Lang::get('logging.rentalDelete', [
             'user' => Auth::user()->user
         ]);
+
         Log::info($logging);
 
         return Redirect::back();
