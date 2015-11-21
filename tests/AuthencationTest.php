@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthencationTest extends TestCase
 {
+    use WithoutMiddleware;
 
     /**
      * @group all
@@ -33,7 +34,7 @@ class AuthencationTest extends TestCase
                     ->save(factory(App\Permission::class)->make());
             });
 
-        $this->actingAs($users[0])->visit('/backend/acl/delete/'. $users[0]->id);
+        $this->actingAs($users[0])->visit('/backend/acl/delete/'. $users[0]->id)->assertResponseStatus(200);
 
         // User with the wrong permission.
         $user = factory(App\User::class, 3)
@@ -45,9 +46,7 @@ class AuthencationTest extends TestCase
                     ]));
             });
 
-        $this->actingAs($user[0])
-            ->visit('/backend/acl/delete/'. $user[0]->id)
-            ->assertResponseOk();
+        $this->actingAs($user[0])->visit('/backend/acl/delete/'. $user[0]->id)->assertResponseStatus(200);
     }
 
     /**
@@ -63,9 +62,7 @@ class AuthencationTest extends TestCase
      */
     public function testLoginMethod()
     {
-        $this->post('/login', [
-            'email' => 'example@domain.be',
-            'password' => bcrypt('test')
-        ]);
+        $input = ['email' => 'example@domain.be', 'password' => bcrypt('test')];
+        $this->post('/login', $input)->assertResponseStatus(302);
     }
 }

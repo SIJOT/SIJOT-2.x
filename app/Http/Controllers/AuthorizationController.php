@@ -51,7 +51,7 @@ class AuthorizationController extends Controller
     }
 
     /**
-     * [VIEW] The logid page
+     * [VIEW] The login page
      */
     public function viewLogin()
     {

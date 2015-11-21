@@ -144,7 +144,7 @@ class TakkenViewController extends Controller
 
         // FOS Scouting
         $tak->bevers           = Input::has('Bevers')     ? true : false;
-        $tab->zeehonden        = Input::has('zeehouden')  ? true : false;
+        $tak->zeehonden        = Input::has('zeehouden')  ? true : false;
 
 
         // Les Scouts

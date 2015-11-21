@@ -149,6 +149,7 @@ return [
          * Added providers
          */
         Barryvdh\DomPDF\ServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
     ],
 
     /*
