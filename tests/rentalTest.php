@@ -16,15 +16,13 @@ class rentalTest extends TestCase
      */
     public function testRentalHyperlinksIndexBackend()
     {
-        $user = factory(App\User::class)->make();
-        $perm = factory(App\Permission::class)->make([
-            'user_id' => $user->id
-        ]);
+        $user = factory(App\User::class, 3)
+            ->create()
+            ->each(function($u) {
+                $u->permission()->save(factory(App\Permission::class)->make());
+            })->load('permission');
 
-        $baseUrl = $this->actingAs($user)
-            ->withSession((array) $perm)
-            ->visit('/backend/rental');
-
+        $baseUrl = $this->actingAs($user[0])->visit('/backend/rental');
 
         // Navbar
         if (Auth::check()) {
@@ -99,12 +97,17 @@ class rentalTest extends TestCase
      */
     public function testRentalSetToConfirmed()
     {
-        $user = factory(App\User::class)->make();
+        $user = factory(App\User::class, 3)
+            ->create()
+            ->each(function($u) {
+                $u->permission()->save(factory(App\Permission::class)->make());
+            })->load('permission');
+
         $verhuring = factory(App\Verhuring::class)->make([
             'id' => 5
         ]);
 
-        $this->actingAs($user)->visit('/backend/rental/confirm/'. $verhuring->id);
+        $this->actingAs($user[0])->visit('/backend/rental/confirm/'. $verhuring->id);
     }
 
     /**
