@@ -2,10 +2,10 @@ services:
   - mysql                                                           # Install mysql server
 
 # testing
-language: php
+language: php                                                       # determinate the programming language
 php:
-  - "5.5"
-  - "5.6"                                                     
+  - "5.5"                                                           # Test for the php 5.5 version
+  - "5.6"                                                           # Test for the php 5.6 version
   # - "7.0"
   - hhvm                                                            # Test for HHVM
 sudo: false                                                         # Disable sudo permission
