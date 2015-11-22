@@ -37,6 +37,9 @@ $ phpunit --group {group name}
 
 ### Groups and ther desciption. 
 
-| Group:              | Description:                    |
-| :------------------ | :------------------------------ |
-| `all`               | Run all the tests.              |
+| Group:              | Description:                              |
+| :------------------ | :---------------------------------------- |
+| `all`               | Run all the tests.                        |
+| `rental`            | Run all the tests for the rental system.  |
+| `backend`           | Run all the tests for the backend system. |
+| `database`          | Run all the database tests.               |

@@ -14,7 +14,7 @@
  | [webmasterName]  = The Name off the webmaster.
  | [websiteName]    = The name of the website. This is used in the navbar and page title.
  | [websiteContact] = The contact info email address off the scouting group.
- | [broagcast]      = Enable of disable pusher. Values = true, false
+ | [broadcast]      = Enable of disable pusher. Values = true, false
  */ 
 
 

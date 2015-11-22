@@ -160,9 +160,7 @@ class verhuurBackendController extends Controller
     }
 
     /**
-     * Set rental to an option
-     *
-     * TODO: Implement acl.
+     * Set rental to an option.
      *
      * @link: [GET] www.domain.tld/rental/option
      * @middleware Rental, Admin
@@ -209,8 +207,6 @@ class verhuurBackendController extends Controller
     /**
      * Set rental to confirmed.
      *
-     * TODO: implement ACL
-     *
      * @link: [GET] www.domain.tld/rental/confirm.
      * @middleware, Rental, Admin.
      * @param $id, int, The id of the rental request.
@@ -241,8 +237,6 @@ class verhuurBackendController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * TODO: Implement acl.
      *
      * @link        [POST] www.domain.tld/rental/update.
      * @middleware  admin
@@ -280,8 +274,6 @@ class verhuurBackendController extends Controller
      * Remove a rental with a soft delete.
      *
      * TODO:  create laravel cronjonb for this.
-     * TODO:  Add if else with the gate function.
-     * TODO:  Implement ACL.
      *
      * @link       [GET] www.domain.tld/rental/remove
      * @middleware Auth

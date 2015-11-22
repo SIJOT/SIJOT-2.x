@@ -18,7 +18,7 @@
                             @lang('rental.navRental')
                         </a>
                     </li>
-                    <li>
+                    <li role="presentation">
                         <a href="#new" aria-controls="new" role="tab" data-toggle="tab">
                             @lang('rental.navNewRental')
                         </a>
