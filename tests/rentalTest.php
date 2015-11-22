@@ -80,7 +80,18 @@ class rentalTest extends TestCase
      */
     public function testRentalsetToOption()
     {
-        $user = factory(App\User::class)->make();
+        $user = factory(App\User::class, 3)
+            ->create()
+            ->each(function($u) {
+                $u->permission()->save(factory(App\Permission::class)->make());
+            })->load('permission');
+
+        $verhuring = factory(App\Verhuring::class)->make([
+            'id' => 5
+        ]);
+
+        $this->actingAs($user[0])->visit('/backend/rental/option/'. $verhuring->id)
+            ->assertResponseStatus(200);
     }
 
     /**

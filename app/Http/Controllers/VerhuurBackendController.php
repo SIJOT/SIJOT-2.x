@@ -130,7 +130,6 @@ class verhuurBackendController extends Controller
                 Log::info('Verhuur notificatie mail is verzonden.');
             }
 
-            // Requester mailing method.
         }
 
         return Redirect::back();
@@ -164,7 +163,7 @@ class verhuurBackendController extends Controller
      */
     public function option($id)
     {
-        $status          = Verhuring::find($id);
+        $status          = Verhuring::findOrNew($id);
         $status->status  = 1;
 
         if ($status->save()) {
@@ -223,7 +222,7 @@ class verhuurBackendController extends Controller
      * Update the specified resource in storage.
      *
      * @link        [POST] www.domain.tld/rental/update.
-     * @middleware  Rental, admin
+     * @middleware  admin
      * @param       \Illuminate\Http\Request  $request
      * @param       int  $id
      *

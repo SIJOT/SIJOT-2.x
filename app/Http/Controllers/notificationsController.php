@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Redirect;
 
 class notificationsController extends Controller
 {
+    // TODO: implement gate ACL function.
+
     public function __construct()
     {
         $this->middleware('auth');
