@@ -15,7 +15,7 @@ addons:                                                             # Install no
     packages:
       - nodejs
 before_script:
-  - composer install
+  - composer install                                                # Install the project trough composer?
   - php artisan migrate                                             # Create the database tables.
   - php artisan db:seed                                             # Insert rows in the database
 
