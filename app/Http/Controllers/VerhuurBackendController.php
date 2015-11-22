@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -56,6 +57,10 @@ class verhuurBackendController extends Controller
      */
     public function index()
     {
+        if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
+            return Redirect::back();
+        }
+
         // todo: add download method
         // todo: add search  method.
 
@@ -157,12 +162,18 @@ class verhuurBackendController extends Controller
     /**
      * Set rental to an option
      *
+     * TODO: Implement acl.
+     *
      * @link: [GET] www.domain.tld/rental/option
      * @middleware Rental, Admin
      * @param $id, integer, The id of the rental request.
      */
     public function option($id)
     {
+        if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
+            return Redirect::back();
+        }
+
         $status          = Verhuring::findOrNew($id);
         $status->status  = 1;
 
@@ -185,6 +196,10 @@ class verhuurBackendController extends Controller
 
     public function downloadContract()
     {
+        if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
+            return Redirect::back();
+        }
+
         $pdf = App::make('dompdf.wrapper');
         $pdfStream = $pdf->loadView('pdf.verhuurContract', []);
 
@@ -194,12 +209,18 @@ class verhuurBackendController extends Controller
     /**
      * Set rental to confirmed.
      *
+     * TODO: implement ACL
+     *
      * @link: [GET] www.domain.tld/rental/confirm.
      * @middleware, Rental, Admin.
      * @param $id, int, The id of the rental request.
      */
     public function confirmed($id)
     {
+        if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
+            return Redirect::back();
+        }
+
         $status         = Verhuring::findOrNew($id);
         $status->status = 2;
 
@@ -221,6 +242,8 @@ class verhuurBackendController extends Controller
     /**
      * Update the specified resource in storage.
      *
+     * TODO: Implement acl.
+     *
      * @link        [POST] www.domain.tld/rental/update.
      * @middleware  admin
      * @param       \Illuminate\Http\Request  $request
@@ -230,6 +253,10 @@ class verhuurBackendController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
+            return Redirect::back();
+        }
+
         $verhuring = Verhuring::findOrNew($id);
 
         if ($verhuring->save()) {
@@ -254,6 +281,7 @@ class verhuurBackendController extends Controller
      *
      * TODO:  create laravel cronjonb for this.
      * TODO:  Add if else with the gate function.
+     * TODO:  Implement ACL.
      *
      * @link       [GET] www.domain.tld/rental/remove
      * @middleware Auth
@@ -263,6 +291,10 @@ class verhuurBackendController extends Controller
      */
     public function destroy($id)
     {
+        if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
+            return Redirect::back();
+        }
+
         Verhuring::destroy($id);
 
         $logging = Lang::get('logging.rentalDelete', [
