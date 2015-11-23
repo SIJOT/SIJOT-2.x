@@ -68,6 +68,7 @@ Route::post('/backend/acl/register', 'AuthorizationController@Register');
 Route::get('/backend/acl/block/{id}', 'AuthorizationController@blockUser');
 Route::get('/backend/acl/unblock/{id}', 'AuthorizationController@unBlockUser');
 Route::get('/backend/acl/delete/{id}', 'AuthorizationController@deleteUser');
+Route::post('/backend/acl/changeCredentials/{id}', 'UserManagement@changeCredentials');
 
 // Password reset routes...
 
