@@ -3,6 +3,7 @@
 [![codecov.io](https://codecov.io/github/Tjoosten/scouts-en-gidsen-template/coverage.svg?branch=master)](https://codecov.io/github/Tjoosten/scouts-en-gidsen-template?branch=master)
 [![Build Status](https://travis-ci.org/Tjoosten/scouts-en-gidsen-template.svg?branch=master)](https://travis-ci.org/Tjoosten/scouts-en-gidsen-template)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)
+[![Latest Version](https://img.shields.io/github/tag/Tjoosten/scouts-en-gidsen-template.svg?style=flat&label=release)](https://github.com/tjoosten/scouts-en-gidsen-template/tags)
 
 A template for Belgian scouting groups. 
 
