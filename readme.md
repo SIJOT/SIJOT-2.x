@@ -17,6 +17,9 @@ A template for Belgian scouting groups.
 ## Bugs and feature requests. 
 Have a bug or a feature request? Please first read the [issue guidelines]() and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue]().
 
+## Security vurnabilities.
+
+
 ## Versioning 
 For transparency into our release cycle and in striving to maintain backward compatibility, scouts en gidsen template is maintained under the Semantic Versioning guidelines. Sometimes we screw up, but we'll adhere to those rules whenever possible.
 
