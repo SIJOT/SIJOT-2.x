@@ -42,6 +42,7 @@
                         <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
                         <li><a href="#messages" data-toggle="tab">Messages</a></li>
                         <li><a href="#permissions" data-toggle="tab">Gebruikersrechten</a></li>
+                        <li><a href="#configuration" data-toggle="tab">Account configuration</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -96,6 +97,41 @@
                                 </div>
                             </div>
                         </div>{{-- END tab-pane  --}}
+
+                        <div class="tab-pane" id="configuration">
+                            <div style="padding-top: 10px;" class="row">
+                                <div class="col-md-12">
+                                    <form method="POST" action="/backend/acl/changeCredentials/{{ $id }}" enctype="multipart/form-data">
+                                        {!! Form::open(
+       array(
+           'url' => '/backend/acl/changeCredentials/' .$id,
+           'files' => true)) !!}
+                                        {{-- CSRF token --}}
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                                        <label for="Naam">Naam:</label>
+                                        <input style="width: 32%;" name="name" class="form-control" type="text" value="{{ $username }}" disabled>
+                                        <br>
+
+                                        <label for="Email">Email</label>
+                                        <input style="width: 32%;" name="email" placeholder="email" value="{{ $email }}" class="form-control" type="text">
+                                        <br>
+
+                                        <label for="Password">Wachtwoord</label>
+                                        <input style="width: 32%;" name="password" type="text" placeholder="wachtwoord" class="form-control">
+                                        <br>
+
+                                        <label for="test">Profiel foto</label>
+                                        {!! Form::file('avatar') !!}
+                                        <br>
+
+                                        <button class="btn btn-success" type="submit">
+                                            Wijzigen
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>{{-- END tab-content --}}
 
                 </div>{{-- END col-9 --}}
