@@ -8,7 +8,10 @@ use App\User;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use Intervention\Image\Facades\Image;
 
 class UserManagement extends Controller
 {
@@ -67,6 +70,7 @@ class UserManagement extends Controller
             foreach($user as $info) {
                 $data['username'] = $info->name;
                 $data['email']    = $info->email;
+                $data['id']       = $info->id;
             }
         }
 
@@ -82,11 +86,29 @@ class UserManagement extends Controller
     public function changeCredentials(emailValidator $input, $id)
     {
         $user = User::find($id);
-        $user->name = $input->name;
-        $user->email = $input->email;
 
-        if (! $user->save) {
+        if (Input::hasFile('avatar')) {
+            //dd(request()->all());
+            $file = Input::file('avatar');
+            $fileName = $file->getClientOriginalName();
+            $file->move(public_path('uploads'), $fileName);
 
+            $imagePath = public_path('uploads/'. $fileName);
+            $image = Image::make($imagePath)->resize(120, 120);
+            $image->save();
+
+            $user->avatar = $imagePath;
         }
+
+        $user->name     = Input::get('name');
+        $user->email    = $input->email;
+        $user->password = Hash::make(Input::get('password'));
+
+        if (! $user->save()) {
+            die('cant save');
+        }
+
+        die('saved');
+        return Redirect::back();
     }
 }
