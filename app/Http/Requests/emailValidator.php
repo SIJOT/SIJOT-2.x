@@ -13,7 +13,7 @@ class emailValidator extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class emailValidator extends Request
     public function rules()
     {
         return [
-            //
+            'email' => 'required'
         ];
     }
 }
