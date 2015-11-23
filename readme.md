@@ -19,6 +19,8 @@ Have a bug or a feature request? Please first read the [issue guidelines]() and 
 
 ## Security vurnabilities.
 
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at [Topairy@gmail.com](mailto:Topairy@gmail.com) All security vulnerabilities will be promptly addressed.
+
 
 ## Versioning 
 For transparency into our release cycle and in striving to maintain backward compatibility, scouts en gidsen template is maintained under the Semantic Versioning guidelines. Sometimes we screw up, but we'll adhere to those rules whenever possible.
