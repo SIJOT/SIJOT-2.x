@@ -150,6 +150,8 @@ return [
          */
         Barryvdh\DomPDF\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        Illuminate\Html\HtmlServiceProvider::class,
     ],
 
     /*
@@ -203,6 +205,9 @@ return [
          * Added facades
          */
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Form'=> Illuminate\Html\FormFacade::class,
+        'HTML'=> Illuminate\Html\HtmlFacade::class
     ],
 
 ];
