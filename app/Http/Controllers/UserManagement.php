@@ -112,7 +112,7 @@ class UserManagement extends Controller
             die('cant save');
         }
 
-        die('saved');
+        // die('saved');
         return Redirect::back();
     }
 }
