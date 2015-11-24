@@ -24,7 +24,9 @@ class authorizationTest extends TestCase
         // factory(App\Permission::class)->make(['user_id' => 5]);
         $this->actingAs($users[0])->visit('/backend/acl/profile/'.$users[0]->id)
             ->see($users[0]->name)
-            ->see($users[0]->id);
+            ->see($users[0]->id)
+            ->see($users[0]->email)
+            ->see($users[0]->avatar);
     }
 
     /**

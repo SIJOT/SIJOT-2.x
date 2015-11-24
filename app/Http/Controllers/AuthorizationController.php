@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Notifications;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 use Pusher;
 use App\User;
 use App\Permission;
@@ -242,6 +244,12 @@ class AuthorizationController extends Controller
         // Dragons are here! I'm scared.
         if (Gate::denies('leden-beheer', $this->ledenbeheer)) {
             return Redirect::back();
+        }
+
+        $user = User::find($id);
+
+        if (File::exists($user->avatar)) {
+            File::delete($user->avatarr);
         }
 
         User::destroy($id);
