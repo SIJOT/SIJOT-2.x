@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->integer('role');
             $table->string('blocked');
-            $table->string('avatar')->unique();
+            $table->string('avatar');
             $table->rememberToken();
             $table->timestamps();
         });

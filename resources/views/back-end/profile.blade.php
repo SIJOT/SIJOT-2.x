@@ -102,10 +102,8 @@
                             <div style="padding-top: 10px;" class="row">
                                 <div class="col-md-12">
                                     <form method="POST" action="/backend/acl/changeCredentials/{{ $id }}" enctype="multipart/form-data">
-                                        {!! Form::open(
-       array(
-           'url' => '/backend/acl/changeCredentials/' .$id,
-           'files' => true)) !!}
+                                        {!! Form::open(['url' => '/backend/acl/changeCredentials/' .$id, 'files' => true]) !!}
+
                                         {{-- CSRF token --}}
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 

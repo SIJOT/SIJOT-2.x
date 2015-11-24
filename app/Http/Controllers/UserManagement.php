@@ -70,6 +70,7 @@ class UserManagement extends Controller
             foreach($user as $info) {
                 $data['username'] = $info->name;
                 $data['email']    = $info->email;
+                $data['avatar']   = $info->avatar;
                 $data['id']       = $info->id;
             }
         }
@@ -102,7 +103,10 @@ class UserManagement extends Controller
 
         $user->name     = Input::get('name');
         $user->email    = $input->email;
-        $user->password = Hash::make(Input::get('password'));
+
+        if (! empty($user->password)) {
+            $user->password = Hash::make(Input::get('password'));
+        }
 
         if (! $user->save()) {
             die('cant save');
