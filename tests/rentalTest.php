@@ -70,7 +70,15 @@ class rentalTest extends TestCase
      */
     public function testRentalFrontEndHyperlinkAanvraag()
     {
-        $this->visit('/verhuur/aanvragen');
+        $rental = factory(App\Verhuring::class)->make();
+
+        $this->visit('/verhuur/aanvragen')
+            ->type($rental->Start_Datum,'StartDatum')
+            ->type($rental->Eind_datum, 'EindDatum')
+            ->type($rental->Groep,'Groep')
+            ->type($rental->Email,'Email')
+            ->press('Aanvragen')
+            ->seePageIs('verhuur/aanvragen');
     }
 
     /**
