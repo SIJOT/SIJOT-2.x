@@ -72,6 +72,7 @@ class rentalTest extends TestCase
     {
         $rental = factory(App\Verhuring::class)->make();
 
+        // Test the form.
         $this->visit('/verhuur/aanvragen')
             ->type($rental->Start_Datum,'StartDatum')
             ->type($rental->Eind_datum, 'EindDatum')
@@ -111,10 +112,22 @@ class rentalTest extends TestCase
                 $u->permission()->save(factory(App\Permission::class)->make());
             })->load('permission');
 
+        $users = factory(App\User::class, 3)
+            ->create()
+            ->each(function($u) {
+                $u->permission()->save(factory(App\Permission::class)->make([
+                    'verhuurbeheer' => 0
+                ]));
+            })->load('permission');
+
         $verhuring = factory(App\Verhuring::class)->make([
             'id' => 5
         ]);
 
+        // Wrong permissions
+        $this->actingAs($users[0])->visit('/backend/rental/confirm/'. $verhuring->id);
+
+        // Correct permissions
         $this->actingAs($user[0])->visit('/backend/rental/confirm/'. $verhuring->id);
     }
 
