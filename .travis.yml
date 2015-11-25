@@ -7,7 +7,7 @@ php:
   - "5.5"                                                           # Test for the php 5.5 version
   - "5.6"                                                           # Test for the php 5.6 version
   # - "7.0"
-  - hhvm                                                            # Test for HHVM
+  # - hhvm                                                          # Test for HHVM
 sudo: false                                                         # Disable sudo permission
 env:
 addons:                                                             # Install nodeJS 
