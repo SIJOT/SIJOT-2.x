@@ -35,27 +35,19 @@ class UsermanagementTest extends TestCase
                 $u->permission()->save(factory(App\Permission::class)->make());
             })->load('permission');
 
+        // $data['id']    = $users[0]->id;
         $data['email'] = $users[0]->email;
+        $data['name']  = $users[0]->name;
 
-        $this->actingAs($users[0])->post('/backend/acl/changeCredentials/'. $users[0]->id, $data)
-            ->assertResponseStatus(302);
-    }
+        $this->actingAs($users[0])->visit('/backend/acl/profile/'. $users[0]->id)
+            ->type($data['name'], 'name')
+            ->type($data['email'], 'email')
+            ->press('Wijzigen')
+            ->seePageIs('/');
 
-    /**
-     * @group allx
-     */
-    public function testValidateGreaterThan()
-    {
-        $rules = [
-            'field' => 'required'
-        ];
+        // $this->actingAs($users[0])->post('/backend/acl/changeCredentials/'. $users[0]->id, $data)
+        //    ->assertResponseStatus(302);
 
-        $data = [
-            'field1' => 1,
-            'field' => ''
-        ];
-
-        $v = $this->app['validator']->make($data, $rules);
-        $this->assertTrue($v->passes());
+        $this->seeInDatabase('users', $data);
     }
 }
