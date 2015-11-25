@@ -42,6 +42,7 @@ class UsermanagementTest extends TestCase
         $this->actingAs($users[0])->visit('/backend/acl/profile/'. $users[0]->id)
             ->type($data['name'], 'name')
             ->type($data['email'], 'email')
+            ->attach('testingAssets/avatar.jpg', 'avatar')
             ->press('Wijzigen')
             ->seePageIs('/');
 
