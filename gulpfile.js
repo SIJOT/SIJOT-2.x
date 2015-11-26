@@ -1,19 +1,25 @@
-'use strict';
+// Include required libraries
+var exlixir = require('laravel-elixir');
 
-// GULP DEPENDENCIES
-// -------------------------------------------
-var gulp = require('gulp-help')(require('gulp'));
-var sass = require('gulp-ruby-sass');
-
-// Tasks
-// -------------------------------------------
-gulp.task('sass', function () {
-    return sass('./resources/assets/scss/*.scss')
-        .on('error', sass.logError)
-        .pipe(gulp.dest('./public/css'));
+// Compile the .scss files.
+// Multiple file's = mix.sass(['file1.scss', 'file2.scss']);
+// Use the version file client-side = {{ elixir('css/all.css') }}
+elixir(function(mix) {
+    mix.sass('app.scss')
+        .version('js/app.js'); 
 });
 
-gulp.task('move', function() {
-    gulp.src('./resources/assets/fonts/*')
-        .pipe(gulp.dest('./public/fonts'));
+// BrowserSynch 
+// You can trigger it with the `gulp watch` command.
+elixir(function(mix) {
+    mix.browserSync();
 });
+
+// Running phpunit 
+// You can trigger it with the `gulp tdd command`
+
+
+
+
+
+
