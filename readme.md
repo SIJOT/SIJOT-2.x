@@ -22,7 +22,7 @@ Have a bug or a feature request? Please first read the [issue guidelines]() and 
 
 ## Security vurnabilities.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at [Topairy@gmail.com](mailto:Topairy@gmail.com) All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Laravel, please send an e-mail to Tim Joosten at [Topairy@gmail.com](mailto:Topairy@gmail.com) All security vulnerabilities will be promptly addressed.
 
 
 ## Versioning 
