@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
-
 /**
  * @property mixed title
  * @property mixed description
@@ -30,8 +28,8 @@ class TakkenValidator extends Request
     {
         return [
             'title'       => 'required',
-            'subTitle'   => 'required',
-            'description' => 'required'
+            'subTitle'    => 'required',
+            'description' => 'required',
         ];
     }
 }

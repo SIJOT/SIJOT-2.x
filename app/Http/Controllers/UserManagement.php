@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\emailValidator;
 use App\Permission;
 use App\User;
-use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
@@ -34,11 +33,11 @@ class UserManagement extends Controller
      */
     public function getIndex()
     {
-        if(Gate::denies('leden-beheer', Auth::user()->permission->ledenbeheer)) {
+        if (Gate::denies('leden-beheer', Auth::user()->permission->ledenbeheer)) {
             return Redirect::back();
         }
 
-        $data['title']  = 'Gebruikers beheer';
+        $data['title'] = 'Gebruikers beheer';
         $data['active'] = 0;
 
         // Get the MySQL Data group by group.
@@ -52,11 +51,12 @@ class UserManagement extends Controller
      * Get the profile for the user.
      *
      * @param $id, integer, the user profile id.
+     *
      * @return \Illuminate\View\View
      */
     public function UserProfile($id)
     {
-        if(Gate::denies('leden-beheer', Auth::user()->permission->ledenbeheer)) {
+        if (Gate::denies('leden-beheer', Auth::user()->permission->ledenbeheer)) {
             return Redirect::back();
         }
 
@@ -67,11 +67,11 @@ class UserManagement extends Controller
         $user = User::where('id', $id)->get();
 
         if (count($user) === 1) {
-            foreach($user as $info) {
+            foreach ($user as $info) {
                 $data['username'] = $info->name;
-                $data['email']    = $info->email;
-                $data['avatar']   = $info->avatar;
-                $data['id']       = $info->id;
+                $data['email'] = $info->email;
+                $data['avatar'] = $info->avatar;
+                $data['id'] = $info->id;
             }
         }
 
@@ -79,7 +79,7 @@ class UserManagement extends Controller
     }
 
     /**
-     * Method so change the user his credentials
+     * Method so change the user his credentials.
      *
      * @param emailValidator $input
      * @param $id
@@ -94,21 +94,21 @@ class UserManagement extends Controller
             $fileName = $file->getClientOriginalName();
             $file->move(public_path('uploads'), $fileName);
 
-            $imagePath = public_path('uploads/'. $fileName);
+            $imagePath = public_path('uploads/'.$fileName);
             $image = Image::make($imagePath)->resize(120, 120);
             $image->save();
 
             $user->avatar = $imagePath;
         }
 
-        $user->name     = Input::get('name');
-        $user->email    = $input->email;
+        $user->name = Input::get('name');
+        $user->email = $input->email;
 
-        if (! empty($user->password)) {
+        if (!empty($user->password)) {
             $user->password = Hash::make(Input::get('password'));
         }
 
-        if (! $user->save()) {
+        if (!$user->save()) {
             die('cant save');
         }
 

@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class databaseTest extends TestCase
 {
@@ -14,7 +11,7 @@ class databaseTest extends TestCase
     {
         $users = factory(App\User::class, 3)
             ->create()
-            ->each(function($user) {
+            ->each(function ($user) {
                 $user->permission()
                     ->save(factory(App\Permission::class)->make());
             });
@@ -45,23 +42,23 @@ class databaseTest extends TestCase
         $this->assertArrayHasKey('created_at', $ArrayUserData);
         $this->assertArrayHasKey('updated_at', $ArrayUserData);
     }
-    
+
     /**
      * @group all
      * @group database
      */
     public function testNotificationsRelation()
     {
-         $users = factory(App\User::class, 3)
+        $users = factory(App\User::class, 3)
             ->create()
-            ->each(function($user) {
+            ->each(function ($user) {
                 $user->notification()
                     ->save(factory(App\Notifications::class)->make());
             });
 
         $ArrayUserData = $users->load('notification')[0];
         $ArrayUserNoti = $users->load('notification')[0]['notification'];
-        
+
         // User data assertions.
         $this->assertArrayHasKey('id', $ArrayUserData);
         $this->assertArrayHasKey('name', $ArrayUserData);
@@ -72,7 +69,7 @@ class databaseTest extends TestCase
         $this->assertArrayHasKey('remember_token', $ArrayUserData);
         $this->assertArrayHasKey('created_at', $ArrayUserData);
         $this->assertArrayHasKey('updated_at', $ArrayUserData);
-        
+
         // Notification assertions.
         $this->assertArrayHasKey('created_at', $ArrayUserNoti);
         $this->assertArrayHasKey('updated_at', $ArrayUserNoti);

@@ -15,11 +15,11 @@ class PermissionTable extends Seeder
         Permission::truncate();
 
         $permission = new Permission();
-        $permission->user_id     = 1;
+        $permission->user_id = 1;
         $permission->ledenbeheer = 1;
         $permission->verhuurbeheer = 1;
-        $permission->media       = 1;
-        $permission->cloud       = 1;
+        $permission->media = 1;
+        $permission->cloud = 1;
         $permission->save();
     }
 }

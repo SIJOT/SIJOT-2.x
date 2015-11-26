@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -18,7 +15,7 @@ class CloudController extends Controller
 
     public function index()
     {
-        $data['title']  = '';
+        $data['title'] = '';
         $data['active'] = 2;
 
         // return view('', $data);
@@ -30,15 +27,15 @@ class CloudController extends Controller
         $fileCount = count($files);
         $uploadCount = 0;
 
-        foreach($files as $file) {
+        foreach ($files as $file) {
             $destinationPath = 'uploads';
             $filename = $file->getClientOrginalName();
             $uploadSuccess = $file->move($destinationPath, $filename);
 
-            $uploadCount ++;
+            $uploadCount++;
         }
 
-        if ($uploadCount == $fileCount){
+        if ($uploadCount == $fileCount) {
             Session::flash('success', 'Upload successfully');
 
             return Redirect::to('upload');
@@ -51,7 +48,5 @@ class CloudController extends Controller
 
     public function downloadFile($id)
     {
-
     }
 }
-

@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
-
 /**
  * @property mixed name      The name off the user.
  * @property mixed email     The email address off the user.
@@ -34,7 +32,7 @@ class Registervalidation extends Request
 
         return [
             'name'     => 'required',
-            'email'    => 'required'
+            'email'    => 'required',
         ];
     }
 }

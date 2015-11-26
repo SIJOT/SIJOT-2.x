@@ -1,10 +1,6 @@
 <?php
 
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Auth;
 
 class AuthencationTest extends TestCase
 {
@@ -29,24 +25,24 @@ class AuthencationTest extends TestCase
         // User with the right permission
         $users = factory(App\User::class, 3)
             ->create()
-            ->each(function($user) {
+            ->each(function ($user) {
                 $user->permission()
                     ->save(factory(App\Permission::class)->make());
             });
 
-        $this->actingAs($users[0])->visit('/backend/acl/delete/'. $users[0]->id)->assertResponseStatus(200);
+        $this->actingAs($users[0])->visit('/backend/acl/delete/'.$users[0]->id)->assertResponseStatus(200);
 
         // User with the wrong permission.
         $user = factory(App\User::class, 3)
             ->create()
-            ->each(function($user) {
+            ->each(function ($user) {
                 $user->permission()
                     ->save(factory(App\Permission::class)->make([
-                        'ledenbeheer' => 0
+                        'ledenbeheer' => 0,
                     ]));
             });
 
-        $this->actingAs($user[0])->visit('/backend/acl/delete/'. $user[0]->id)->assertResponseStatus(200);
+        $this->actingAs($user[0])->visit('/backend/acl/delete/'.$user[0]->id)->assertResponseStatus(200);
     }
 
     /**
@@ -56,7 +52,7 @@ class AuthencationTest extends TestCase
     {
         $this->call('get', '/login');
     }
-    
+
     /**
      * @group all
      */
