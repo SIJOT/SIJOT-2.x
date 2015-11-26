@@ -2,10 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
 class HomeController extends Controller
 {
     /**
@@ -15,7 +11,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data['title']  = 'Index';
+        $data['title'] = 'Index';
         $data['active'] = 0;
 
         return View('front-end.home', $data);

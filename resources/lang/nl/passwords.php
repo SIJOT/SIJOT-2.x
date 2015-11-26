@@ -1,8 +1,9 @@
-<?php 
+<?php
+
 
 return [
-  
-  /**
+
+  /*
    |--------------------------------------------------------------------------
    | Password Reminder Language Lines
    |--------------------------------------------------------------------------
@@ -12,11 +13,11 @@ return [
    | has failed, such as for an invalid token or invalid new password.
    |
    */
-   
-  'password' => 'Wachtwoord moeten minstens 6 karakters hebben en beide vakken moet het zelfde zijn', 
-  'reset' => 'Uw wachtwoord is gereset.', 
-  'sent' => 'Je wachtwoord is opnieuw verstuurd naar je mail.', 
-  'token' => 'De wachtwoord herstel code is incorrect', 
-  'user' => 'Wij kunnen geen gebruiker vinden met het ingegeven email adres'
+
+  'password' => 'Wachtwoord moeten minstens 6 karakters hebben en beide vakken moet het zelfde zijn',
+  'reset'    => 'Uw wachtwoord is gereset.',
+  'sent'     => 'Je wachtwoord is opnieuw verstuurd naar je mail.',
+  'token'    => 'De wachtwoord herstel code is incorrect',
+  'user'     => 'Wij kunnen geen gebruiker vinden met het ingegeven email adres',
 
 ];

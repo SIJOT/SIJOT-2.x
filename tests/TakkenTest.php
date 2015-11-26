@@ -1,12 +1,10 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class TakkenTest extends TestCase
 {
-
     use DatabaseTransactions, DatabaseMigrations;
 
     /**
@@ -18,7 +16,7 @@ class TakkenTest extends TestCase
         // Front-end
         $this->visit('/takken/kapoenen');
     }
-    
+
     /**
      * @group all
      * @group takken 
@@ -27,7 +25,7 @@ class TakkenTest extends TestCase
     {
         $this->visit('/takken/welpen');
     }
-    
+
     /**
      * @group all
      * @group takken
@@ -36,16 +34,16 @@ class TakkenTest extends TestCase
     {
         $this->visit('/takken/jong-givers');
     }
-    
+
     /**
      * @group all
      * @group takken
      */
-    public function testGiversUrl() 
+    public function testGiversUrl()
     {
         $this->visit('/takken/givers');
     }
-    
+
     /**
      * @group all
      * @group takken
@@ -54,16 +52,16 @@ class TakkenTest extends TestCase
     {
         $this->visit('/takken/jins');
     }
-    
+
     /**
      * @group all
      * @group takken 
      */
-    public function testLeidingUrl() 
+    public function testLeidingUrl()
     {
         $this->visit('/takken/leiding');
     }
-    
+
     /**
      * @group all
      * @group takken

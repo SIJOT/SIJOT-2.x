@@ -1,11 +1,8 @@
 <?php
 
-use App\Verhuring;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 
 class rentalTest extends TestCase
 {
@@ -18,7 +15,7 @@ class rentalTest extends TestCase
     {
         $user = factory(App\User::class, 3)
             ->create()
-            ->each(function($u) {
+            ->each(function ($u) {
                 $u->permission()->save(factory(App\Permission::class)->make());
             })->load('permission');
 
@@ -74,10 +71,10 @@ class rentalTest extends TestCase
 
         // Test the form.
         $this->visit('/verhuur/aanvragen')
-            ->type($rental->Start_Datum,'StartDatum')
+            ->type($rental->Start_Datum, 'StartDatum')
             ->type($rental->Eind_datum, 'EindDatum')
-            ->type($rental->Groep,'Groep')
-            ->type($rental->Email,'Email')
+            ->type($rental->Groep, 'Groep')
+            ->type($rental->Email, 'Email')
             ->press('Aanvragen')
             ->seePageIs('verhuur/aanvragen');
     }
@@ -89,15 +86,15 @@ class rentalTest extends TestCase
     {
         $user = factory(App\User::class, 3)
             ->create()
-            ->each(function($u) {
+            ->each(function ($u) {
                 $u->permission()->save(factory(App\Permission::class)->make());
             })->load('permission');
 
         $verhuring = factory(App\Verhuring::class)->make([
-            'id' => 5
+            'id' => 5,
         ]);
 
-        $this->actingAs($user[0])->visit('/backend/rental/option/'. $verhuring->id)
+        $this->actingAs($user[0])->visit('/backend/rental/option/'.$verhuring->id)
             ->assertResponseStatus(200);
     }
 
@@ -108,27 +105,27 @@ class rentalTest extends TestCase
     {
         $user = factory(App\User::class, 3)
             ->create()
-            ->each(function($u) {
+            ->each(function ($u) {
                 $u->permission()->save(factory(App\Permission::class)->make());
             })->load('permission');
 
         $users = factory(App\User::class, 3)
             ->create()
-            ->each(function($u) {
+            ->each(function ($u) {
                 $u->permission()->save(factory(App\Permission::class)->make([
-                    'verhuurbeheer' => 0
+                    'verhuurbeheer' => 0,
                 ]));
             })->load('permission');
 
         $verhuring = factory(App\Verhuring::class)->make([
-            'id' => 5
+            'id' => 5,
         ]);
 
         // Wrong permissions
-        $this->actingAs($users[0])->visit('/backend/rental/confirm/'. $verhuring->id);
+        $this->actingAs($users[0])->visit('/backend/rental/confirm/'.$verhuring->id);
 
         // Correct permissions
-        $this->actingAs($user[0])->visit('/backend/rental/confirm/'. $verhuring->id);
+        $this->actingAs($user[0])->visit('/backend/rental/confirm/'.$verhuring->id);
     }
 
     /**
@@ -145,11 +142,10 @@ class rentalTest extends TestCase
     {
         $user = factory(App\User::class, 3)
             ->create()
-            ->each(function($u) {
+            ->each(function ($u) {
                 $u->permission()->save(factory(App\Permission::class)->make());
             })->load('permission');
 
-
-        $this->actingAs($user[0])->visit('/backend/rental/delete/'. $user[0]->id);
+        $this->actingAs($user[0])->visit('/backend/rental/delete/'.$user[0]->id);
     }
 }

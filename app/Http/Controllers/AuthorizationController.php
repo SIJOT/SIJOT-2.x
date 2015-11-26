@@ -2,24 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Registervalidation;
 use App\Notifications;
+use App\Permission;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Storage;
-use Pusher;
-use App\User;
-use App\Permission;
-use App\Http\Requests;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Redirect;
-use App\Http\Requests\Registervalidation;
+use Pusher;
 
 class AuthorizationController extends Controller
 {
@@ -36,15 +34,13 @@ class AuthorizationController extends Controller
             env('PUSHER_ID')
         );
 
-        if(Auth::check()) {
+        if (Auth::check()) {
             $this->permissionQuery = Permission::where('user_id', Auth::user()->id)->get();
 
-            foreach($this->permissionQuery as $output) {
-                $this->ledenbeheer   = $output->ledenbeheer;
+            foreach ($this->permissionQuery as $output) {
+                $this->ledenbeheer = $output->ledenbeheer;
                 $this->verhuurbeheer = $output->verhuurbeheer;
             }
-
-
         } else {
             $this->permission = 0;
         }
@@ -53,7 +49,7 @@ class AuthorizationController extends Controller
     }
 
     /**
-     * [VIEW] The login page
+     * [VIEW] The login page.
      */
     public function viewLogin()
     {
@@ -67,7 +63,7 @@ class AuthorizationController extends Controller
      */
     public function verifyLogin()
     {
-        $restrictions['email']    = Input::get('email');
+        $restrictions['email'] = Input::get('email');
         $restrictions['password'] = Input::get('password');
 
         if (Auth::attempt($restrictions)) {
@@ -80,10 +76,10 @@ class AuthorizationController extends Controller
             if ($userRole === 2) {
                 // Administrator
                 $redirectUrl = URL::to('/backend/verhuur');
-            } elseif($userRole === 0) {
+            } elseif ($userRole === 0) {
                 // Ouders
                 $redirectUrl = URL::to('/backend/ouders');
-            } elseif($userRole === 1) {
+            } elseif ($userRole === 1) {
                 // Leiding
                 $redirectUrl = URL::to('/backend/takken/update');
             } else {
@@ -93,14 +89,14 @@ class AuthorizationController extends Controller
 
             // Logging instance
             $logging = Lang::get('logging.loggedIn', [
-                'user' => Auth::user()->name
+                'user' => Auth::user()->name,
             ]);
 
             Log::info($logging);
 
             // Set user_id to the session.
 
-            /** @var string, $redirectUrl */
+            /* @var string, $redirectUrl */
             return Redirect::to($redirectUrl);
         } else {
             return Redirect::to('/login')->withInput();
@@ -120,9 +116,9 @@ class AuthorizationController extends Controller
         }
 
         // User insert
-        $users           = new User();
-        $users->name     = $input->name;
-        $users->email    = $input->email;
+        $users = new User();
+        $users->name = $input->name;
+        $users->email = $input->email;
         $users->password = Hash::make('sijot');
         $users->save();
 
@@ -131,7 +127,6 @@ class AuthorizationController extends Controller
 
         $notifications = new Notifications();
         $notifications->user_id = $users->id;
-
 
         // Save the values.
         if ($notifications->save() && $users->save() && $permissions->save()) {
@@ -144,13 +139,12 @@ class AuthorizationController extends Controller
                 $m->from('topairy@gmail.com', 'Tim Joosten');
             });
 
-            $loggingData['name']  = $users->name;
+            $loggingData['name'] = $users->name;
             $loggingData['users'] = Auth::user()->name;
 
             Log::info(Lang::get('logging.registrationSuccess', $loggingData));
-
         } else {
-            $logging =  Lang::get('logging.registrationError');
+            $logging = Lang::get('logging.registrationError');
             Log::error($logging);
         }
 
@@ -160,8 +154,8 @@ class AuthorizationController extends Controller
     /**
      * Throw the user out of the backend.
      */
-    public function getLogout() {
-
+    public function getLogout()
+    {
         $logging = Lang::get('logging.loggedOut', ['user' => Auth::user()->name]);
         Log::info($logging);
 
@@ -181,18 +175,18 @@ class AuthorizationController extends Controller
             return Redirect::back();
         }
 
-        $user           = User::find($id);
-        $user->blocked  = 1;
+        $user = User::find($id);
+        $user->blocked = 1;
 
         if ($user->save()) {
             $logging = Lang::get('logging.', [
-                'name' => Auth::user()->name
+                'name' => Auth::user()->name,
             ]);
 
             Log::warning($logging);
         } else {
             $logging = Lang::get('logging.', [
-                'name' => Auth::user()->name
+                'name' => Auth::user()->name,
             ]);
 
             Log::warning($logging);
@@ -205,26 +199,27 @@ class AuthorizationController extends Controller
      * Enable login.
      *
      * @link
+     *
      * @param $id, integer, user id.
      */
     public function unBlockUser($id)
     {
         if (Gate::denies('leden-beheer', Auth::user()->permission->ledenbeheer)) {
-           return Redirect::back();
+            return Redirect::back();
         }
 
-        $user          = User::find($id);
+        $user = User::find($id);
         $user->blocked = 0;
 
         if ($user->save()) {
             $logging = Lang::get('logging.unblockUserSuccess', [
-                'name' => Auth::user()->name]
+                'name' => Auth::user()->name, ]
             );
 
             Log::info($logging);
         } else {
             $logging = Lang::get('logging.unblockUserFailure', [
-                'name' => Auth::user()->name]
+                'name' => Auth::user()->name, ]
             );
 
             Log::warning($logging);
@@ -237,6 +232,7 @@ class AuthorizationController extends Controller
      * Delete a user out of the system.
      *
      * @link
+     *
      * @param $id, integer, user id.
      */
     public function deleteUser($id)
@@ -257,7 +253,7 @@ class AuthorizationController extends Controller
         Notifications::where('user_id', $id)->delete();
 
         $logging = Lang::get('', [
-            'user' => Auth::user()->name
+            'user' => Auth::user()->name,
         ]);
 
         Log::info($logging);

@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class ActiveGroepsTable extends Migration
 {
@@ -12,7 +12,7 @@ class ActiveGroepsTable extends Migration
      */
     public function up()
     {
-        Schema::create('takken_beheer', function(Blueprint $t) {
+        Schema::create('takken_beheer', function (Blueprint $t) {
             $t->increments('id');
             $t->timestamps();
         });

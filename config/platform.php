@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 
 /* 
  |-------------------------------------------------------------------------- 
@@ -15,24 +16,23 @@
  | [websiteName]    = The name of the website. This is used in the navbar and page title.
  | [websiteContact] = The contact info email address off the scouting group.
  | [broadcast]      = Enable of disable pusher. Values = true, false
- */ 
-
+ */
 
 return [
- /**
+ /*
   * Webmaster details
   */
- 'webmasterEmail'  => 'Topairy@gmail.com', 
+ 'webmasterEmail'  => 'Topairy@gmail.com',
  'webmasterName'   => 'Tim Joosten',
- 
- /**
+
+ /*
   * Website Info.
   */
- 'websiteName'    => 'Sint-Joris', 
+ 'websiteName'    => 'Sint-Joris',
  'websiteContact' => 'Contact@qst-joris-turnhout.be',
- 
- /**
+
+ /*
   * Various.
   */
- 'broadcast'      => true
+ 'broadcast'      => true,
 ];

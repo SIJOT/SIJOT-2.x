@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'navRental' => 'Rentals',
+    'navRental'    => 'Rentals',
     'navNewRental' => 'Add a new rental',
 ];

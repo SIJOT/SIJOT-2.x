@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class notificationTest extends TestCase
 {
@@ -15,12 +15,12 @@ class notificationTest extends TestCase
     {
         $user = factory(App\User::class)->make();
         $verhuur = factory(App\Verhuring::class)->make([
-            'id' => 1
+            'id' => 1,
         ]);
 
-        $this->actingAs($user)->visit('/notification/uit/'. $verhuur->id);
+        $this->actingAs($user)->visit('/notification/uit/'.$verhuur->id);
     }
-    
+
     /**
      * @group all
      */
@@ -28,9 +28,9 @@ class notificationTest extends TestCase
     {
         $user = factory(App\User::class)->make();
         $verhuur = factory(App\Verhuring::class)->make([
-            'id' => 1
+            'id' => 1,
         ]);
 
-        $this->actingAs($user)->visit('/notification/aan/'. $verhuur->id);
+        $this->actingAs($user)->visit('/notification/aan/'.$verhuur->id);
     }
 }

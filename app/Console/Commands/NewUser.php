@@ -44,8 +44,7 @@ class NewUser extends Command
 
         // choices
         $verhuurPermission = $this->choice('Assign permission for the rental system.', $choice, false);
-        $loginPermission   = $this->choice('Assign permission for the user-management system.', $choice, false);
-
+        $loginPermission = $this->choice('Assign permission for the user-management system.', $choice, false);
 
         $this->info('The user is now registered in the system');
     }

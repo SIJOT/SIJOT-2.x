@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UsermanagementTest extends TestCase
 {
@@ -15,7 +13,7 @@ class UsermanagementTest extends TestCase
     {
         $users = factory(App\User::class, 3)
             ->create()
-            ->each(function($u) {
+            ->each(function ($u) {
                 $u->permission()->save(factory(App\Permission::class)->make());
             })->load('permission');
 
@@ -31,15 +29,15 @@ class UsermanagementTest extends TestCase
     {
         $users = factory(App\User::class, 3)
             ->create()
-            ->each(function($u) {
+            ->each(function ($u) {
                 $u->permission()->save(factory(App\Permission::class)->make());
             })->load('permission');
 
         // $data['id']    = $users[0]->id;
         $data['email'] = $users[0]->email;
-        $data['name']  = $users[0]->name;
+        $data['name'] = $users[0]->name;
 
-        $this->actingAs($users[0])->visit('/backend/acl/profile/'. $users[0]->id)
+        $this->actingAs($users[0])->visit('/backend/acl/profile/'.$users[0]->id)
             ->type($data['name'], 'name')
             ->type($data['email'], 'email')
             ->attach('testingAssets/avatar.jpg', 'avatar')
