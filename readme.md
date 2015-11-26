@@ -29,6 +29,10 @@ For transparency into our release cycle and in striving to maintain backward com
 
 See the Releases section of our GitHub project for changelogs for each release version of this repo.
 
+## other handy repositories. 
+
+- [Module template](https://github.com/Tjoosten/scouts-en-gidsen-template-module-skeleton/tree/master)
+
 ## Copyright and license 
 
 
