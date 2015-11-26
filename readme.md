@@ -19,7 +19,7 @@ A template for Belgian scouting groups.
 ## Quickstart
 
 ## Bugs and feature requests. 
-Have a bug or a feature request? Please first read the [issue guidelines]() and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue]().
+Have a bug or a feature request? Please first read the [issue guidelines]() and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](). Or you can contact us on [Slack](https://rientjeteen.slack.com).
 
 ## Security vurnabilities.
 
