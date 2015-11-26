@@ -19,6 +19,9 @@ class rentalTest extends TestCase
                 $u->permission()->save(factory(App\Permission::class)->make());
             })->load('permission');
 
+        // Wrong permissions.
+
+        // Correct permissions.
         $baseUrl = $this->actingAs($user[0])->visit('/backend/rental');
 
         // Navbar
