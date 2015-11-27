@@ -1,7 +1,9 @@
 <?php
 
 /**
- |
+ * This file is necessary in a basic laravel platform. but we use annotations
+ * So this file is pretty useless. You can find more info in the routing
+ * documentation of this project.
  */
 
 Route::get('/', 'HomeController@index');
