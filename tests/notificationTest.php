@@ -10,27 +10,71 @@ class notificationTest extends TestCase
 
     /**
      * @group all
+     * @group rental
      */
     public function testVerhuurNotificationOut()
     {
-        $user = factory(App\User::class)->make();
+        $users = factory(App\User::class, 3)
+            ->create()
+            ->each(function ($user) {
+                $user->permission()
+                    ->save(factory(App\Permission::class)->make([
+                        'verhuurbeheer' => 1,
+                    ]));
+            });
+
         $verhuur = factory(App\Verhuring::class)->make([
-            'id' => 1,
+            'id' => 1
         ]);
 
-        $this->actingAs($user)->visit('/notification/uit/'.$verhuur->id);
+        $user = factory(App\User::class, 3)
+            ->create()
+            ->each(function ($user) {
+                $user->permission()
+                    ->save(factory(App\Permission::class)->make([
+                        'verhuurbeheer' => 0,
+                    ]));
+            });
+
+        // Wrong permission.
+        $this->actingAs($user[0])->visit('/notification/uit/' . $verhuur->id);
+
+        // Correct permission.
+        $this->actingAs($users[0])->visit('/notification/uit/'.$verhuur->id);
     }
 
     /**
      * @group all
+     * @group rental
      */
     public function testVerhuurNotificationAan()
     {
-        $user = factory(App\User::class)->make();
+        $users = factory(App\User::class, 3)
+            ->create()
+            ->each(function ($user) {
+                $user->permission()
+                    ->save(factory(App\Permission::class)->make([
+                        'verhuurbeheer' => 1,
+                    ]));
+            });
+
         $verhuur = factory(App\Verhuring::class)->make([
-            'id' => 1,
+            'id' => 1
         ]);
 
-        $this->actingAs($user)->visit('/notification/aan/'.$verhuur->id);
+        $user = factory(App\User::class, 3)
+            ->create()
+            ->each(function ($user) {
+                $user->permission()
+                    ->save(factory(App\Permission::class)->make([
+                        'verhuurbeheer' => 0,
+                    ]));
+            });
+
+        // Wrong permission.
+        $this->actingAs($user[0])->visit('/notification/aan/' . $verhuur->id);
+
+        // Correct permission.
+        $this->actingAs($users[0])->visit('/notification/aan/'.$verhuur->id);
     }
 }
