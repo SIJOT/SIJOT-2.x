@@ -18,6 +18,8 @@ class notificationsController extends Controller
     }
 
     /**
+     * [Method] Enable rental email notifications.
+     *
      * @param $id
      * @return mixed
      */
@@ -31,6 +33,8 @@ class notificationsController extends Controller
     }
 
     /**
+     * [Method] Disable rental notifications.
+     *
      * @param $id
      * @return mixed
      */
