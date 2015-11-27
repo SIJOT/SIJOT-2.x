@@ -152,6 +152,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
+        App\Providers\AnnotationsServiceProvider::class
     ],
 
     /*
