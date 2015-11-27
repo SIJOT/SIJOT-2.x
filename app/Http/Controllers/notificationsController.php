@@ -9,11 +9,18 @@ class notificationsController extends Controller
 {
     // TODO: implement gate ACL function.
 
+    /**
+     * notificationsController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function VerhuurAan($id)
     {
         $notification = Notifications::findOrNew($id);
@@ -23,6 +30,10 @@ class notificationsController extends Controller
         return Redirect::back();
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function VerhuurUit($id)
     {
         $notification = Notifications::findOrNew($id);
