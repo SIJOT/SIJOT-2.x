@@ -10,6 +10,7 @@ class notificationTest extends TestCase
 
     /**
      * @group all
+     * @group rental
      */
     public function testVerhuurNotificationOut()
     {
@@ -44,6 +45,7 @@ class notificationTest extends TestCase
 
     /**
      * @group all
+     * @group rental
      */
     public function testVerhuurNotificationAan()
     {
