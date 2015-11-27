@@ -13,15 +13,33 @@ class notificationTest extends TestCase
      */
     public function testVerhuurNotificationOut()
     {
-        $user = factory(App\User::class)->make();
+        $users = factory(App\User::class, 3)
+            ->create()
+            ->each(function ($user) {
+                $user->permission()
+                    ->save(factory(App\Permission::class)->make([
+                        'verhuurbeheer' => 1,
+                    ]));
+            });
+
         $verhuur = factory(App\Verhuring::class)->make([
-            'id' => 1,
+            'id' => 1
         ]);
 
-        // Wrong permission.
+        $user = factory(App\User::class, 3)
+            ->create()
+            ->each(function ($user) {
+                $user->permission()
+                    ->save(factory(App\Permission::class)->make([
+                        'verhuurbeheer' => 0,
+                    ]));
+            });
 
-        // Correct Permission.
-        $this->actingAs($user)->visit('/notification/uit/'.$verhuur->id);
+        // Wrong permission.
+        $this->actingAs($user[0])->visit('/notification/uit/' . $verhuur->id);
+
+        // Correct permission.
+        $this->actingAs($users[0])->visit('/notification/uit/'.$verhuur->id);
     }
 
     /**
