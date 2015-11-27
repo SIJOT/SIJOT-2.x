@@ -30,3 +30,6 @@ before_install:
   - mysql -e "create database IF NOT EXISTS test;" -uroot           # Create database test for production 
 after_success:
     - bash <(curl -s https://codecov.io/bash)                       # Push statistics to http://www.codecov.io
+
+notifications:
+  slack: rientjeteen:hcIaSgQATDZWGmX3VjmSqQ9g

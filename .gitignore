@@ -6,3 +6,4 @@ Homestead.json
 .idea
 .sass-cache
 .vagrant
+.DS_Store
