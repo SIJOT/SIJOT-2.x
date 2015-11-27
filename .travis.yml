@@ -32,4 +32,4 @@ after_success:
     - bash <(curl -s https://codecov.io/bash)                       # Push statistics to http://www.codecov.io
 
 notifications:
-  slack: rientjeteen:hcIaSgQATDZWGmX3VjmSqQ9g
+  slack: rientjeteen:hcIaSgQATDZWGmX3VjmSqQ9g                       # Push Travis CI notification to slack.

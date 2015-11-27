@@ -11,7 +11,8 @@
         "barryvdh/laravel-dompdf": "0.6.*",
         "barryvdh/laravel-ide-helper": "^2.1",
         "intervention/image": "^2.3",
-        "illuminate/html": "*"
+        "illuminate/html": "*",
+        "laravelcollective/annotations": "5.1.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
