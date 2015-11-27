@@ -10,6 +10,7 @@ class rentalTest extends TestCase
 
     /**
      * @group all
+     * @group rental
      */
     public function testRentalHyperlinksIndexBackend()
     {
@@ -41,6 +42,7 @@ class rentalTest extends TestCase
 
     /**
      * @group all
+     * @group rental
      */
     public function testRentalFrontEndHyperlink()
     {
@@ -51,6 +53,7 @@ class rentalTest extends TestCase
 
     /**
      * @group all
+     * @group rental
      */
     public function testRentalFrontEndHyperlinkBereikbaarheid()
     {
@@ -59,6 +62,7 @@ class rentalTest extends TestCase
 
     /**
      * @group all
+     * @group rental
      */
     public function testRentalFrontEndHyperlinkKalender()
     {
@@ -67,6 +71,7 @@ class rentalTest extends TestCase
 
     /**
      * @group all
+     * @group rental
      */
     public function testRentalFrontEndHyperlinkAanvraag()
     {
@@ -84,6 +89,7 @@ class rentalTest extends TestCase
 
     /**
      * @group all
+     * @group rental
      */
     public function testRentalsetToOption()
     {
@@ -103,6 +109,7 @@ class rentalTest extends TestCase
 
     /**
      * @group all
+     * @group rental
      */
     public function testRentalSetToConfirmed()
     {
@@ -133,6 +140,7 @@ class rentalTest extends TestCase
 
     /**
      * @group all
+     * @group rental
      */
     public function testPostRentalInsertmethod()
     {
@@ -140,6 +148,7 @@ class rentalTest extends TestCase
 
     /**
      * @group all
+     * @group rental
      */
     public function testRentalDelete()
     {
