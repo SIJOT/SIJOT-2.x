@@ -17,8 +17,14 @@ class AnnotationsServiceProvider extends ServiceProvider {
      * @var array
      */
     protected $scanRoutes = [
+        App\Http\Controllers\AuthorizationController::class,
+        App\Http\Controllers\CloudController::class,
         App\Http\Controllers\HomeController::class,
         App\Http\Controllers\notificationsController::class,
+        App\Http\Controllers\TakkenViewController::class,
+        App\Http\Controllers\UserManagement::class,
+        App\Http\Controllers\VerhuurBackendController::class,
+        App\Http\Controllers\VerhuurController::class
     ];
 
     /**
