@@ -28,7 +28,7 @@ class notificationsController extends Controller
     public function VerhuurAan($id)
     {
         if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
-            return Redirect::back():
+            return Redirect::back();
         }
 
         $notification = Notifications::findOrNew($id);

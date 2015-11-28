@@ -9,7 +9,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      *
-     * @Get('/')
+     * @Get("/", as="index")
      */
     public function index()
     {

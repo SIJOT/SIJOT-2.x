@@ -6,7 +6,7 @@
  * documentation of this project.
  */
 
-Route::get('/', 'HomeController@index');
+// Route::get('/', 'HomeController@index');
 
 // Group routes.
 Route::get('/takken', 'TakkenViewController@TakAll');
