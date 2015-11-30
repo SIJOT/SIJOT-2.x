@@ -23,8 +23,7 @@ class Info extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
-
+    protected $fillable = ['URI_fragment', 'Title', 'Sub_title', 'Beschrijving'];
     /**
      * The attributes excluded from the model's JSON form.
      *

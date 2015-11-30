@@ -48,7 +48,7 @@ class VerhuurBackendController extends Controller
      * - Creation
      * - Delete
      * - Modify
-     * - Option setter
+     * - Option setter.
      * - Confirm setting.
      *
      * @return \Illuminate\Http\Response
@@ -88,6 +88,8 @@ class VerhuurBackendController extends Controller
      * @param Requests\RentalValidator $input
      *
      * @return \Illuminate\Http\Response
+     *
+     * @Post("/rental/insert", as="rental.insert")
      */
     public function store(Requests\RentalValidator $input)
     {
@@ -208,7 +210,6 @@ class VerhuurBackendController extends Controller
      * Set rental to confirmed.
      *
      * @link: [GET] www.domain.tld/rental/confirm.
-     * @middleware, Rental, Admin.
      *
      * @param $id, int, The id of the rental request.
      */

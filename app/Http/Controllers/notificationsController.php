@@ -24,6 +24,8 @@ class notificationsController extends Controller
      *
      * @param $id
      * @return mixed
+     *
+     * @Get("/notification/aan/{id}", as="rental.notificationEnable")
      */
     public function VerhuurAan($id)
     {
@@ -43,6 +45,8 @@ class notificationsController extends Controller
      *
      * @param $id
      * @return mixed
+     *
+     * @Get("/notification/uit/{id}", as="rental.notificationDisable")
      */
     public function VerhuurUit($id)
     {

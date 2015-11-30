@@ -15,4 +15,11 @@ class Permission extends Model
      * @var string
      */
     protected $table = 'cms_permissions';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['user_id', 'cloud', 'verhuurbeheer', 'ledenbeheer', 'media'];
 }
