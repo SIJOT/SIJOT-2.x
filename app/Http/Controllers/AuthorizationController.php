@@ -50,6 +50,8 @@ class AuthorizationController extends Controller
 
     /**
      * [VIEW] The login page.
+     *
+     * @Get("")
      */
     public function viewLogin()
     {
@@ -60,6 +62,8 @@ class AuthorizationController extends Controller
      * Verify that a user can login into the system.
      *
      * TODO: Pusher integration. For welcome message.
+     *
+     * @Get("")
      */
     public function verifyLogin()
     {

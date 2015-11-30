@@ -12,4 +12,11 @@ class Sessions extends Model
      * @var string
      */
     protected $table = 'sessions';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['payload', 'last_activity'];
 }

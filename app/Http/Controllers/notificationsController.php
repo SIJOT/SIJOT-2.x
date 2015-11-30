@@ -11,15 +11,26 @@ class notificationsController extends Controller
 {
     // TODO: implement gate ACL function.
 
+    /**
+     * notificationsController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
+    /**
+     * [Method] Enable rental email notifications.
+     *
+     * @param $id
+     * @return mixed
+     *
+     * @Get("/notification/aan/{id}", as="rental.notificationEnable")
+     */
     public function VerhuurAan($id)
     {
         if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
-            return Redirect::back():
+            return Redirect::back();
         }
 
         $notification = Notifications::findOrNew($id);
@@ -29,6 +40,14 @@ class notificationsController extends Controller
         return Redirect::back();
     }
 
+    /**
+     * [Method] Disable rental notifications.
+     *
+     * @param $id
+     * @return mixed
+     *
+     * @Get("/notification/uit/{id}", as="rental.notificationDisable")
+     */
     public function VerhuurUit($id)
     {
         if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {

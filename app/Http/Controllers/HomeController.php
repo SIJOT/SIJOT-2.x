@@ -8,6 +8,8 @@ class HomeController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     *
+     * @Get("/", as="index")
      */
     public function index()
     {

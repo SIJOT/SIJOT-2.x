@@ -6,7 +6,7 @@
  * documentation of this project.
  */
 
-Route::get('/', 'HomeController@index');
+// Route::get('/', 'HomeController@index');
 
 // Group routes.
 Route::get('/takken', 'TakkenViewController@TakAll');
@@ -33,15 +33,15 @@ Route::post('/backend/takken/update', 'TakkenViewController@postUpdate');
 /*
  * Notification routes.
  */
-Route::get('/notification/uit/{id}', 'notificationsController@VerhuurUit');
-Route::get('/notification/aan/{id}', 'notificationsController@VerhuurAan');
+// Route::get('/notification/uit/{id}', 'notificationsController@VerhuurUit');
+// Route::get('/notification/aan/{id}', 'notificationsController@VerhuurAan');
 
 /*
  * Rental routes.
  */
 // Front-end
 Route::get('/verhuur', 'VerhuurController@index');
-Route::post('/rental/insert', 'VerhuurBackendController@store');
+// Route::post('/rental/insert', 'VerhuurBackendController@store');
 Route::get('/verhuur/aanvragen', 'VerhuurController@aanvragen');
 Route::get('/verhuur/bereikbaarheid', 'VerhuurController@bereikbaarheid');
 Route::get('/verhuur/kalender', 'VerhuurBackendController@getCalendar');
