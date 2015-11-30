@@ -1,25 +1,27 @@
-// Include required libraries
-var elixir = require('laravel-elixir');
+// GULP DEPENDENCIES
+// ----------------------------------------------------------------------------
+var gulp         = require('gulp');
+var sass         = require('gulp-ruby-sass');
+var autoprefixer = require('gulp-autoprefixer');
+var minifycss    = require('gulp-minify-css');
+var jshint       = require('gulp-jshint');
+var concat       = require('gulp-concat');
+var uglify       = require('gulp-uglify');
+var imageMin     = require('gulp-imagemin');
+var notify       = require('gulp-notify');
+var rename       = require('gulp-rename');
+var cache        = require('gulp-cache');
+var del          = require('del');
 
-// Compile the .scss files.
-// Multiple file's = mix.sass(['file1.scss', 'file2.scss']);
-// Use the version file client-side = {{ elixir('css/all.css') }}
-elixir(function(mix) {
-    mix.sass('app.scss')
-        .version('js/app.js');
+// GULP TASKS.
+// ----------------------------------------------------------------------------
+gulp.task('styles', function() {
+    return sass('./resources/assets/scss/*.scss', { style: 'expanded' })
+        .pipe(autoprefixer('last 2 version'))
+        .pipe(gulp.dest('./public/css'))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(minifycss())
+        .pipe(gulp.dest('./public/css'))
+        .pipe(notify({ message: 'Styles task complete' }));
 });
-
-// BrowserSynch 
-// You can trigger it with the `gulp watch` command.
-elixir(function(mix) {
-    mix.browserSync();
-});
-
-// Running phpunit 
-// You can trigger it with the `gulp tdd command`
-
-
-
-
-
 

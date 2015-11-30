@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.1.24 (LTS) on 2015-11-25.
+ * Generated for Laravel 5.1.25 (LTS) on 2015-11-30.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -2226,23 +2226,23 @@ namespace {
          *
          * @param string $key
          * @param mixed $value
-         * @return void 
+         * @return int 
          * @static 
          */
         public static function increment($key, $value = 1){
-            \Illuminate\Cache\DatabaseStore::increment($key, $value);
+            return \Illuminate\Cache\FileStore::increment($key, $value);
         }
         
         /**
-         * Increment the value of an item in the cache.
+         * Decrement the value of an item in the cache.
          *
          * @param string $key
          * @param mixed $value
-         * @return void 
+         * @return int 
          * @static 
          */
         public static function decrement($key, $value = 1){
-            \Illuminate\Cache\DatabaseStore::decrement($key, $value);
+            return \Illuminate\Cache\FileStore::decrement($key, $value);
         }
         
         /**
@@ -2252,27 +2252,27 @@ namespace {
          * @static 
          */
         public static function flush(){
-            \Illuminate\Cache\DatabaseStore::flush();
+            \Illuminate\Cache\FileStore::flush();
         }
         
         /**
-         * Get the underlying database connection.
+         * Get the Filesystem instance.
          *
-         * @return \Illuminate\Database\MySqlConnection 
+         * @return \Illuminate\Filesystem\Filesystem 
          * @static 
          */
-        public static function getConnection(){
-            return \Illuminate\Cache\DatabaseStore::getConnection();
+        public static function getFilesystem(){
+            return \Illuminate\Cache\FileStore::getFilesystem();
         }
         
         /**
-         * Get the encrypter instance.
+         * Get the working directory of the cache.
          *
-         * @return \Illuminate\Contracts\Encryption\Encrypter 
+         * @return string 
          * @static 
          */
-        public static function getEncrypter(){
-            return \Illuminate\Cache\DatabaseStore::getEncrypter();
+        public static function getDirectory(){
+            return \Illuminate\Cache\FileStore::getDirectory();
         }
         
         /**
@@ -2282,7 +2282,7 @@ namespace {
          * @static 
          */
         public static function getPrefix(){
-            return \Illuminate\Cache\DatabaseStore::getPrefix();
+            return \Illuminate\Cache\FileStore::getPrefix();
         }
         
     }
@@ -3449,7 +3449,7 @@ namespace {
          * Get an array with the values of a given column.
          *
          * @param string $column
-         * @param string $key
+         * @param string|null $key
          * @return \Illuminate\Support\Collection 
          * @static 
          */
@@ -6937,7 +6937,7 @@ namespace {
          * Determine if a translation exists for a given locale.
          *
          * @param string $key
-         * @param string $locale
+         * @param string|null $locale
          * @return bool 
          * @static 
          */
@@ -6949,7 +6949,7 @@ namespace {
          * Determine if a translation exists.
          *
          * @param string $key
-         * @param string $locale
+         * @param string|null $locale
          * @param bool $fallback
          * @return bool 
          * @static 
@@ -6963,7 +6963,7 @@ namespace {
          *
          * @param string $key
          * @param array $replace
-         * @param string $locale
+         * @param string|null $locale
          * @param bool $fallback
          * @return string 
          * @static 
@@ -9922,7 +9922,6 @@ namespace {
          *
          * @param array $controllers
          * @return void 
-         * @deprecated since version 5.1.
          * @static 
          */
         public static function controllers($controllers){
@@ -9936,7 +9935,6 @@ namespace {
          * @param string $controller
          * @param array $names
          * @return void 
-         * @deprecated since version 5.1.
          * @static 
          */
         public static function controller($uri, $controller, $names = array()){
@@ -11470,6 +11468,29 @@ namespace {
             return \Illuminate\Routing\UrlGenerator::setRootControllerNamespace($rootNamespace);
         }
         
+        /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param callable $macro
+         * @return void 
+         * @static 
+         */
+        public static function macro($name, $macro){
+            \Illuminate\Routing\UrlGenerator::macro($name, $macro);
+        }
+        
+        /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */
+        public static function hasMacro($name){
+            return \Illuminate\Routing\UrlGenerator::hasMacro($name);
+        }
+        
     }
 
 
@@ -11782,6 +11803,7 @@ namespace {
          *
          * @param bool $overwrite
          * @return string 
+         * @throws \InvalidArgumentException
          * @static 
          */
         public static function stopSection($overwrite = false){
@@ -11792,6 +11814,7 @@ namespace {
          * Stop injecting content into a section and append it.
          *
          * @return string 
+         * @throws \InvalidArgumentException
          * @static 
          */
         public static function appendSection(){
