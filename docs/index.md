@@ -1,5 +1,4 @@
-Table of contents:
-=====================
+# Table of contents:
 
 - [Artisan commands]() 
 - [Permissions]()
