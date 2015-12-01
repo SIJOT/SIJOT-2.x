@@ -25,3 +25,8 @@ gulp.task('styles', function() {
         .pipe(notify({ message: 'Styles task complete' }));
 });
 
+gulp.task('watch', function() {
+    // Watch .scss files.
+    gulp.watch('./resources/assets/scss/*.scss', ['styles']);
+});
+
