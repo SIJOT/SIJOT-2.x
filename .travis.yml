@@ -18,7 +18,7 @@ before_script:
   - composer install                                                # Install the project trough composer?
   - php artisan migrate                                             # Create the database tables.
   - php artisan db:seed                                             # Insert rows in the database
-  - npm install
+  - npm install -g
 
 script:
   - phpunit --group all                                             # Run phpunit
