@@ -16,6 +16,8 @@ var scsslint     = require('gulp-scss-lint');
 
 // GULP TASKS.
 // ----------------------------------------------------------------------------
+// TODO: need to set up a help command shell.
+
 gulp.task('styles', function() {
     return sass('./resources/assets/scss/*.scss', { style: 'expanded' })
         .pipe(autoprefixer('last 2 version'))
@@ -48,6 +50,7 @@ gulp.task('default', ['clean'], function() {
     gulp.start('styles');
 });
 
+// Watch for changes.
 gulp.task('watch', function() {
     // Watch .scss files.
     gulp.watch('./resources/assets/scss/*.scss', ['styles']);
