@@ -18,10 +18,14 @@ before_script:
   - composer install                                                # Install the project trough composer?
   - php artisan migrate                                             # Create the database tables.
   - php artisan db:seed                                             # Insert rows in the database
+  - npm install
 
 script:
   - phpunit --group all                                             # Run phpunit
   - vendor/bin/phpunit --coverage-clover=coverage.xml               # Calculate coverage
+  - gulp styles
+  - gulp
+  - gulp scss-lint
   
 # code coverage
 before_install:
