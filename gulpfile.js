@@ -25,6 +25,11 @@ gulp.task('styles', function() {
         .pipe(notify({ message: 'Styles task complete' }));
 });
 
+// Clean the assets directories.
+gulp.task('clean', function() {
+    return del(['./public/styles']);
+});
+
 // Gulp default task.
 // You can simply run it with `gulp`
 gulp.task('default', ['clean'], function() {
