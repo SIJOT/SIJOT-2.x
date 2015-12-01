@@ -25,6 +25,12 @@ gulp.task('styles', function() {
         .pipe(notify({ message: 'Styles task complete' }));
 });
 
+// Gulp default task.
+// You can simply run it with `gulp`
+gulp.task('default', ['clean'], function() {
+    gulp.start('styles');
+});
+
 gulp.task('watch', function() {
     // Watch .scss files.
     gulp.watch('./resources/assets/scss/*.scss', ['styles']);
