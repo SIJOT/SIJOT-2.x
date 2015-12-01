@@ -1,48 +1,49 @@
 @import "_partials/octicons";
+@import "_modules/costumColors";
 
 body {
   padding-top: 75px;
 }
 
 .border {
-  border: 1.2px solid #aac12b;
+  border: 1.2px solid $color-border;
 }
 
 .background {
   padding-top: 75px;
-  background: #bdd732 url('../img/background.png') no-repeat fixed center 110px;
+  background: $color-background url('../img/background.png') no-repeat fixed center 110px;
 }
 
 // Takken pagina
 .color-white {
-  background-color: #ffffff;
+  background-color: $white;
   padding: 6px;
-  border: 1.2px solid #dddddd;
+  border: 1.2px solid $white-darker;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .color-kapoenen {
-  background-color: #ffff00;
+  background-color: $color-kapoenen;
 }
 
 .color-welpen {
-  background-color: #228b22;
+  background-color: $color-welpen;
 }
 
 .color-jonggivers {
-  background-color: #f5821f;
+  background-color: $color-jongGivers;
 }
 
 .color-givers {
-  background-color: #256f91;
+  background-color: $color-givers;
 }
 
 .color-jins {
-  background-color: #ed1c23;
+  background-color: $color-jins;
 }
 
 .color-leiding {
-  background-color: #663399;
+  background-color: $color-leiding;
 }
