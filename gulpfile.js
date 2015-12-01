@@ -12,6 +12,7 @@ var notify       = require('gulp-notify');
 var rename       = require('gulp-rename');
 var cache        = require('gulp-cache');
 var del          = require('del');
+var scsslint     = require('gulp-scss-lint');
 
 // GULP TASKS.
 // ----------------------------------------------------------------------------
@@ -23,6 +24,17 @@ gulp.task('styles', function() {
         .pipe(minifycss())
         .pipe(gulp.dest('./public/css'))
         .pipe(notify({ message: 'Styles task complete' }));
+});
+
+// Lint the scss resources,
+// This function is depended on.
+// the scss_lint gem.
+// You can install it with the following command:
+//
+// gem install scss_lint
+gulp.task('scss-lint', function() {
+    return gulp.src('./resources/assets/scss/*.scss')
+        .pipe(scsslint());
 });
 
 // Clean the assets directories.
