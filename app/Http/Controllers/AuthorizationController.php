@@ -51,7 +51,7 @@ class AuthorizationController extends Controller
     /**
      * [VIEW] The login page.
      *
-     * @Get("")
+     * @Get("/login", as="login.Get")
      */
     public function viewLogin()
     {
@@ -63,7 +63,7 @@ class AuthorizationController extends Controller
      *
      * TODO: Pusher integration. For welcome message.
      *
-     * @Get("")
+     * @Post("/login", as="login.Post")
      */
     public function verifyLogin()
     {
@@ -112,6 +112,8 @@ class AuthorizationController extends Controller
      * Affects user and permission table.
      *
      * @param Registervalidation $input
+     *
+     * @Post("/backend/acl/register", as="acl.register")
      */
     public function Register(Registervalidation $input)
     {
@@ -157,6 +159,8 @@ class AuthorizationController extends Controller
 
     /**
      * Throw the user out of the backend.
+     *
+     * @Get("/logout", as="logout")
      */
     public function getLogout()
     {
@@ -172,6 +176,8 @@ class AuthorizationController extends Controller
      * Disable login.
      *
      * @param $id, integer, User id.
+     *
+     * @Get("/backend/acl/block/{id}", as="acl.block")
      */
     public function blockUser($id)
     {
@@ -202,9 +208,9 @@ class AuthorizationController extends Controller
     /**
      * Enable login.
      *
-     * @link
-     *
      * @param $id, integer, user id.
+     *
+     * @Get("/backend/acl/unblock/{id}", as="acl.unblock")
      */
     public function unBlockUser($id)
     {
@@ -238,6 +244,8 @@ class AuthorizationController extends Controller
      * @link
      *
      * @param $id, integer, user id.
+     *
+     * @Get("/backend/acl/delete/{id}", as="acl.delete")
      */
     public function deleteUser($id)
     {

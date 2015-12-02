@@ -34,9 +34,9 @@ class TakkenViewController extends Controller
     /**
      * Get All the groups.
      *
-     * @link   {GET} www.domain.tld/takken
-     *
      * @return \Illuminate\View\View
+     *
+     * @Get("takken", as="groups.all")
      */
     public function TakAll()
     {
@@ -44,6 +44,7 @@ class TakkenViewController extends Controller
         $data['active'] = 1;
 
         // Get Tak info out of the MySQL DB.
+        // TODO: set query scopes.
         $data['takken'] = Info::all();
         $data['kapoenen'] = Info::where('URI_fragment', '=', 'kapoenen')->get();
         $data['welpen'] = Info::where('URI_fragment', '=', 'welpen')->get();
@@ -61,11 +62,15 @@ class TakkenViewController extends Controller
      * @param $fragment
      *
      * @return \Illuminate\View\View
+     *
+     * @Get("takken/{fragment}", as="groups.specific")
      */
     public function Tak($fragment)
     {
         $data['title'] = 'De Leiding';
         $data['active'] = 1;
+
+        // TODO: Set in query scopes.
         $data['Activiteiten'] = Activiteiten::where('URI_fragment', '=', $fragment)->get();
         $data['Beschrijving'] = Info::where('URI_fragment', '=', $fragment)->get();
 
@@ -75,11 +80,11 @@ class TakkenViewController extends Controller
     /**
      * [VIEW] Update the group.
      *
-     * @link   {GET} /backend/takken/update/{fragment}
-     *
      * @return \Illuminate\View\View
      *
      * @internal param $fragment
+     *
+     * @Get("/backend/takken/update", as="groups.groups.getUpdate")
      */
     public function getUpdate()
     {
@@ -87,12 +92,13 @@ class TakkenViewController extends Controller
         $data['active'] = 1;
 
         // Get Tak info out of the MySQL DB.
-        $data['kapoenen'] = Info::where('URI_fragment', '=', 'kapoenen')->get();
-        $data['welpen'] = Info::where('URI_fragment', '=', 'welpen')->get();
+        // TODO: check possibity for query scope.
+        $data['kapoenen']   = Info::where('URI_fragment', '=', 'kapoenen')->get();
+        $data['welpen']     = Info::where('URI_fragment', '=', 'welpen')->get();
         $data['jongGivers'] = Info::where('URI_fragment', '=', 'jong-givers')->get();
-        $data['givers'] = Info::where('URI_fragment', '=', 'givers')->get();
-        $data['jins'] = Info::where('URI_fragment', '=', 'jins')->get();
-        $data['leiding'] = Info::where('URI_fragment', '=', 'leiding')->get();
+        $data['givers']     = Info::where('URI_fragment', '=', 'givers')->get();
+        $data['jins']       = Info::where('URI_fragment', '=', 'jins')->get();
+        $data['leiding']    = Info::where('URI_fragment', '=', 'leiding')->get();
 
         return View('back-end.group-update', $data);
     }
@@ -100,11 +106,11 @@ class TakkenViewController extends Controller
     /**
      * [METHOD] Update group description.
      *
-     * @link   {POST} /backend/takken/update
-     *
      * @param Requests\TakkenValidator $input
      *
      * @return Redirect
+     *
+     * @Post("/backend/takken/update", as="groups.postUpdate")
      */
     public function postUpdate(Requests\TakkenValidator $input)
     {
@@ -118,7 +124,7 @@ class TakkenViewController extends Controller
         // If not, Make a flash session. And kick my ass back to the system.
 
         // Make lang files.
-        if (!$group->save()) {
+        if (! $group->save()) {
             $this->pusher->trigger('channel_takken', 'takken_notification', [
                 'class'   => 'error',
                 'message' => 'Wij konden de gegevens niet aanpassen.',
@@ -140,22 +146,22 @@ class TakkenViewController extends Controller
         $tak = new Groep();
 
         // Scouts en gidsen vlaanderen
-        $tak->segvl_kapoenen = Input::has('kapoenen')   ? true : false;
-        $tak->segvl_welpen = Input::has('welpen')     ? true : false;
+        $tak->segvl_kapoenen = Input::has('kapoenen')     ? true : false;
+        $tak->segvl_welpen = Input::has('welpen')         ? true : false;
         $tak->segvl_jonggivers = Input::has('jongGivers') ? true : false;
-        $tak->segvl_givers = Input::has('givers')     ? true : false;
-        $tak->segvl_jins = Input::has('jins')       ? true : false;
-        $tak->segvl_leiding = Input::has('leiding')    ? true : false;
+        $tak->segvl_givers = Input::has('givers')         ? true : false;
+        $tak->segvl_jins = Input::has('jins')             ? true : false;
+        $tak->segvl_leiding = Input::has('leiding')       ? true : false;
 
         // FOS Scouting
-        $tak->bevers = Input::has('Bevers')     ? true : false;
-        $tak->zeehonden = Input::has('zeehouden')  ? true : false;
+        $tak->bevers = Input::has('Bevers')               ? true : false;
+        $tak->zeehonden = Input::has('zeehouden')         ? true : false;
 
         // Les Scouts
-        $tak->ls_baladins = Input::has('baladins')   ? true : false;
-        $tak->ls_louveteaux = Input::has('louveteaux') ? true : false;
-        $tak->ls_eclaireurs = Input::has('eclaireurs') ? true : false;
-        $tak->ls_poinniers = input::has('pionniers')  ? true : false;
+        $tak->ls_baladins = Input::has('baladins')        ? true : false;
+        $tak->ls_louveteaux = Input::has('louveteaux')    ? true : false;
+        $tak->ls_eclaireurs = Input::has('eclaireurs')    ? true : false;
+        $tak->ls_poinniers = input::has('pionniers')      ? true : false;
 
         if ($tak->save()) {
         }

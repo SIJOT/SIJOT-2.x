@@ -13,6 +13,9 @@ class CloudController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * @get("cloud/index", as="cloud.index")
+     */
     public function index()
     {
         $data['title'] = '';
@@ -21,6 +24,11 @@ class CloudController extends Controller
         // return view('', $data);
     }
 
+    /**
+     * @return mixed
+     *
+     * @Post("cloud/upload", as="cloud.upload")
+     */
     public function uploadFile()
     {
         $files = Input::file('files');
@@ -28,7 +36,7 @@ class CloudController extends Controller
         $uploadCount = 0;
 
         foreach ($files as $file) {
-            $destinationPath = 'uploads';
+            $destinationPath = public_path('uploads');
             $filename = $file->getClientOrginalName();
             $uploadSuccess = $file->move($destinationPath, $filename);
 
@@ -42,10 +50,20 @@ class CloudController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     *
+     * @get("cloud/delete/{id}", as="rental.delete")
+     */
     public function deleteFile($id)
     {
     }
 
+    /**
+     * @param $id
+     *
+     * @Get("cloud/download/{id}", as="cloud.download")
+     */
     public function downloadFile($id)
     {
     }

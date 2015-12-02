@@ -52,6 +52,8 @@ class VerhuurBackendController extends Controller
      * - Confirm setting.
      *
      * @return \Illuminate\Http\Response
+     *
+     * @Get("backend/rental", as="rental.index")
      */
     public function index()
     {
@@ -83,8 +85,6 @@ class VerhuurBackendController extends Controller
     /**
      * [Method] Store a newly created resource in storage.
      *
-     * @link    [POST] www.domain.tld/rental/new
-     *
      * @param Requests\RentalValidator $input
      *
      * @return \Illuminate\Http\Response
@@ -108,10 +108,10 @@ class VerhuurBackendController extends Controller
         $rental->Status = 0;
 
         if ($rental->save()) {
-            if (!Auth::check()) {
+            if (! Auth::check()) {
                 Mail::send('emails.verhuurAanvraag', ['data' => $input], function ($m) use ($input) {
                     $m->to($input->Email)->subject('Aanvraag verhuur | St-joris Turnhout');
-                    $m->from('topairy@gmail.com', 'Tim Joosten');
+                    $m->from(config('platform.websiteContact)', config('platform.websiteName')));
                 });
 
                 Log::info('Verhuur bevestiging is naar de aanvrager verzonden.');
@@ -131,7 +131,7 @@ class VerhuurBackendController extends Controller
 
                 Mail::send('emails.verhuurNotificatie', ['data' => $input], function ($m) use ($user) {
                     $m->to($user->email, $user->name)->subject('Notificatie verhuur | St-joris Turnhout');
-                    $m->from('topairy@gmail.com', 'Tim Joosten');
+                    $m->from(config('platform.websiteContact'), config('platform.websiteName'));
                 });
 
                 Log::info('Verhuur notificatie mail is verzonden.');
@@ -145,6 +145,8 @@ class VerhuurBackendController extends Controller
      * Display the confirmed dates..
      *
      * @return \Illuminate\Http\Response
+     *
+     * @Get("/verhuur/kalender", as="rental.calendar")
      */
     public function getCalendar()
     {
@@ -167,6 +169,8 @@ class VerhuurBackendController extends Controller
      * @middleware Rental, Admin
      *
      * @param $id, integer, The id of the rental request.
+     *
+     * @Get("backend/rental/option/{id} ", as="rental.option")
      */
     public function option($id)
     {
@@ -194,6 +198,11 @@ class VerhuurBackendController extends Controller
         return Redirect::back();
     }
 
+    /**
+     * @return mixed
+     *
+     * @Get("backend/rental/contract", as="rental.contract")
+     */
     public function downloadContract()
     {
         if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
@@ -212,6 +221,8 @@ class VerhuurBackendController extends Controller
      * @link: [GET] www.domain.tld/rental/confirm.
      *
      * @param $id, int, The id of the rental request.
+     *
+     * @Get("backend/rental/confirm/{id}", as="rental.confirm")
      */
     public function confirmed($id)
     {
@@ -247,6 +258,8 @@ class VerhuurBackendController extends Controller
      * @param int                      $id
      *
      * @return \Illuminate\Http\Response
+     *
+     * @Post("backend/rental/update/{id}", as="rental.update")
      */
     public function update(Request $request, $id)
     {
@@ -284,6 +297,8 @@ class VerhuurBackendController extends Controller
      * @param int $id, The rental id.
      *
      * @return \Illuminate\Http\Response
+     *
+     * @Get("backend/rental/delete/{id}", as="rental.destroy")
      */
     public function destroy($id)
     {

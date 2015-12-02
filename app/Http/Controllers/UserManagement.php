@@ -30,6 +30,8 @@ class UserManagement extends Controller
      * get the index view for the usermanagement console.
      *
      * @return \Illuminate\View\View
+     *
+     * @Get("backend/acl", as="acl.index")
      */
     public function getIndex()
     {
@@ -53,6 +55,8 @@ class UserManagement extends Controller
      * @param $id, integer, the user profile id.
      *
      * @return \Illuminate\View\View
+     *
+     * @Get("backend/acl/profile/{id} ", as="acl.index")
      */
     public function UserProfile($id)
     {
@@ -83,6 +87,8 @@ class UserManagement extends Controller
      *
      * @param emailValidator $input
      * @param $id
+     *
+     * @Post("backend/acl/changeCredentials/{id}", as="acl.changeCredentials")
      */
     public function changeCredentials(emailValidator $input, $id)
     {
@@ -104,11 +110,11 @@ class UserManagement extends Controller
         $user->name = Input::get('name');
         $user->email = $input->email;
 
-        if (!empty($user->password)) {
+        if (! empty($user->password)) {
             $user->password = Hash::make(Input::get('password'));
         }
 
-        if (!$user->save()) {
+        if (! $user->save()) {
             die('cant save');
         }
 

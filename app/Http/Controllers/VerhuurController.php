@@ -8,6 +8,8 @@ class VerhuurController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     *
+     * @Get("/verhuur", as="rental.Client")
      */
     public function index()
     {
@@ -22,6 +24,8 @@ class VerhuurController extends Controller
      * @link   [GET] www.domain.tld/rental/new
      *
      * @return \Illuminate\Http\Response
+     *
+     * @Get("/verhuur/aanvragen", as="rental.request")
      */
     public function aanvragen()
     {
@@ -32,6 +36,11 @@ class VerhuurController extends Controller
         return view('front-end.verhuurAanvraag', $data);
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * @Get("/verhuur/bereikbaarheid", as="rental.route")
+     */
     public function bereikbaarheid()
     {
         $data['title'] = 'Verhuur | Bereikbaarheid';
