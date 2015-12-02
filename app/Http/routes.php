@@ -9,8 +9,8 @@
 // Route::get('/', 'HomeController@index');
 
 // Group routes.
-Route::get('/takken', 'TakkenViewController@TakAll');
-Route::get('/takken/{fragment}', 'TakkenViewController@Tak');
+// Route::get('/takken', 'TakkenViewController@TakAll');
+// Route::get('/takken/{fragment}', 'TakkenViewController@Tak');
 
 /*
  * Authorization routes.
