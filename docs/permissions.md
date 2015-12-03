@@ -16,6 +16,19 @@ Has permission for:
 - Delete a user. 
 - Listing view for all the user. 
 - Register a new login.
+- 
+
+### verhuur-beheer
+
+Has permission for: 
+
+### media
+
+Has permission for: 
+
+### cloud 
+
+Has permission for: 
 
 ## Create new permission.
 
