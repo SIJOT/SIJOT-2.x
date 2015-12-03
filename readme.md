@@ -1,6 +1,6 @@
 ## Scouts website, Sint-Joris Turnhout.
 
-[![codecov.io](https://codecov.io/github/Tjoosten/scouts-en-gidsen-template/coverage.svg?branch=master)](https://codecov.io/github/Tjoosten/scouts-en-gidsen-template?branch=master)
+[![codecov.io](https://codecov.io/github/template-hop/scouts-en-gidsen-template/coverage.svg?branch=master)](https://codecov.io/github/template-hop/scouts-en-gidsen-template?branch=master)
 [![StyleCI](https://styleci.io/repos/45360682/shield)](https://styleci.io/repos/45360682)
 [![Build Status](https://travis-ci.org/template-hop/scouts-en-gidsen-template.svg?branch=master)](https://travis-ci.org/template-hop/scouts-en-gidsen-template)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)
@@ -33,7 +33,7 @@ See the Releases section of our GitHub project for changelogs for each release v
 
 ## Other handy repositories and resources. 
 
-- [Project documentation](http://hop-template.readthedocs.org/en/latest/GulpJS/)s
+- [Project documentation](http://hop-template.readthedocs.org/en/latest/GulpJS/)
 - [Module template](https://github.com/Tjoosten/scouts-en-gidsen-template-module-skeleton/tree/master)
 
 ## Copyright and license 
