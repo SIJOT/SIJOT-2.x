@@ -35,9 +35,8 @@ class VerhuurBackendController extends Controller
             env('PUSHER_ID')
         );
 
-        $this->middleware('auth', ['except' => [
-            'store', 'getCalendar',
-        ]]);
+        $this->middleware('auth', ['except' => ['store', 'getCalendar']]);
+        // $this->middleware('verhuurbeheer', ['except' => ['store', 'getCalendar']]);
     }
 
     /**
@@ -57,12 +56,12 @@ class VerhuurBackendController extends Controller
      */
     public function index()
     {
+        // todo: add download method
+        // todo: add search  method.
+
         if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
             return Redirect::back();
         }
-
-        // todo: add download method
-        // todo: add search  method.
 
         $data['title'] = 'Verhuur control panel';
         $data['active'] = 8;

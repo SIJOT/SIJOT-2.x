@@ -17,13 +17,24 @@ class rentalTest extends TestCase
         $user = factory(App\User::class, 3)
             ->create()
             ->each(function ($u) {
-                $u->permission()->save(factory(App\Permission::class)->make());
+                $u->permission()->save(factory(App\Permission::class)->make([
+                    'verhuurbeheer' => 1
+                ]));
+            })->load('permission');
+
+        $users = factory(App\User::class, 3)
+            ->create()
+            ->each(function ($u) {
+                $u->permission()->save(factory(App\Permission::class)->make([
+                    'verhuurbeheer' => 0
+                ]));
             })->load('permission');
 
         // Wrong permissions.
+        $this->actingAs($users[0])->visit('/backend/rental')->assertResponseStatus(200);
 
         // Correct permissions.
-        $baseUrl = $this->actingAs($user[0])->visit('/backend/rental');
+        $this->actingAs($user[0])->visit('/backend/rental')->assertResponseStatus(200);
 
         // Navbar
         if (Auth::check()) {
