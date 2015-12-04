@@ -169,10 +169,6 @@ class VerhuurBackendController extends Controller
      */
     public function option($id)
     {
-        if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
-            return Redirect::back();
-        }
-
         $status = Verhuring::findOrNew($id);
         $status->status = 1;
 
@@ -200,10 +196,6 @@ class VerhuurBackendController extends Controller
      */
     public function downloadContract()
     {
-        if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
-            return Redirect::back();
-        }
-
         $pdf = App::make('dompdf.wrapper');
         $pdfStream = $pdf->loadView('pdf.verhuurContract', []);
 
@@ -221,10 +213,6 @@ class VerhuurBackendController extends Controller
      */
     public function confirmed($id)
     {
-        if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
-            return Redirect::back();
-        }
-
         $status = Verhuring::findOrNew($id);
         $status->status = 2;
 
@@ -258,10 +246,6 @@ class VerhuurBackendController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
-            return Redirect::back();
-        }
-
         $verhuring = Verhuring::findOrNew($id);
 
         if ($verhuring->save()) {
@@ -297,10 +281,6 @@ class VerhuurBackendController extends Controller
      */
     public function destroy($id)
     {
-        if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
-            return Redirect::back();
-        }
-
         Verhuring::destroy($id);
 
         $logging = Lang::get('logging.rentalDelete', [
