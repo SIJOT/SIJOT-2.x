@@ -34,6 +34,6 @@ class Kernel extends HttpKernel
          * Costum middleware.
          */
         'verhuurbeheer' => \App\Http\Middleware\VerhuurBeheer::class,
-        'ledenbeheer'   => \App\Http\Middleware\ledenbeheer::class,
+        'ledenbeheer'   => \App\Http\Middleware\LedenBeheer::class,
     ];
 }
