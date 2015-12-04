@@ -23,9 +23,6 @@ before_script:
 script:
   - phpunit --group all                                             # Run phpunit
   - vendor/bin/phpunit --coverage-clover=coverage.xml               # Calculate coverage
-  - gulp styles
-  - gulp
-  - gulp scss-lint
   
 # code coverage
 before_install:

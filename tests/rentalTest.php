@@ -40,7 +40,7 @@ class rentalTest extends TestCase
         if (Auth::check()) {
             // $baseUrl->click('Takken')->seePageIs('/backend/takken/update');
             // $baseUrl->click('Verhuur')->seePageIs('/backend/rental');
-            $baseUrl->click('Cloud')->seePageIs('/cloud/index');
+            // $baseUrl->click('Cloud')->seePageIs('/cloud/index');
         }
 
         // $baseUrl->click('Sint-Joris')->seePageIs('/');
