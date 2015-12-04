@@ -1,5 +1,4 @@
-Permissions: 
-===============
+# Permissions: 
 
 We have build some permission role's into the project. These permission are implemented with middleware.You can find info about each role below:
 
