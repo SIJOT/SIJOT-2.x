@@ -57,7 +57,7 @@ class AuthorizationController extends Controller
      */
     public function verifyLogin()
     {
-        $restrictions['email'] = Input::get('email');
+        $restrictions['email']    = Input::get('email');
         $restrictions['password'] = Input::get('password');
 
         if (Auth::attempt($restrictions)) {
@@ -171,16 +171,10 @@ class AuthorizationController extends Controller
         $user->blocked = 1;
 
         if ($user->save()) {
-            $logging = Lang::get('logging.', [
-                'name' => Auth::user()->name,
-            ]);
-
+            $logging = Lang::get('logging.', ['name' => Auth::user()->name]);
             Log::warning($logging);
         } else {
-            $logging = Lang::get('logging.', [
-                'name' => Auth::user()->name,
-            ]);
-
+            $logging = Lang::get('logging.', ['name' => Auth::user()->name,]);
             Log::warning($logging);
         }
 
