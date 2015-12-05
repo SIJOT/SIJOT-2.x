@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Redirect;
 
 class notificationsController extends Controller
 {
-    // TODO: implement gate ACL function.
-
     /**
      * notificationsController constructor.
      */

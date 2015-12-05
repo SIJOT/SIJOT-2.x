@@ -51,6 +51,7 @@ class authorizationTest extends TestCase
                 $u->permission()->save(factory(App\Permission::class)->make());
             })->load('permission');
 
-        $this->actingAs($user[0])->visit('/backend/acl/unblock/'.$user[0]->id);
+
+        $this->actingAs($user[0])->visit('/backend/acl/unblock/'. $user[0]->id);
     }
 }
