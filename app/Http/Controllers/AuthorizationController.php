@@ -23,8 +23,11 @@ class AuthorizationController extends Controller
 {
     public $pusher;
     public $authMiddleware = ['viewLogin', 'verifyLogin', 'getLogout'];
-    public $ledenbeheer;
+    public $ledenMiddleware = [];
 
+    /**
+     * AuthorizationController constructor.
+     */
     public function __construct()
     {
         // Set Real Time Notification. (Pusher)
@@ -45,7 +48,9 @@ class AuthorizationController extends Controller
             $this->permission = 0;
         }
 
+        // Declare the middleware
         $this->middleware('auth', ['except' => $this->authMiddleware]);
+        $this->middleware('ledenbeheer', ['only' => $this->ledenMiddleware]);
     }
 
     /**
@@ -60,8 +65,6 @@ class AuthorizationController extends Controller
 
     /**
      * Verify that a user can login into the system.
-     *
-     * TODO: Pusher integration. For welcome message.
      *
      * @Post("/login", as="login.Post")
      */
@@ -92,13 +95,8 @@ class AuthorizationController extends Controller
             }
 
             // Logging instance
-            $logging = Lang::get('logging.loggedIn', [
-                'user' => Auth::user()->name,
-            ]);
-
+            $logging = Lang::get('logging.loggedIn', ['user' => Auth::user()->name]);
             Log::info($logging);
-
-            // Set user_id to the session.
 
             /* @var string, $redirectUrl */
             return Redirect::to($redirectUrl);
@@ -121,6 +119,8 @@ class AuthorizationController extends Controller
             return Redirect::back();
         }
 
+        // TODO: Refactor to mass assign (Eloquent)
+
         // User insert
         $users = new User();
         $users->name = $input->name;
@@ -141,8 +141,9 @@ class AuthorizationController extends Controller
             // dd($user);
 
             Mail::send('emails.registration', ['users' => $user], function ($m) use ($user) {
+                // Load the sender details, from read operation into the config.
                 $m->to($user->email, $user->name)->subject('Registratie St-Joris Turnhout');
-                $m->from('topairy@gmail.com', 'Tim Joosten');
+                $m->from(config(), config());
             });
 
             $loggingData['name'] = $users->name;
@@ -189,16 +190,10 @@ class AuthorizationController extends Controller
         $user->blocked = 1;
 
         if ($user->save()) {
-            $logging = Lang::get('logging.', [
-                'name' => Auth::user()->name,
-            ]);
-
+            $logging = Lang::get('logging.', ['name' => Auth::user()->name,]);
             Log::warning($logging);
         } else {
-            $logging = Lang::get('logging.', [
-                'name' => Auth::user()->name,
-            ]);
-
+            $logging = Lang::get('logging.', ['name' => Auth::user()->name,]);
             Log::warning($logging);
         }
 
@@ -222,16 +217,10 @@ class AuthorizationController extends Controller
         $user->blocked = 0;
 
         if ($user->save()) {
-            $logging = Lang::get('logging.unblockUserSuccess', [
-                'name' => Auth::user()->name, ]
-            );
-
+            $logging = Lang::get('logging.unblockUserSuccess', ['name' => Auth::user()->name, ]);
             Log::info($logging);
         } else {
-            $logging = Lang::get('logging.unblockUserFailure', [
-                'name' => Auth::user()->name, ]
-            );
-
+            $logging = Lang::get('logging.unblockUserFailure', ['name' => Auth::user()->name, ]);
             Log::warning($logging);
         }
 
@@ -264,10 +253,7 @@ class AuthorizationController extends Controller
         Permission::where('user_id', $id)->delete();
         Notifications::where('user_id', $id)->delete();
 
-        $logging = Lang::get('', [
-            'user' => Auth::user()->name,
-        ]);
-
+        $logging = Lang::get('', ['user' => Auth::user()->name,]);
         Log::info($logging);
 
         return Redirect::back();

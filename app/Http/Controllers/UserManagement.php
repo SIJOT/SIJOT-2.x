@@ -22,7 +22,7 @@ class UserManagement extends Controller
 
         // TODO: Need be created.
         // TODO: set middleware
-        // $this->middleware('admin');
+        // TODO: set the ledenbeheer middleware
         $this->middleware('auth');
     }
 
@@ -92,7 +92,7 @@ class UserManagement extends Controller
      */
     public function changeCredentials(emailValidator $input, $id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
 
         if (Input::hasFile('avatar')) {
             //dd(request()->all());
@@ -101,7 +101,7 @@ class UserManagement extends Controller
             $file->move(public_path('uploads'), $fileName);
 
             $imagePath = public_path('uploads/'.$fileName);
-            $image = Image::make($imagePath)->resize(120, 120);
+            $image = Image::make($imagePath)->resize(100, 100);
             $image->save();
 
             $user->avatar = $imagePath;

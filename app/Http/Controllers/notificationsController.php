@@ -16,6 +16,8 @@ class notificationsController extends Controller
      */
     public function __construct()
     {
+        // Auth          = Check to see if the user is authencation.
+        // Verhuurbeheer = Check if he get the right permission.
         $this->middleware('auth');
         $this->middleware('verhuurbeheer', ['only' => ['VerhuurAan', 'VerhuurUit']]);
     }
