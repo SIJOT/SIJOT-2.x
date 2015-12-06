@@ -17,6 +17,7 @@ class notificationsController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('verhuurbeheer', ['only' => ['VerhuurAan', 'VerhuurUit']]);
     }
 
     /**
