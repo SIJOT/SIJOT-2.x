@@ -22,4 +22,11 @@ class Verhuring extends Model
      * @var string
      */
     protected $table = 'Verhuur';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [];
 }
