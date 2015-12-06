@@ -30,10 +30,6 @@ class notificationsController extends Controller
      */
     public function VerhuurAan($id)
     {
-        if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
-            return Redirect::back();
-        }
-
         $notification = Notifications::findOrNew($id);
         $notification->verhuring = 1;
         $notification->save();
@@ -51,9 +47,6 @@ class notificationsController extends Controller
      */
     public function VerhuurUit($id)
     {
-        if (Gate::denies('verhuur-beheer', Auth::user()->permission->verhuurbeheer)) {
-            return Redirect::back();
-        }
         $notification = Notifications::findOrNew($id);
         $notification->verhuring = 0;
         $notification->save();
