@@ -37,6 +37,8 @@ class VerhuurController extends Controller
     }
 
     /**
+     * [VIEW] Rental view fot the date's.
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      *
      * @Get("/verhuur/bereikbaarheid", as="rental.route")
