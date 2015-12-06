@@ -24,6 +24,7 @@ class UserManagement extends Controller
         // TODO: set middleware
         // TODO: set the ledenbeheer middleware
         $this->middleware('auth');
+        $this->middleware('ledenbeheer', ['only' => ['getIndex', 'UserProfile']]);
     }
 
     /**
@@ -35,10 +36,6 @@ class UserManagement extends Controller
      */
     public function getIndex()
     {
-        if (Gate::denies('leden-beheer', Auth::user()->permission->ledenbeheer)) {
-            return Redirect::back();
-        }
-
         $data['title'] = 'Gebruikers beheer';
         $data['active'] = 0;
 
@@ -60,10 +57,6 @@ class UserManagement extends Controller
      */
     public function UserProfile($id)
     {
-        if (Gate::denies('leden-beheer', Auth::user()->permission->ledenbeheer)) {
-            return Redirect::back();
-        }
-
         $data['title'] = 'Gebruikers profiel';
         $data['active'] = 0;
         $data['permission'] = Permission::where('user_id', $id)->get();

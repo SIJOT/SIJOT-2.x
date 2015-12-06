@@ -23,7 +23,7 @@ class AuthorizationController extends Controller
 {
     public $pusher;
     public $authMiddleware = ['viewLogin', 'verifyLogin', 'getLogout'];
-    public $ledenMiddleware = [];
+    public $ledenMiddleware = ['deleteUser', 'unBlockUser', 'blockUser', 'Register'];
 
     /**
      * AuthorizationController constructor.
@@ -37,18 +37,6 @@ class AuthorizationController extends Controller
             env('PUSHER_ID')
         );
 
-        if (Auth::check()) {
-            $this->permissionQuery = Permission::where('user_id', Auth::user()->id)->get();
-
-            foreach ($this->permissionQuery as $output) {
-                $this->ledenbeheer = $output->ledenbeheer;
-                $this->verhuurbeheer = $output->verhuurbeheer;
-            }
-        } else {
-            $this->permission = 0;
-        }
-
-        // Declare the middleware
         $this->middleware('auth', ['except' => $this->authMiddleware]);
         $this->middleware('ledenbeheer', ['only' => $this->ledenMiddleware]);
     }
@@ -70,7 +58,7 @@ class AuthorizationController extends Controller
      */
     public function verifyLogin()
     {
-        $restrictions['email'] = Input::get('email');
+        $restrictions['email']    = Input::get('email');
         $restrictions['password'] = Input::get('password');
 
         if (Auth::attempt($restrictions)) {
@@ -182,18 +170,14 @@ class AuthorizationController extends Controller
      */
     public function blockUser($id)
     {
-        if (Gate::denies('leden-beheer', Auth::user()->permission->ledenbeheer)) {
-            return Redirect::back();
-        }
-
         $user = User::find($id);
         $user->blocked = 1;
 
         if ($user->save()) {
-            $logging = Lang::get('logging.', ['name' => Auth::user()->name,]);
+            $logging = Lang::get('logging.', ['name' => Auth::user()->name]);
             Log::warning($logging);
         } else {
-            $logging = Lang::get('logging.', ['name' => Auth::user()->name,]);
+            $logging = Lang::get('logging.', ['name' => Auth::user()->name]);
             Log::warning($logging);
         }
 
@@ -209,10 +193,6 @@ class AuthorizationController extends Controller
      */
     public function unBlockUser($id)
     {
-        if (Gate::denies('leden-beheer', Auth::user()->permission->ledenbeheer)) {
-            return Redirect::back();
-        }
-
         $user = User::find($id);
         $user->blocked = 0;
 
@@ -239,10 +219,6 @@ class AuthorizationController extends Controller
     public function deleteUser($id)
     {
         // Dragons are here! I'm scared.
-        if (Gate::denies('leden-beheer', $this->ledenbeheer)) {
-            return Redirect::back();
-        }
-
         $user = User::find($id);
 
         if (File::exists($user->avatar)) {
