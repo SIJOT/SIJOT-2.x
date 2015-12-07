@@ -32,7 +32,16 @@ class AnnotationsServiceProvider extends ServiceProvider {
      *
      * @var array
      */
-    protected $scanModels = [];
+    protected $scanModels = [
+        App\Activiteiten::class, 
+        App\Groep::class, 
+        App\Info::class, 
+        App\Notifications::class, 
+        App\Permission::class, 
+        App\Sessions::class, 
+        App\User::class, 
+        App\Verhuring::class
+    ];
 
     /**
      * Determines if we will auto-scan in the local environment.
