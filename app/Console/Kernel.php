@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         \App\Console\Commands\Inspire::class,
         // \App\Console\Commands\NewUser::class
+        \App\Console\Commands\DbConsole::class,
     ];
 
     /**
@@ -26,6 +27,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        // Rescan the routes every hour.
         $schedule->command('routes:scan')->hourly();
     }
 }

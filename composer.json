@@ -12,7 +12,8 @@
         "barryvdh/laravel-ide-helper": "^2.1",
         "intervention/image": "^2.3",
         "illuminate/html": "*",
-        "laravelcollective/annotations": "5.1.*"
+        "laravelcollective/annotations": "5.1.*",
+        "hopp/dbutil": "@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -41,13 +42,6 @@
             "php artisan optimize",
             "php -r \"copy('.env.example', '.env');\"",
             "php artisan key:generate"
-        ],
-        "pre-update-cmd": [
-            "php artisan clear-compiled"
-        ],
-        "post-update-cmd": [
-            "php artisan ide-helper:generate",
-            "php artisan optimize"
         ],
         "post-root-package-install": [
             "php -r \"copy('.env.example', '.env');\""

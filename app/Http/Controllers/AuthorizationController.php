@@ -197,10 +197,10 @@ class AuthorizationController extends Controller
         $user->blocked = 0;
 
         if ($user->save()) {
-            $logging = Lang::get('logging.unblockUserSuccess', ['name' => Auth::user()->name, ]);
+            $logging = Lang::get('logging.unblockUserSuccess', ['name' => Auth::user()->name]);
             Log::info($logging);
         } else {
-            $logging = Lang::get('logging.unblockUserFailure', ['name' => Auth::user()->name, ]);
+            $logging = Lang::get('logging.unblockUserFailure', ['name' => Auth::user()->name]);
             Log::warning($logging);
         }
 

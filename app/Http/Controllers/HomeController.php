@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Hopp\DbUtil\Facades\DbUtil;
+use Illuminate\Support\Facades\Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -13,6 +16,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        dd(DbUtil::exists('users','default'));
         $data['title'] = 'Index';
         $data['active'] = 0;
 

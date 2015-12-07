@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.1.25 (LTS) on 2015-11-30.
+ * Generated for Laravel 5.1.26 (LTS) on 2015-12-07.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -2226,23 +2226,23 @@ namespace {
          *
          * @param string $key
          * @param mixed $value
-         * @return int 
+         * @return void 
          * @static 
          */
         public static function increment($key, $value = 1){
-            return \Illuminate\Cache\FileStore::increment($key, $value);
+            \Illuminate\Cache\DatabaseStore::increment($key, $value);
         }
         
         /**
-         * Decrement the value of an item in the cache.
+         * Increment the value of an item in the cache.
          *
          * @param string $key
          * @param mixed $value
-         * @return int 
+         * @return void 
          * @static 
          */
         public static function decrement($key, $value = 1){
-            return \Illuminate\Cache\FileStore::decrement($key, $value);
+            \Illuminate\Cache\DatabaseStore::decrement($key, $value);
         }
         
         /**
@@ -2252,27 +2252,27 @@ namespace {
          * @static 
          */
         public static function flush(){
-            \Illuminate\Cache\FileStore::flush();
+            \Illuminate\Cache\DatabaseStore::flush();
         }
         
         /**
-         * Get the Filesystem instance.
+         * Get the underlying database connection.
          *
-         * @return \Illuminate\Filesystem\Filesystem 
+         * @return \Illuminate\Database\MySqlConnection 
          * @static 
          */
-        public static function getFilesystem(){
-            return \Illuminate\Cache\FileStore::getFilesystem();
+        public static function getConnection(){
+            return \Illuminate\Cache\DatabaseStore::getConnection();
         }
         
         /**
-         * Get the working directory of the cache.
+         * Get the encrypter instance.
          *
-         * @return string 
+         * @return \Illuminate\Contracts\Encryption\Encrypter 
          * @static 
          */
-        public static function getDirectory(){
-            return \Illuminate\Cache\FileStore::getDirectory();
+        public static function getEncrypter(){
+            return \Illuminate\Cache\DatabaseStore::getEncrypter();
         }
         
         /**
@@ -2282,7 +2282,7 @@ namespace {
          * @static 
          */
         public static function getPrefix(){
-            return \Illuminate\Cache\FileStore::getPrefix();
+            return \Illuminate\Cache\DatabaseStore::getPrefix();
         }
         
     }
@@ -2544,6 +2544,7 @@ namespace {
          *
          * @param string $value
          * @return string 
+         * @throws \Illuminate\Contracts\Encryption\EncryptException
          * @static 
          */
         public static function encrypt($value){
@@ -2555,6 +2556,7 @@ namespace {
          *
          * @param string $payload
          * @return string 
+         * @throws \Illuminate\Contracts\Encryption\DecryptException
          * @static 
          */
         public static function decrypt($payload){
@@ -10822,6 +10824,16 @@ namespace {
         }
         
         /**
+         * Remove data that was flashed for only the current request.
+         *
+         * @return void 
+         * @static 
+         */
+        public static function removeFlashNowData(){
+            \Illuminate\Session\Store::removeFlashNowData();
+        }
+        
+        /**
          * Checks if an attribute is defined.
          *
          * @param string $name The attribute name
@@ -10924,6 +10936,19 @@ namespace {
          */
         public static function flash($key, $value){
             \Illuminate\Session\Store::flash($key, $value);
+        }
+        
+        /**
+         * Flash a key / value pair to the session
+         * for immediate use.
+         *
+         * @param string $key
+         * @param mixed $value
+         * @return void 
+         * @static 
+         */
+        public static function now($key, $value){
+            \Illuminate\Session\Store::now($key, $value);
         }
         
         /**

@@ -152,7 +152,8 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
-        App\Providers\AnnotationsServiceProvider::class
+        App\Providers\AnnotationsServiceProvider::class,
+        Hopp\DbUtil\DbUtilServiceProvider::class,
     ],
 
     /*
@@ -209,6 +210,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Form'  => Illuminate\Html\FormFacade::class,
         'HTML'  => Illuminate\Html\HtmlFacade::class,
+        'DbUtil' => Hopp\DbUtil\Facades\DbUtil::class
     ],
 
 ];
