@@ -90,8 +90,8 @@ class rentalTest extends TestCase
 
         // Test the form.
         $this->visit('/verhuur/aanvragen')
-            ->type($rental->Start_Datum, 'StartDatum')
-            ->type($rental->Eind_datum, 'EindDatum')
+            ->type(strtotime($rental->Start_Datum), 'StartDatum')
+            ->type(strtotime($rental->Eind_datum), 'EindDatum')
             ->type($rental->Groep, 'Groep')
             ->type($rental->Email, 'Email')
             ->press('Aanvragen')

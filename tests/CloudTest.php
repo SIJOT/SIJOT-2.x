@@ -1,5 +1,6 @@
 <?php
 
+use Symfony\Component\HttpFoundation\Response;
 
 class CloudTest extends TestCase
 {
@@ -8,7 +9,7 @@ class CloudTest extends TestCase
      */
     public function testIndex()
     {
-        $this->visit('/cloud/index')->seeStatusCode(self::HTTP_OK);
+        $this->visit('/cloud/index')->seeStatusCode(Response::HTTP_OK);
     }
 
     public function testDeleteFile()
