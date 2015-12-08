@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -18,7 +19,7 @@ class CloudController extends Controller
      */
     public function index()
     {
-        $data['title'] = '';
+        $data['title'] = 'Cloud';
         $data['active'] = 2;
 
         // return view('', $data);
@@ -66,5 +67,10 @@ class CloudController extends Controller
      */
     public function downloadFile($id)
     {
+        if (File::exists()) {
+
+        }
+
+        return Redirect::route('cloud.index');
     }
 }

@@ -6,11 +6,14 @@ class CloudTest extends TestCase
     /**
      * @group all
      */
-    public function testCloudRoutes()
+    public function testIndex()
     {
-        $this->visit('/cloud/index');
-        $this->visit('/cloud/download/1');
-        $this->visit('/cloud/delete/1');
+        $this->visit('/cloud/index')->seeStatusCode(self::HTTP_OK);
+    }
+
+    public function testDeleteFile()
+    {
+
     }
 
     /**

@@ -5,6 +5,11 @@ use Illuminate\Support\Facades\Artisan;
 class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
     /**
+     * HTTP Status codes.
+     */
+    const HTTP_OK = 200; // HTTP OK
+
+    /**
      * The base URL to use while testing the application.
      *
      * @var string
