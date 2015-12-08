@@ -104,7 +104,7 @@ class VerhuurBackendController extends Controller
 
         if ($rental->save()) {
             if (! Auth::check()) {
-                Mail::send('emails.verhuurAanvraag', ['data' => $input], function ($m) use ($input) {
+                Mail::queue('emails.verhuurAanvraag', ['data' => $input], function ($m) use ($input) {
                     $m->to($input->Email)->subject('Aanvraag verhuur | St-joris Turnhout');
                     $m->from(config('platform.websiteContact)', config('platform.websiteName')));
                 });
@@ -124,7 +124,7 @@ class VerhuurBackendController extends Controller
             foreach ($notificationMembers as $person) {
                 $user = User::find($person->id);
 
-                Mail::send('emails.verhuurNotificatie', ['data' => $input], function ($m) use ($user) {
+                Mail::queue('emails.verhuurNotificatie', ['data' => $input], function ($m) use ($user) {
                     $m->to($user->email, $user->name)->subject('Notificatie verhuur | St-joris Turnhout');
                     $m->from(config('platform.websiteContact'), config('platform.websiteName'));
                 });

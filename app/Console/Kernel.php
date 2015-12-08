@@ -29,5 +29,7 @@ class Kernel extends ConsoleKernel
     {
         // Rescan the routes every hour.
         $schedule->command('routes:scan')->hourly();
+
+        // Send mail invites form the parents counsil.
     }
 }

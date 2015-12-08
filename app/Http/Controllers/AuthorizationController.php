@@ -128,7 +128,7 @@ class AuthorizationController extends Controller
 
             // dd($user);
 
-            Mail::send('emails.registration', ['users' => $user], function ($m) use ($user) {
+            Mail::queue('emails.registration', ['users' => $user], function ($m) use ($user) {
                 // Load the sender details, from read operation into the config.
                 $m->to($user->email, $user->name)->subject('Registratie St-Joris Turnhout');
                 $m->from(config(), config());
