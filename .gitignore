@@ -7,3 +7,4 @@ Homestead.json
 .sass-cache
 .vagrant
 .DS_Store
+phpcs.phar

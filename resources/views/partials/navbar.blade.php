@@ -14,6 +14,7 @@
                 <ul class="nav navbar-nav">
                     <li @if(Request::is('takken')) class="active" @endif>
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span class="fa fa-leaf"></span>
                             Takken
                         </a>
 
@@ -64,19 +65,19 @@
                     </li>
                     <li>
                         <a href="">
-                            <span class=""></span>
+                            <span class="fa fa-file-o"></span>
                             Planning
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <span></span>
+                            <span class="fa fa-camera-retro"></span>
                             Foto's
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <span class=""></span>
+                            <span class="fa fa-info-circle"></span>
                             Info
                         </a>
                     </li>
@@ -97,7 +98,7 @@
                 <ul class="nav navbar-nav navbar">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <span class=""></span>
+                            <span class="fa fa-leaf"></span>
                             Takken
                         </a>
 
@@ -126,7 +127,7 @@
                     @endif
                     <li>
                         <a href="{{ Url::to('/cloud/index') }}">
-                            <span class=""> Cloud </span>
+                            <span class="fa fa-clock-o"> Cloud </span>
                         </a>
                     </li>
                 </ul>
