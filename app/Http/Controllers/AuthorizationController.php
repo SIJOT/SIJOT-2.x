@@ -105,17 +105,15 @@ class AuthorizationController extends Controller
      */
     public function Register(Registervalidation $input)
     {
-        if (Gate::denies('leden-beheer', $this->ledenbeheer)) {
-            return Redirect::back();
-        }
-
         // TODO: Refactor to mass assign (Eloquent)
+        // Password random generated string.
+        $password = str_random(14);
 
         // User insert
         $users = new User();
         $users->name = $input->name;
         $users->email = $input->email;
-        $users->password = Hash::make('sijot');
+        $users->password = Hash::make($password);
         $users->save();
 
         $permissions = new Permission();
@@ -133,7 +131,7 @@ class AuthorizationController extends Controller
             Mail::queue('emails.registration', ['users' => $user], function ($m) use ($user) {
                 // Load the sender details, from read operation into the config.
                 $m->to($user->email, $user->name)->subject('Registratie St-Joris Turnhout');
-                $m->from(config(), config());
+                $m->from(config('platform.websiteContact'), config('platform.websiteName'));
             });
 
             $loggingData['name']  = $users->name;
