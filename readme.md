@@ -38,4 +38,4 @@ See the Releases section of our GitHub project for changelogs for each release v
 
 ## Copyright and license 
 
-
+This project is released under the MIT license. You can [read](LICENSE) the license if you want.
