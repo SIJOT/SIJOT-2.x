@@ -18,11 +18,6 @@ class UserManagement extends Controller
 
     public function __construct()
     {
-        // $this->middleware('auth');
-
-        // TODO: Need be created.
-        // TODO: set middleware
-        // TODO: set the ledenbeheer middleware
         $this->middleware('auth');
         $this->middleware('ledenbeheer', ['only' => ['getIndex', 'UserProfile']]);
     }
@@ -81,7 +76,9 @@ class UserManagement extends Controller
     /**
      * Method: Change the permissions off the user.
      *
-     * @param Request $request
+     * @param $id
+     * @return
+     * @internal param Request $request
      *
      * @post("backend/acl/changeCredentails/{id}", as="acl.PermissionsUpdate")
      */
@@ -102,7 +99,7 @@ class UserManagement extends Controller
         $permission->fill($db);
         $permission->save();
 
-        // redirect ot the previous page.
+        // redirect to the previous page.
         return Redirect::back();
     }
 
