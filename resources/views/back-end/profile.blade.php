@@ -64,40 +64,43 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <form action="" method="post">
+                                            <form action="{{ route("acl.PermissionsUpdate", ['id' => $id]) }}" method="post">
+                                                {{-- csrf field --}}
+                                                {{ csrf_field() }}
+
                                                 @foreach($permission as $right)
                                                     <tr>
                                                         <td>Login beheer</td>
                                                         <td class="text-center">
-                                                            <input type="checkbox" name="" value="" @if($right->ledenbeheer === 1) checked @endif>
+                                                            <input type="checkbox" name="ledenbeheer" value="1" @if($right->ledenbeheer === 1) checked @endif>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td>Verhuur beheer</td>
                                                         <td class="text-center">
-                                                            <input type="checkbox" name="" value="" @if($right->verhuurbeheer === 1) checked @endif>
+                                                            <input type="checkbox" name="" value="1" @if($right->verhuurbeheer === 1) checked @endif>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td>SIJOT cloud</td>
                                                         <td class="text-center">
-                                                            <input type="checkbox" name="" value="" @if($right->cloud === 1) checked @endif>
+                                                            <input type="checkbox" name="" value="1" @if($right->cloud === 1) checked @endif>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td>SIJOT media</td>
                                                         <td class="text-center">
-                                                            <input type="checkbox" name="" value="" @if($right->media === 1) checked @endif>
+                                                            <input type="checkbox" name="" value="1" @if($right->media === 1) checked @endif>
                                                         </td>
                                                     </tr>
                                                 @endforeach
-                                            </form>
-                                        </tbody>
-                                    </table>
+                                            </tbody>
+                                        </table>
 
-                                    <button type="submit" class="btn btn-success">
-                                        Aanpassen
-                                    </button>
+                                        <button type="submit" class="btn btn-success">
+                                            Aanpassen
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>{{-- END tab-pane  --}}

@@ -21,6 +21,8 @@ use Pusher;
 
 class AuthorizationController extends Controller
 {
+    // TODO: set named routes.
+
     public $pusher;
     public $authMiddleware = ['viewLogin', 'verifyLogin', 'getLogout'];
     public $ledenMiddleware = ['deleteUser', 'unBlockUser', 'blockUser', 'Register'];
@@ -134,7 +136,7 @@ class AuthorizationController extends Controller
                 $m->from(config(), config());
             });
 
-            $loggingData['name'] = $users->name;
+            $loggingData['name']  = $users->name;
             $loggingData['users'] = Auth::user()->name;
 
             Log::info(Lang::get('logging.registrationSuccess', $loggingData));
@@ -175,12 +177,11 @@ class AuthorizationController extends Controller
 
         if ($user->save()) {
             $logging = Lang::get('logging.', ['name' => Auth::user()->name]);
-            Log::warning($logging);
         } else {
             $logging = Lang::get('logging.', ['name' => Auth::user()->name]);
-            Log::warning($logging);
         }
 
+        Log::info($logging);
         return Redirect::back();
     }
 
@@ -198,12 +199,11 @@ class AuthorizationController extends Controller
 
         if ($user->save()) {
             $logging = Lang::get('logging.unblockUserSuccess', ['name' => Auth::user()->name]);
-            Log::info($logging);
         } else {
             $logging = Lang::get('logging.unblockUserFailure', ['name' => Auth::user()->name]);
-            Log::warning($logging);
         }
 
+        Log::info($logging);
         return Redirect::back();
     }
 
@@ -222,7 +222,7 @@ class AuthorizationController extends Controller
         $user = User::find($id);
 
         if (File::exists($user->avatar)) {
-            File::delete($user->avatarr);
+            File::delete($user->avatar);
         }
 
         User::destroy($id);
@@ -232,6 +232,6 @@ class AuthorizationController extends Controller
         $logging = Lang::get('', ['user' => Auth::user()->name,]);
         Log::info($logging);
 
-        return Redirect::back();
+        return Redirect::route('acl.index');
     }
 }

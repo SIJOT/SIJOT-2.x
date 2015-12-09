@@ -555,12 +555,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/template-hop/dbutil-package.git",
-                "reference": "3a78fecffa130e2cd1784682a14ebb03b7009c07"
+                "reference": "c3d3ccac571ea4528e61528a9b7d1592ab1cdedb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/template-hop/dbutil-package/zipball/3a78fecffa130e2cd1784682a14ebb03b7009c07",
-                "reference": "3a78fecffa130e2cd1784682a14ebb03b7009c07",
+                "url": "https://api.github.com/repos/template-hop/dbutil-package/zipball/c3d3ccac571ea4528e61528a9b7d1592ab1cdedb",
+                "reference": "c3d3ccac571ea4528e61528a9b7d1592ab1cdedb",
                 "shasum": ""
             },
             "require": {
@@ -585,7 +585,7 @@
                 }
             ],
             "description": "A database utility wrapper for the template",
-            "time": "2015-12-07 22:14:28"
+            "time": "2015-12-08 13:21:49"
         },
         {
             "name": "illuminate/html",
@@ -3550,23 +3550,23 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "2b0112e42c338afa9ad9dfeb94d66f6d84c2f828"
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/2b0112e42c338afa9ad9dfeb94d66f6d84c2f828",
-                "reference": "2b0112e42c338afa9ad9dfeb94d66f6d84c2f828",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/13edfd8706462032c2f52b4b862974dd46b71c9e",
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5"
+                "phpunit/phpunit": "~4.8"
             },
             "type": "library",
             "extra": {
@@ -3598,7 +3598,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2015-12-06 07:21:36"
+            "time": "2015-12-08 07:14:41"
         },
         {
             "name": "sebastian/environment",

@@ -65,14 +65,45 @@ class UserManagement extends Controller
 
         if (count($user) === 1) {
             foreach ($user as $info) {
+                // User info
                 $data['username'] = $info->name;
-                $data['email'] = $info->email;
-                $data['avatar'] = $info->avatar;
-                $data['id'] = $info->id;
+                $data['email']    = $info->email;
+                $data['avatar']   = $info->avatar;
+                $data['id']       = $info->id;
+
+                // Permission info.
             }
         }
 
         return View('back-end.profile', $data);
+    }
+
+    /**
+     * Method: Change the permissions off the user.
+     *
+     * @param Request $request
+     *
+     * @post("backend/acl/changeCredentails/{id}", as="acl.PermissionsUpdate")
+     */
+    public function changePermissions($id)
+    {
+        // The permission values.
+        // these will be inserted.
+        $db['verhuurbeheer'] = Input::has('verhuurbeheer') ? true : false;
+        $db['ledenbeheer']   = Input::has('ledenbeheer')   ? true : false;
+        $db['media']         = Input::has('media')         ? true : false;
+        $db['cloud']         = Input::has('cloud')         ? true : false;
+
+        // Uncomment this dd() only for debugging proposes.
+        // dd($db);
+
+        // Insert to the database.
+        $permission = Permission::find(['user_id' => $id]);
+        $permission->fill($db);
+        $permission->save();
+
+        // redirect ot the previous page.
+        return Redirect::back();
     }
 
     /**

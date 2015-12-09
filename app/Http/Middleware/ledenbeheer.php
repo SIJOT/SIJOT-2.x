@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Log;
 
 class LedenBeheer
 {
@@ -35,8 +36,12 @@ class LedenBeheer
      */
     public function handle($request, Closure $next)
     {
-        if (Gate::denies('leden-beheer', Auth::user()->permission->ledenbeheer)) {
-            return redirect()->back();
+        $user = Auth::user();
+
+        if (Gate::denies('leden-beheer', $user->permission->ledenbeheer)) {
+
+            Log::info(':user', ['user' => $user->name]);
+            return redirect()->to('/');
         }
 
         return $next($request);
