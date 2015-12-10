@@ -12,7 +12,7 @@ needs a prefix called `php artisan`.
     * [Database]()
     * [Debugbar]()
     * [Event]()
-    * [Handler]
+    * [Handler]()
     * [IDE Helper]()
     * [Key]()
     * [Make]()
