@@ -15,17 +15,16 @@ Has permission for:
 - Delete a user. 
 - Listing view for all the user. 
 - Register a new login.
-- 
 
 ### verhuur-beheer
+
+Has permission for: 
 
 - Can insert a new rental trough the back-end
 - Can view and download the data for the rantal dates.
 - Can enable or disable the rental email notifications.
 - Can change the status of a rental. 
 - Can delete a rental.
-
-Has permission for: 
 
 ### media
 
