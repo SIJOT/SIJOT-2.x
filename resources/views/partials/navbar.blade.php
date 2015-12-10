@@ -145,11 +145,13 @@
                             </li>
 
                             {{-- User management --}}
+                            @can('leden-beheer', Auth::user()->permission->ledenbeheer)
                                 <li>
                                     <a href="{{ URL::to('/backend/acl') }}">
                                         Login beheer.
                                     </a>
                                 </li>
+                            @endcan
                             {{-- end user management --}}
                             <li class="divider">
                             <li>

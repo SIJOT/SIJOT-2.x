@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Hopp\DbUtil\Facades\DbUtil;
-
 class HomeController extends Controller
 {
     /**
