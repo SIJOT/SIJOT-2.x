@@ -5,7 +5,7 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)
 [![Latest Version](https://img.shields.io/github/tag/Tjoosten/scouts-en-gidsen-template.svg?style=flat&label=release)](https://github.com/tjoosten/scouts-en-gidsen-template/tags)
 
-The platform for Sint-Joris Turnhout. ***A4107M***.
+The platform for Sint-Joris Turnhout. ***(A4107M)***.
 
 ## Table of contents
 
