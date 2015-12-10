@@ -43,6 +43,12 @@ needs a prefix called `php artisan`.
     - The environment the command should run under.
 - `php artisan -v|vv|vvv, --verbose` 
     - Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug.
+    
+### Vendor
+
+| Command:          | Description:                                         |
+| ----------------- | ---------------------------------------------------- |
+| `vendor:publish`  | Publish any publishable assets from vendor packages. |
 
 ### View
 
