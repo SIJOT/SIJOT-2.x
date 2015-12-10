@@ -34,6 +34,7 @@ See the [Releases section](https://github.com/template-hop/web-platform/releases
 
 - [Project documentation](http://hop-template.readthedocs.org/en/latest/GulpJS/)
 - [Module template](https://github.com/Tjoosten/module-skeleton/tree/master)
+- [Git styleguide](https://github.com/jonathanong/git-style-guide)
 - [PSR standards](http://www.php-fig.org/)
 
 ## Copyright and license 
