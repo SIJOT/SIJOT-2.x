@@ -1,8 +1,10 @@
 # Project artisan commands 
 
-## Index table. 
+Laravel ships with a handy console environment. Below u find a list of all the commands but all the commands
+needs a prefix called `php artisan`.
 
-- [Options]()
+* [Commands](#project-artisan-commands)
+  * [Options]()
 
 ### Options:
 
