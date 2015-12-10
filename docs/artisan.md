@@ -4,7 +4,9 @@ Laravel ships with a handy console environment. Below u find a list of all the c
 needs a prefix called `php artisan`.
 
 * [Commands](#project-artisan-commands)
-  * [Options]()
+    * [Application]()
+    * [Authencation]()
+    * [Options]()
 
 ### Options:
 
