@@ -9,11 +9,11 @@ The platform for Sint-Joris Turnhout. ***(A4107M)***.
 
 ## Table of contents
 
-* [Quickstart]()
-* [Bugs and feature requests]()
+* [Quickstart](#quickstart)
+* [Bugs and feature requests](#bugs-and-feature-requests)
 * [Versioning](#versioning)
-* [Copyright and license]()
-* [Other handy repositories and resources]()
+* [Copyright and license](#copyright-and-license)
+* [Other handy repositories and resources](#other-handy-repositories-and-resources)
 
 ## Quickstart
 
