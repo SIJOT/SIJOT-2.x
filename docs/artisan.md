@@ -13,7 +13,7 @@
 - `php artisan -V, --version`
     - Display this application version.
 - `php artisan --ansi`
-    - Fore ANSI output.
+    - Force ANSI output.
 - `php artisan --no-ansi`
     - Disable ANSI output. 
 - `php artisan -n, --no-interaction`
