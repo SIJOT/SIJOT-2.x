@@ -43,7 +43,22 @@ needs a prefix called `php artisan`.
     - The environment the command should run under.
 - `php artisan -v|vv|vvv, --verbose` 
     - Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug.
-   
+  
+### Routing 
+
+| Command:      | Description:                                             |
+| ------------- | -------------------------------------------------------- |
+| `route:cache` | Create a route cache file for faster route registration. |
+| `route:clear` | Remove the route cache file.                             |
+| `route:list`  | List all registered routes.                              |
+| `route:scan`  | Scan a directory for controller annotations.             |
+
+### Schedule 
+
+| Command:       | Description:                |
+| -------------- | --------------------------- |
+| `schedule:run` | Run the scheduled commands. |
+
 ### Session
 
 | Command:        | Description:                                       |
