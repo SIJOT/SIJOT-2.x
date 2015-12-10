@@ -11,7 +11,7 @@ The platform for Sint-Joris Turnhout. ***(A4107M)***.
 
 - [Quickstart]()
 - [Bugs and feature requests]()
-- [Versioning](https://github.com/template-hop/web-platform/edit/1.0.0-dev/readme.md#Versioning)
+- [Versioning](https://github.com/template-hop/web-platform/master/readme.md#Versioning)
 - [Copyright and license]()
 - [Other handy repositories and resources]()
 
