@@ -30,7 +30,7 @@ class AuthencationTest extends TestCase
                     ->save(factory(App\Permission::class)->make());
             });
 
-        $this->actingAs($users[0])->visit('/backend/acl/delete/'.$users[0]->id)->assertResponseStatus(200);
+        $this->actingAs($users[0])->visit('/backend/acl/delete/'. $users[0]->id)->assertResponseStatus(200);
 
         // User with the wrong permission.
         $user = factory(App\User::class, 3)
