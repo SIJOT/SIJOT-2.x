@@ -9,11 +9,11 @@ The platform for Sint-Joris Turnhout. ***(A4107M)***.
 
 ## Table of contents
 
-- [Quickstart]()
-- [Bugs and feature requests]()
-- [Versioning](https://github.com/template-hop/web-platform/blob/master/readme.md#Versioning)
-- [Copyright and license]()
-- [Other handy repositories and resources]()
+* [Quickstart]()
+* [Bugs and feature requests]()
+* [Versioning](#versioning)
+* [Copyright and license]()
+* [Other handy repositories and resources]()
 
 ## Quickstart
 
