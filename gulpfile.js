@@ -1,6 +1,6 @@
 // GULP DEPENDENCIES
 // ----------------------------------------------------------------------------
-var gulp         = require('gulp');
+var gulp         = require('gulp-help')(require('gulp'));
 var sass         = require('gulp-ruby-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var minifycss    = require('gulp-minify-css');
@@ -18,7 +18,7 @@ var scsslint     = require('gulp-scss-lint');
 // ----------------------------------------------------------------------------
 // TODO: need to set up a help command shell.
 
-gulp.task('styles', function() {
+gulp.task('styles', 'Transform the scss files to css', function() {
     return sass('./resources/assets/scss/*.scss', { style: 'expanded' })
         .pipe(autoprefixer('last 2 version'))
         .pipe(gulp.dest('./public/css'))
@@ -34,25 +34,24 @@ gulp.task('styles', function() {
 // You can install it with the following command:
 //
 // gem install scss_lint
-gulp.task('scss-lint', function() {
+gulp.task('scss-lint', 'Lint the scss files.', function() {
     return gulp.src('./resources/assets/scss/*.scss')
         .pipe(scsslint());
 });
 
 // Clean the assets directories.
-gulp.task('clean', function() {
+gulp.task('clean', 'Empty the public assets folders', function() {
     return del(['./public/styles']);
 });
 
 // Gulp default task.
 // You can simply run it with `gulp`
-gulp.task('default', ['clean'], function() {
+gulp.task('default', 'Gulp his default task', ['clean'], function() {
     gulp.start('styles');
 });
 
 // Watch for changes.
-gulp.task('watch', function() {
+gulp.task('watch', 'Watch for changes' function() {
     // Watch .scss files.
     gulp.watch('./resources/assets/scss/*.scss', ['styles']);
 });
-

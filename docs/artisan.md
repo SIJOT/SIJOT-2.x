@@ -1,8 +1,29 @@
 # Project artisan commands 
 
-## Index table. 
+Laravel ships with a handy console environment. Below u find a list of all the commands but all the commands
+needs a prefix called `php artisan`.
 
-- [Options]()
+* [Commands](#project-artisan-commands)
+    * [Options]()
+    * [Application]()
+    * [Authencation]()
+    * [Cache]()
+    * [Config]()
+    * [Database]()
+    * [Debugbar]()
+    * [Event]()
+    * [Handler]
+    * [IDE Helper]()
+    * [Key]()
+    * [Make]()
+    * [Migrate]()
+    * [Model]()
+    * [Queue]()
+    * [Routing]()
+    * [Schedule]()
+    * [Session]()
+    * [Vendor]()
+    * [View]()
 
 ### Options:
 
@@ -13,7 +34,7 @@
 - `php artisan -V, --version`
     - Display this application version.
 - `php artisan --ansi`
-    - Fore ANSI output.
+    - Force ANSI output.
 - `php artisan --no-ansi`
     - Disable ANSI output. 
 - `php artisan -n, --no-interaction`

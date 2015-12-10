@@ -9,11 +9,11 @@ The platform for Sint-Joris Turnhout. ***(A4107M)***.
 
 ## Table of contents
 
-- [Quickstart]() 
-- [Bugs and feature requests]()
-- [Versioning]()
-- [Copyright and license]()
-- [Other handy repositories and resources]()
+* [Quickstart](#quickstart)
+* [Bugs and feature requests](#bugs-and-feature-requests)
+* [Versioning](#versioning)
+* [Copyright and license](#copyright-and-license)
+* [Other handy repositories and resources](#other-handy-repositories-and-resources)
 
 ## Quickstart
 
@@ -26,14 +26,15 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 
 ## Versioning 
-For transparency into our release cycle and in striving to maintain backward compatibility, scouts en gidsen template is maintained under the Semantic Versioning guidelines. Sometimes we screw up, but we'll adhere to those rules whenever possible.
+For transparency into our release cycle and in striving to maintain backward compatibility, scouts en gidsen template is maintained under the [Semantic Versioning guidelines](http://semver.org/). Sometimes we screw up, but we'll adhere to those rules whenever possible.
 
-See the Releases section of our GitHub project for changelogs for each release version of this repo.
+See the [Releases section](https://github.com/template-hop/web-platform/releases) of our GitHub project for changelogs for each release version of this repo.
 
 ## Other handy repositories and resources. 
 
 - [Project documentation](http://hop-template.readthedocs.org/en/latest/GulpJS/)
 - [Module template](https://github.com/Tjoosten/module-skeleton/tree/master)
+- [Git styleguide](https://github.com/jonathanong/git-style-guide)
 - [PSR standards](http://www.php-fig.org/)
 
 ## Copyright and license 
