@@ -28,7 +28,7 @@ class AuthencationTest extends TestCase
             ->each(function ($user) {
                 $user->permission()
                     ->save(factory(App\Permission::class)->make());
-            });
+            })->load('permission');
 
         $this->actingAs($users[0])->visit('/backend/acl/delete/'. $users[0]->id)->assertResponseStatus(200);
 
@@ -40,7 +40,7 @@ class AuthencationTest extends TestCase
                     ->save(factory(App\Permission::class)->make([
                         'ledenbeheer' => 0,
                     ]));
-            });
+            })->load('permission');
 
         $this->actingAs($user[0])->visit('/backend/acl/delete/'.$user[0]->id)->assertResponseStatus(200);
     }

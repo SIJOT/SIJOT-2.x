@@ -30,6 +30,8 @@ class rentalTest extends TestCase
                 ]));
             })->load('permission');
 
+        factory(App\Verhuring::class)->make();
+
         // Wrong permissions.
         $this->actingAs($users[0])->visit('/backend/rental')->assertResponseStatus(200);
 

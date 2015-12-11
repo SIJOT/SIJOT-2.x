@@ -114,7 +114,7 @@ class AuthorizationController extends Controller
         $users->password = Hash::make($password);
         $users->save();
 
-        $permissions = new App\Permission();
+        $permissions = new Permission();
         $permissions->user_id = $users->id;
 
         $notifications = new Notifications();
@@ -228,6 +228,6 @@ class AuthorizationController extends Controller
         $logging = Lang::get('', ['user' => Auth::user()->name,]);
         Log::info($logging);
 
-        return Redirect::route('acl.index');
+        return Redirect::back();
     }
 }

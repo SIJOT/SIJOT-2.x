@@ -62,7 +62,7 @@
                                 </div>
                             </div>
 
-                            <table class="table table-condensed table-bordered">
+                            <table class="table table-condensed">
                                 <thead>
                                     <tr>
                                         <th class="col-sm-1">#</th>
@@ -77,7 +77,7 @@
                                     @foreach($dbData as $data)
                                         <tr>
                                             <td><code>#{{ $data->id }}</code></td>
-                                            <td> {{ date('d-m-Y', $data->Start_Datum) }} - {{ date('d-m-Y', $data->Eind_datum) }} </td>
+                                            <td> {{ date('d-m-Y', (integer) $data->Start_Datum) }} - {{ date('d-m-Y', (integer) $data->Eind_datum) }} </td>
 
                                             <td>
                                                 @if($data->Status == 0)
