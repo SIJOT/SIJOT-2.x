@@ -1,6 +1,6 @@
 ## Scouts website, Sint-Joris Turnhout.
 
-[![codecov.io](https://codecov.io/github/template-hop/scouts-en-gidsen-template/coverage.svg?branch=master)](https://codecov.io/github/template-hop/scouts-en-gidsen-template?branch=master)
+[![codecov.io](https://codecov.io/github/template-hop/web-platform/coverage.svg?branch=master)](https://codecov.io/github/template-hop/web-platform?branch=master)
 [![Build Status](https://travis-ci.org/template-hop/web-platform.svg?branch=master)](https://travis-ci.org/template-hop/web-platform)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)
 [![Latest Version](https://img.shields.io/github/tag/Tjoosten/scouts-en-gidsen-template.svg?style=flat&label=release)](https://github.com/tjoosten/scouts-en-gidsen-template/tags)
