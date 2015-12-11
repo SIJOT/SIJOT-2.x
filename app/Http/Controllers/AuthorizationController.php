@@ -8,14 +8,12 @@ use App\Permission;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 use Pusher;
 
@@ -116,7 +114,7 @@ class AuthorizationController extends Controller
         $users->password = Hash::make($password);
         $users->save();
 
-        $permissions = new Permission();
+        $permissions = new App\Permission();
         $permissions->user_id = $users->id;
 
         $notifications = new Notifications();
