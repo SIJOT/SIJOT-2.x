@@ -65,7 +65,7 @@ class TakkenViewController extends Controller
      *
      * @Get("takken/{fragment}", as="groups.specific")
      */
-    public function Tak($fragment)
+    public function tak($fragment)
     {
         $data['title'] = 'De Leiding';
         $data['active'] = 1;
