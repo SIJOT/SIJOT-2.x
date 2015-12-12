@@ -34,6 +34,10 @@ Has permission for:
 
 Has permission for: 
 
+- Upload files in the cloud. 
+- Remove files. 
+- View and download files.
+
 ## Create new permission.
 
 ```php 

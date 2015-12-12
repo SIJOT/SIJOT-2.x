@@ -12,20 +12,20 @@
         <tbody>
         <tr>
             <td> <strong> Start Datum: </strong> </td>
-            <td> <?php echo $data->StartDatum; ?>
+            <td> <?php echo $data['StartDatum']; ?>
         </tr>
         <tr>
             <td> <strong> Eind Datum: </strong> </td>
-            <td> <?php echo $data->EindDatum; ?>
+            <td> <?php echo $data['EindDatum']; ?>
         </tr>
         <tr>
             <td> <strong> Groep: </strong> </td>
-            <td> <?php echo $data->Groep; ?>
+            <td> <?php echo $data['Groep']; ?>
         </tr>
 
         <tr>
             <td> <strong> Email: </strong> </td>
-            <td> <?php echo $data->Email; ?>
+            <td> <?php echo $data['Email']; ?>
         </tr>
         </tbody>
     </table>

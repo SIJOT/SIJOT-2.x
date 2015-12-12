@@ -78,7 +78,7 @@
                                                     <tr>
                                                         <td>Verhuur beheer</td>
                                                         <td class="text-center">
-                                                            <input type="checkbox" name="" value="1" @if($right->verhuurbeheer === 1) checked @endif>
+                                                            <input type="checkbox" name="verhuurbeheer" value="1" @if($right->verhuurbeheer === 1) checked @endif>
                                                         </td>
                                                     </tr>
                                                     <tr>

@@ -124,7 +124,7 @@ class VerhuurBackendController extends Controller
             foreach ($notificationMembers as $person) {
                 $user = User::find($person->id);
 
-                Mail::queue('emails.verhuurNotificatie', ['data' => $input], function ($m) use ($user) {
+                Mail::queue('emails.verhuurNotificatie', ['data' => $input->all()], function ($m) use ($user) {
                     $m->to($user->email, $user->name)->subject('Notificatie verhuur | St-joris Turnhout');
                     $m->from(config('platform.websiteContact'), config('platform.websiteName'));
                 });
