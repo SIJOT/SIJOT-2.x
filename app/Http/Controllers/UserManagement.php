@@ -48,7 +48,7 @@ class UserManagement extends Controller
      *
      * @Get("backend/acl/profile/{id} ", as="acl.index")
      */
-    public function UserProfile($id)
+    public function userProfile($id)
     {
         $data['title'] = 'Gebruikers profiel';
         $data['active'] = 0;
