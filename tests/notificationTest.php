@@ -10,6 +10,7 @@ class notificationTest extends TestCase
 
     /**
      * @group all
+     * @group backend
      * @group rental
      */
     public function testVerhuurNotificationOut()
@@ -45,6 +46,7 @@ class notificationTest extends TestCase
 
     /**
      * @group all
+     * @group backend
      * @group rental
      */
     public function testVerhuurNotificationAan()

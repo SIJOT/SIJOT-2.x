@@ -10,6 +10,7 @@ class rentalTest extends TestCase
 
     /**
      * @group all
+     * @group backend
      * @group rental
      */
     public function testRentalHyperlinksIndexBackend()
@@ -55,6 +56,7 @@ class rentalTest extends TestCase
 
     /**
      * @group all
+     * @group backend
      * @group rental
      */
     public function testRentalFrontEndHyperlink()
@@ -102,6 +104,7 @@ class rentalTest extends TestCase
 
     /**
      * @group all
+     * @group backend
      * @group rental
      */
     public function testRentalsetToOption()
@@ -122,6 +125,7 @@ class rentalTest extends TestCase
 
     /**
      * @group all
+     * @group backend
      * @group rental
      */
     public function testRentalSetToConfirmed()
@@ -161,6 +165,7 @@ class rentalTest extends TestCase
 
     /**
      * @group all
+     * @group backend
      * @group rental
      */
     public function testRentalDelete()

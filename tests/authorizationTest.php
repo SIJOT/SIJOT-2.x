@@ -7,6 +7,7 @@ class authorizationTest extends TestCase
     use DatabaseTransactions;
 
     /**
+     * @group backend
      * @group all
      */
     public function testProfilePage()
@@ -27,6 +28,7 @@ class authorizationTest extends TestCase
     }
 
     /**
+     * @group backend
      * @group all
      */
     public function testBlockuserMethod()
@@ -41,6 +43,7 @@ class authorizationTest extends TestCase
     }
 
     /**
+     * @group backend
      * @group all
      */
     public function testUnblockUserMethod()

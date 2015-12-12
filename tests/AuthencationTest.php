@@ -7,6 +7,7 @@ class AuthencationTest extends TestCase
     use WithoutMiddleware;
 
     /**
+     * @group backend
      * @group all
      */
     public function testLogout()
@@ -18,6 +19,7 @@ class AuthencationTest extends TestCase
     }
 
     /**
+     * @group backend
      * @group all
      */
     public function testDeleteUser()

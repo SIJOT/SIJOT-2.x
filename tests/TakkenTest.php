@@ -64,6 +64,7 @@ class TakkenTest extends TestCase
 
     /**
      * @group all
+     * @group backend
      * @group takken
      */
     public function testVariousUrl()

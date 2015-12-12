@@ -8,6 +8,7 @@ class UsermanagementTest extends TestCase
 
     /**
      * @group all
+     * @group backend
      */
     public function testUsermanagementRoutes()
     {
@@ -24,6 +25,7 @@ class UsermanagementTest extends TestCase
 
     /**
      * @group all
+     * @group backend
      */
     public function testChangeCredentialsFunction()
     {
