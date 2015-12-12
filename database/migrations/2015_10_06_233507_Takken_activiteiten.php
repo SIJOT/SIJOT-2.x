@@ -28,6 +28,6 @@ class TakkenActiviteiten extends Migration
      */
     public function down()
     {
-        Schema::drop('Takken_activiteiten');
+        Schema::dropIfExists('Takken_activiteiten');
     }
 }

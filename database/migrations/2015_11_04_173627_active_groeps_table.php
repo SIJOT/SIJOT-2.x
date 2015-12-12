@@ -25,6 +25,6 @@ class ActiveGroepsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('takken_beheer');
+        Schema::dropIfExists('takken_beheer');
     }
 }

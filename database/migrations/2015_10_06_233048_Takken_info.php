@@ -29,6 +29,6 @@ class TakkenInfo extends Migration
      */
     public function down()
     {
-        Schema::drop('Takken_info');
+        Schema::dropIfExists('Takken_info');
     }
 }

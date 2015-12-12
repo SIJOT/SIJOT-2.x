@@ -30,6 +30,6 @@ class PermissionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('cms_permissions');
+        Schema::dropIfExists('cms_permissions');
     }
 }
