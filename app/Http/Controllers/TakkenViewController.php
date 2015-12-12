@@ -38,7 +38,7 @@ class TakkenViewController extends Controller
      *
      * @Get("takken", as="groups.all")
      */
-    public function TakAll()
+    public function takAll()
     {
         $data['title'] = 'De Takken';
         $data['active'] = 1;
