@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Notifications;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Redirect;
 
 class notificationsController extends Controller

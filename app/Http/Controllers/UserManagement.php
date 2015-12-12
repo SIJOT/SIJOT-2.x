@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\emailValidator;
 use App\Permission;
 use App\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
