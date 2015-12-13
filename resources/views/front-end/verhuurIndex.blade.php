@@ -32,7 +32,7 @@
 
     <p style="margin-top: 7px;">
         Onze lokalen Bestaan uit 2 Blokken. Waarin 1 grote zaal en 5 lokalen en sanitaire blok gevestigd zijn. De grote zaal is<br>
-        Polyvalente. Verder is er ook nog een keuken. Deze keuken is voorzien 2 gasfornuizen, friet ketel ,keuken eilend, enz...
+        Polyvalente. Verder is er ook nog een keuken. Deze keuken is voorzien 2 gasfornuizen, friet ketel ,keuken eiland, enz...
     </p>
 
     <!-- Photo's -->
