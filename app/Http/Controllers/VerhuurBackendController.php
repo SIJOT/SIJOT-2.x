@@ -20,8 +20,6 @@ class VerhuurBackendController extends Controller
 {
     public $pusher;
 
-    // todo: set $m->from from hardcoded to dynamic with the config facade - Mailing.
-
     /**
      * Class constructor.
      */
