@@ -69,7 +69,6 @@ class TakkenViewController extends Controller
         $data['title'] = 'De Leiding';
         $data['active'] = 1;
 
-        // TODO: Set in query scopes.
         $data['Activiteiten'] = Activiteiten::where('URI_fragment', '=', $fragment)->get();
         $data['Beschrijving'] = Info::getGroup($fragment)->get();
 
@@ -91,7 +90,6 @@ class TakkenViewController extends Controller
         $data['active'] = 1;
 
         // Get Tak info out of the MySQL DB.
-        // TODO: check possibity for query scope.
         $data['kapoenen']   = Info::getGroup('kapoenen')->get();
         $data['welpen']     = Info::getGroup('welpen')->get();
         $data['jongGivers'] = Info::getGroup('jong-givers')->get();
