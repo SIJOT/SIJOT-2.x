@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bba8d395-2a51-4673-9cb9-2a76e3f4873e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/partials/header.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/header.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" />
     </list>
     <ignored path="SIJOT-2.x.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,31 +25,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="verhuurBereikbaarheid.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/front-end/verhuurBereikbaarheid.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.958333">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="verhuurAanvraag.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/front-end/verhuurAanvraag.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.958333">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="header.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/partials/header.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31088084">
+            <state vertical-scroll-proportion="-5.0">
               <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="verhuurNotificatie.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/emails/verhuurNotificatie.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.708333">
+              <caret line="37" column="7" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navbar.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/partials/navbar.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.80569947">
+              <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -90,6 +90,8 @@
         <option value="$PROJECT_DIR$/resources/views/front-end/verhuurBereikbaarheid.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/front-end/verhuurAanvraag.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/header.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/emails/verhuurNotificatie.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" />
       </list>
     </option>
   </component>
@@ -429,7 +431,19 @@
       <option name="project" value="LOCAL" />
       <updated>1450044226712</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="fix #164 | Text files should end with a newline character">
+      <created>1450044308607</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1450044308607</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fix #159 | Text files should end with a newline character">
+      <created>1450044440200</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1450044440200</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -502,7 +516,9 @@
     <MESSAGE value="fix #140 | Source code should not contain TODO comments" />
     <MESSAGE value="fix #163 | Text files should end with a newline character" />
     <MESSAGE value="fix #162 | Text files should end with a newline character" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix #162 | Text files should end with a newline character" />
+    <MESSAGE value="fix #164 | Text files should end with a newline character" />
+    <MESSAGE value="fix #159 | Text files should end with a newline character" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix #159 | Text files should end with a newline character" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -745,14 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/partials/navbar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="27.5">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/footer.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -827,14 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/front-end/verhuurBereikbaarheid.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.958333">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/front-end/verhuurAanvraag.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.958333">
@@ -843,10 +843,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/front-end/verhuurBereikbaarheid.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.958333">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31088084">
+        <state vertical-scroll-proportion="-5.0">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/emails/verhuurNotificatie.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.708333">
+          <caret line="37" column="7" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/navbar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.80569947">
+          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
           <folding />
         </state>
       </provider>
