@@ -43,7 +43,7 @@ class NotificationsController extends Controller
      *
      * @Get("/notification/uit/{id}", as="rental.notificationDisable")
      */
-    public function VerhuurUit($id)
+    public function verhuurUit($id)
     {
         $notification = Notifications::findOrNew($id);
         $notification->verhuring = 0;
