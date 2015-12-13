@@ -45,13 +45,13 @@ class TakkenViewController extends Controller
 
         // Get Tak info out of the MySQL DB.
         // TODO: set query scopes.
-        $data['takken'] = Info::all();
-        $data['kapoenen'] = Info::where('URI_fragment', '=', 'kapoenen')->get();
-        $data['welpen'] = Info::where('URI_fragment', '=', 'welpen')->get();
-        $data['jongGivers'] = Info::where('URI_fragment', '=', 'jong-givers')->get();
-        $data['givers'] = Info::where('URI_fragment', '=', 'givers')->get();
-        $data['jins'] = Info::where('URI_fragment', '=', 'jins')->get();
-        $data['leiding'] = Info::where('URI_fragment', '=', 'leiding')->get();
+        $data['takken']      = Info::all();
+        $data['kapoenen']    = Info::getGroup('kapoenen')->get();
+        $data['welpen']      = Info::getGroup('welpen')->get();
+        $data['jongGivers']  = Info::getGroup('jong-givers')->get();
+        $data['givers']      = Info::getGroup('givers')->get();
+        $data['jins']        = Info::getGroup('jins')->get();
+        $data['leiding']     = Info::getGroup('leiding')->get();
 
         return View('front-end.takken', $data);
     }
@@ -72,7 +72,7 @@ class TakkenViewController extends Controller
 
         // TODO: Set in query scopes.
         $data['Activiteiten'] = Activiteiten::where('URI_fragment', '=', $fragment)->get();
-        $data['Beschrijving'] = Info::where('URI_fragment', '=', $fragment)->get();
+        $data['Beschrijving'] = Info::getGroup($fragment)->get();
 
         return View('front-end.tak', $data);
     }
@@ -93,12 +93,12 @@ class TakkenViewController extends Controller
 
         // Get Tak info out of the MySQL DB.
         // TODO: check possibity for query scope.
-        $data['kapoenen']   = Info::where('URI_fragment', '=', 'kapoenen')->get();
-        $data['welpen']     = Info::where('URI_fragment', '=', 'welpen')->get();
-        $data['jongGivers'] = Info::where('URI_fragment', '=', 'jong-givers')->get();
-        $data['givers']     = Info::where('URI_fragment', '=', 'givers')->get();
-        $data['jins']       = Info::where('URI_fragment', '=', 'jins')->get();
-        $data['leiding']    = Info::where('URI_fragment', '=', 'leiding')->get();
+        $data['kapoenen']   = Info::getGroup('kapoenen')->get();
+        $data['welpen']     = Info::getGroup('welpen')->get();
+        $data['jongGivers'] = Info::getGroup('jong-givers')->get();
+        $data['givers']     = Info::getGroup('givers')->get();
+        $data['jins']       = Info::getGroup('jins')->get();
+        $data['leiding']    = Info::getGroup('leiding')->get();
 
         return View('back-end.group-update', $data);
     }

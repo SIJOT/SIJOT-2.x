@@ -30,4 +30,16 @@ class Info extends Model
      * @var array
      */
     protected $hidden = ['created_at', 'updated_at'];
+
+    /**
+     * Scope a query to only include the groups by uri segment.
+     *
+     * @param $query
+     * @param $fragment, string, the uri fragment for the group
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeGetGroup($query, $fragment)
+    {
+        return $query->where('URI_fragment', $fragment);
+    }
 }
