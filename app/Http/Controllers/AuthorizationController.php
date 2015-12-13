@@ -66,7 +66,6 @@ class AuthorizationController extends Controller
             $userRole = Auth::user()->role;
 
             // var_dump(Session::get('permission')->first()->ledenbeheer);
-            // die();
 
             if ($userRole === 2) {
                 // Administrator
