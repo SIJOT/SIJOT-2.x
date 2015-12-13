@@ -4,7 +4,6 @@
     <list default="true" id="bba8d395-2a51-4673-9cb9-2a76e3f4873e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/TakkenViewController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/TakkenViewController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Info.php" afterPath="$PROJECT_DIR$/app/Info.php" />
     </list>
     <ignored path="SIJOT-2.x.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,8 +58,8 @@
       <file leaf-file-name="TakkenViewController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TakkenViewController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6217617">
-              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.81606215">
+              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -406,7 +405,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450036696896</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix #110 | Add query scope for the tak info.">
+      <created>1450037530853</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1450037530854</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -458,7 +463,8 @@
     <MESSAGE value="fix #147 | Text files should end with a newline character" />
     <MESSAGE value="fix #162 | PHP code should follow PSR-1 basic coding standard" />
     <MESSAGE value="fix #125 | PHP code should follow PSR-1 basic coding standard" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix #125 | PHP code should follow PSR-1 basic coding standard" />
+    <MESSAGE value="fix #110 | Add query scope for the tak info." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix #110 | Add query scope for the tak info." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -677,8 +683,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TakkenViewController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6217617">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.81606215">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
       </provider>

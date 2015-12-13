@@ -44,7 +44,6 @@ class TakkenViewController extends Controller
         $data['active'] = 1;
 
         // Get Tak info out of the MySQL DB.
-        // TODO: set query scopes.
         $data['takken']      = Info::all();
         $data['kapoenen']    = Info::getGroup('kapoenen')->get();
         $data['welpen']      = Info::getGroup('welpen')->get();
