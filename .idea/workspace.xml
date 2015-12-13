@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bba8d395-2a51-4673-9cb9-2a76e3f4873e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/notificationsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/notificationsController.php" />
     </list>
@@ -39,8 +38,8 @@
       <file leaf-file-name="notificationsController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/notificationsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8834197">
-              <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.8549223">
+              <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -391,7 +390,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450036477721</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix #162 | PHP code should follow PSR-1 basic coding standard">
+      <created>1450036641985</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1450036641985</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -441,7 +446,8 @@
     <MESSAGE value="fix #136 | Fix typo on rental" />
     <MESSAGE value="fix #148 | Text files should end with a newline character" />
     <MESSAGE value="fix #147 | Text files should end with a newline character" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix #147 | Text files should end with a newline character" />
+    <MESSAGE value="fix #162 | PHP code should follow PSR-1 basic coding standard" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix #162 | PHP code should follow PSR-1 basic coding standard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -602,8 +608,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/notificationsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8834197">
-          <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.8549223">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
           <folding />
         </state>
       </provider>

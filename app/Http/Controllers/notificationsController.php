@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Notifications;
 use Illuminate\Support\Facades\Redirect;
 
-class notificationsController extends Controller
+class NotificationsController extends Controller
 {
     /**
      * notificationsController constructor.
