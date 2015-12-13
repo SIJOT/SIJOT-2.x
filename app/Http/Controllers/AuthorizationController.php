@@ -103,7 +103,6 @@ class AuthorizationController extends Controller
      */
     public function register(Registervalidation $input)
     {
-        // TODO: Refactor to mass assign (Eloquent)
         // Password random generated string.
         $password = str_random(14);
 

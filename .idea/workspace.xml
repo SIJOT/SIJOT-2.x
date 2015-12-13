@@ -50,8 +50,8 @@
       <file leaf-file-name="AuthorizationController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthorizationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58290154">
-              <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6217617">
+              <caret line="111" column="38" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -432,7 +432,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450040290604</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix #124 | PHP code should follow PSR-1 basic coding standard">
+      <created>1450040367549</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1450040367549</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -499,7 +505,8 @@
     <MESSAGE value="fix #127 | PHP code should follow PSR-1 basic coding standard" />
     <MESSAGE value="fix #142 | Source code should not contain TODO comments" />
     <MESSAGE value="fix #141 | Source code should not contain TODO comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix #141 | Source code should not contain TODO comments" />
+    <MESSAGE value="fix #124 | PHP code should follow PSR-1 basic coding standard" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix #124 | PHP code should follow PSR-1 basic coding standard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -802,8 +809,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthorizationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58290154">
-          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6217617">
+          <caret line="111" column="38" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="38" />
           <folding />
         </state>
       </provider>
