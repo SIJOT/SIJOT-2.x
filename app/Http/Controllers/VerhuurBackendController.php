@@ -53,7 +53,6 @@ class VerhuurBackendController extends Controller
      */
     public function index()
     {
-        // todo: add download method
         // todo: add search  method.
 
         $data['title'] = 'Verhuur control panel';
