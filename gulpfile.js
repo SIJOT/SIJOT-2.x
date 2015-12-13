@@ -16,7 +16,6 @@ var scsslint     = require('gulp-scss-lint');
 
 // GULP TASKS.
 // ----------------------------------------------------------------------------
-// TODO: need to set up a help command shell.
 
 gulp.task('styles', 'Transform the scss files to css', function() {
     return sass('./resources/assets/scss/*.scss', { style: 'expanded' })
