@@ -101,7 +101,7 @@ class AuthorizationController extends Controller
      *
      * @Post("/backend/acl/register", as="acl.register")
      */
-    public function Register(Registervalidation $input)
+    public function register(Registervalidation $input)
     {
         // TODO: Refactor to mass assign (Eloquent)
         // Password random generated string.
