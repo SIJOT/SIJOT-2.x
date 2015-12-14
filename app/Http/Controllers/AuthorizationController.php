@@ -66,7 +66,6 @@ class AuthorizationController extends Controller
             $userRole = Auth::user()->role;
 
             // var_dump(Session::get('permission')->first()->ledenbeheer);
-            // die();
 
             if ($userRole === 2) {
                 // Administrator
@@ -101,9 +100,8 @@ class AuthorizationController extends Controller
      *
      * @Post("/backend/acl/register", as="acl.register")
      */
-    public function Register(Registervalidation $input)
+    public function register(Registervalidation $input)
     {
-        // TODO: Refactor to mass assign (Eloquent)
         // Password random generated string.
         $password = str_random(14);
 
