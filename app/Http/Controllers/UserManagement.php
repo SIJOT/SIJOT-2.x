@@ -89,9 +89,6 @@ class UserManagement extends Controller
         $db['media']         = Input::has('media')         ? true : false;
         $db['cloud']         = Input::has('cloud')         ? true : false;
 
-        // Uncomment this dd() only for debugging proposes.
-        // dd($db);
-
         // Insert to the database.
         $permission = Permission::find(['user_id' => $id]);
         $permission->fill($db);
