@@ -20,8 +20,6 @@ class VerhuurBackendController extends Controller
 {
     public $pusher;
 
-    // todo: set $m->from from hardcoded to dynamic with the config facade - Mailing.
-
     /**
      * Class constructor.
      */
@@ -55,7 +53,6 @@ class VerhuurBackendController extends Controller
      */
     public function index()
     {
-        // todo: add download method
         // todo: add search  method.
 
         $data['title'] = 'Verhuur control panel';
