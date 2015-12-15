@@ -14,5 +14,12 @@ class Groep extends Model
     protected $table = 'user_groups';
 
 
+    /**
+     * Get the users wwhat are in this group.
+     */
+    public function users()
+    {
+        $this->belongsToMany('App\user');
+    }
 
 }
