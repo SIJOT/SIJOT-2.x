@@ -16,6 +16,7 @@ class UserGroups extends Migration
             $t->increments('id');
             $t->string('group');
             $t->string('css_class');
+            $t->timestamps();
         });
     }
 
