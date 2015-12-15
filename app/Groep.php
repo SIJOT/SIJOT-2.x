@@ -19,7 +19,7 @@ class Groep extends Model
      */
     public function users()
     {
-        $this->belongsToMany('App\user');
+        $this->belongsToMany('App\user', 'pivot_user_groups');
     }
 
 }

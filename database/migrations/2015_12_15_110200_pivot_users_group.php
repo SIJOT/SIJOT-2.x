@@ -16,8 +16,8 @@ class PivotUsersGroup extends Migration
             $t->integer('user_id')->unsigned()->index();
             $t->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $t->integer('group_id')->unsigned()->index();
-            $t->foreign('group_id')->references('id')->on('user_groups')->onDelete('cascade');
+            $t->integer('groep_id')->unsigned()->index();
+            $t->foreign('groep_id')->references('id')->on('user_groups')->onDelete('cascade');
             $t->timestamps();
         });
     }
