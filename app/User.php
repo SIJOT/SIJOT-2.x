@@ -59,4 +59,12 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->hasOne('App\Notifications', 'user_id', 'id');
     }
+
+    /**
+     * Get the groups of the user.
+     */
+    public function groups()
+    {
+        return $this->belongsToMany('App\Group');
+    }
 }
