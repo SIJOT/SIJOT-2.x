@@ -34,10 +34,11 @@
             <p><a class="btn btn-default" href="{{ Url::to('/verhuur') }}">Lees meer »</a></p>
         </div>
     </div>
-    <hr>
-    <footer>
-        <p>© 2015 - Sint-Joris Turnhout</p>
-    </footer>
+</div>
+<hr>
+<footer>
+    <p>© 2015 - Sint-Joris Turnhout</p>
+</footer>
 </div>
 
 {{-- Load the JavaScript includes. --}}
