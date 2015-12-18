@@ -14,6 +14,8 @@ class Groep extends Model
     protected $table = 'user_groups';
 
 
+    protected $fillable = ['group'];
+
     /**
      * Get the users wwhat are in this group.
      */
