@@ -115,7 +115,7 @@
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                         <label for="Naam">Naam:</label>
-                                        <input style="width: 32%;" name="name" class="form-control" type="text" value="{{ $username }}" disabled>
+                                        <input style="width: 32%;" name="gebruikers_naam" class="form-control" type="text" value="{{ $username }}">
                                         <br>
 
                                         <label for="Email">Email</label>
@@ -129,6 +129,12 @@
                                         <label for="test">Profiel foto</label>
                                         {!! Form::file('avatar') !!}
                                         <br>
+
+                                        @can('leden-beheer', Auth::user()->permission->ledenbeheer)
+                                            {!! Form::label('tags', 'Gebruikergroepen:') !!}
+                                            {!! Form::select('groepen[]', $groepen, null, ['class' => 'form-control', 'multiple']) !!}
+                                            <br />
+                                        @endcan
 
                                         <button class="btn btn-success" type="submit">
                                             Wijzigen
