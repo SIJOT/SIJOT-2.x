@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Groep;
 use App\Http\Requests\emailValidator;
 use App\Permission;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
@@ -52,7 +54,10 @@ class UserManagement extends Controller
     {
         $data['title'] = 'Gebruikers profiel';
         $data['active'] = 0;
+
+        // Database Query's.
         $data['permission'] = Permission::where('user_id', $id)->get();
+        $data['groepen']    = Groep::lists('group', 'id');
 
         $user = User::where('id', $id)->get();
 
@@ -110,6 +115,10 @@ class UserManagement extends Controller
     {
         $user = User::findOrFail($id);
 
+        // Update method for the user group.
+        $groupsId = Input::get('groepen');
+        $groupUpdate = Auth::user()->groups()->sync($groupsId);
+
         if (Input::hasFile('avatar')) {
             //dd(request()->all());
             $file = Input::file('avatar');
@@ -123,7 +132,7 @@ class UserManagement extends Controller
             $user->avatar = $imagePath;
         }
 
-        $user->name = Input::get('name');
+        $user->name = Input::get('gebruikers_naam');
         $user->email = $input->email;
 
         if (! empty($user->password)) {
