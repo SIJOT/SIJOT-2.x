@@ -56,8 +56,9 @@ class UserManagement extends Controller
         $data['active'] = 0;
 
         // Database Query's.
-        $data['permission'] = Permission::where('user_id', $id)->get();
-        $data['groepen']    = Groep::lists('group', 'id');
+        $data['permission']  = Permission::where('user_id', $id)->get();
+        $data['groepen']     = Groep::lists('group', 'id');
+        $data['user_groups'] = User::find($id)->groups()->get();
 
         $user = User::where('id', $id)->get();
 

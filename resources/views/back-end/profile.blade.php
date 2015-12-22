@@ -35,8 +35,15 @@
                     </ul>
 
                     <div class="panel panel-default">
-                        <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-                        <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
+                        <div class="panel-heading">
+                            Gebruikersgroepen:
+                            <i class="fa fa-link fa-1x"></i>
+                        </div>
+                        <div class="panel-body">
+                            @foreach($user_groups as $value)
+                               <!-- List labels -->
+                            @endforeach
+                        </div>
                     </div>
 
                 </div>{{-- end col-3 --}}
