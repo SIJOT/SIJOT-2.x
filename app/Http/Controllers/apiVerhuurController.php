@@ -55,7 +55,6 @@ class apiVerhuurController extends Controller
      */
     public function create()
     {
-
     }
 
     /**
@@ -74,10 +73,28 @@ class apiVerhuurController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     *
+     * @get("/api/v1/verhuring/{id}")
      */
     public function show($id)
     {
+        $query = Verhuring::where('id', $id)->get();
 
+        if (count($query) > 0) {
+            $resource = new Collection($query, $this->transformer());
+            $content = $this->fractal->createData($resource)->toJson();
+        } else {
+            $content = [
+                'errors' => [[
+                    'message' => 'Er zijn geen verhuringen gevonden.',
+                ]],
+            ];
+        }
+
+        $response = response($content, 200);
+        $response->header('Content-Type', 'application/json');
+
+        return $response;
     }
 
     /**
