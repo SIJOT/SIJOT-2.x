@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RentalValidator;
 use App\Verhuring;
 use App\Http\Requests;
+use Illuminate\Http\JsonResponse;
 use League\Fractal\Manager;
 use Illuminate\Http\Request;
 use League\Fractal\Resource\Collection;
@@ -55,6 +57,7 @@ class apiVerhuurController extends Controller
      */
     public function create()
     {
+
     }
 
     /**
@@ -98,26 +101,41 @@ class apiVerhuurController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param RentalValidator|Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
+     *
+     * @put("/api/v1/verhuring/{id}")
      */
-    public function update(Request $request, $id)
+    public function update(RentalValidator $request, $id)
     {
-        //
+        $rental              = Verhuring::find($id);
+        $rental->Start_Datum = $request->StartDatum;
+        $rental->Eind_datum  = $request->EindDatum;
+        $rental->Groep       = $request->Groep;
+        $rental->Email       = $request->Email;
+        $rental->Status      = 0;
+        $rental->GSM         = $request->Gsm;
+        $rental->save();
+
+        // Response content.
+        $content = [
+            'status' => 'success',
+                'data' => [[
+                    'StartDatum' => $request->StartDatum,
+                    'EindDatum'  => $request->EindDatum,
+                    'Groep'      => $request->Groep,
+                    'Email'      => $request->Email,
+                    'Gsm'        => $request->Gsm
+                ]],
+            ];
+
+        $response = response($content, 200);
+        $response->header('Content-Type', 'application/json');
+
+        return $response;
     }
 
     /**
