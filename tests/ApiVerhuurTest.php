@@ -72,4 +72,38 @@ class ApiVerhuurTest extends TestCase
         $this->assertArrayHasKey('message', $arrayTwo['errors'][0]);
 
     }
+
+    /**
+     * @group all
+     * @group api
+     */
+    public function testApiRentalinsert()
+    {
+        // Database seed.
+        $rental = factory(App\Verhuring::class, 1)->create([
+            'id' => 1,
+            'Email' => 'test@domain.be',
+        ]);
+
+        // Request data.
+        $data['StartDatum'] = '11-12-2016';
+        $data['EindDatum']  = '10-10-2016';
+        $data['Groep']      = 'ScoutsGroep';
+        $data['Email']      = 'domain@example.net';
+        $data['Gsm']        = '0474853880';
+
+        // Database Validation.
+        $Database['Start_Datum'] = $data['StartDatum'];
+        $Database['Eind_datum']  = $data['EindDatum'];
+        $Database['Groep']       = $data['Groep'];
+        $Database['Email']       = $data['Email'];
+        $Database['Status']      = 0;
+        $Database['GSM']         = $data['Gsm'];
+
+        // Make the request.
+        $this->put('/api/v1/verhuring/'. $rental->id, $data)
+            ->seeJson($data)
+            ->seeInDatabase('Verhuur', $Database)
+            ->seeStatusCode(200);
+    }
 }
