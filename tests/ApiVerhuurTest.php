@@ -9,6 +9,7 @@ class ApiVerhuurTest extends TestCase
     use WithoutMiddleware, DatabaseTransactions, DatabaseMigrations;
 
     /**
+     * @group rental
      * @group all
      * @group api
      */
@@ -37,6 +38,7 @@ class ApiVerhuurTest extends TestCase
     }
 
     /**
+     * @group rental
      * @group all
      * @group api
      */
@@ -74,10 +76,11 @@ class ApiVerhuurTest extends TestCase
     }
 
     /**
+     * @group rental
      * @group all
      * @group api
      */
-    public function testApiRentalinsert()
+    public function testApiRentalUpdate()
     {
         // Database seed.
         $rental = factory(App\Verhuring::class, 1)->create([
