@@ -13,6 +13,8 @@ class apiController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     *
+     * @get("/api/v1/")
      */
     public function index()
     {
