@@ -36,6 +36,7 @@ class Kernel extends HttpKernel
         'verhuurbeheer' => \App\Http\Middleware\VerhuurBeheer::class,
         'ledenbeheer'   => \App\Http\Middleware\LedenBeheer::class,
         'mediabeheer'   => \App\Http\Middleware\MediaPermission::class,
-        'cloudbeheer'   => \App\Http\Middleware\CloudPermission::class
+        'cloudbeheer'   => \App\Http\Middleware\CloudPermission::class,
+        'throttle'      => \GrahamCampbell\Throttle\Http\Middleware\ThrottleMiddleware::class,
     ];
 }

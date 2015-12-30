@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -46,6 +47,21 @@ class Handler extends ExceptionHandler
     {
         if ($e instanceof ModelNotFoundException) {
             $e = new NotFoundHttpException($e->getMessage(), $e);
+        } elseif ($e instanceof TooManyRequestsHttpException) {
+            // This exception will only used on the api methods.
+            // So a json response is needed.
+            //
+            // { "errors": [{ "code": 88, "message": "Rate limit exceeded" }]}
+
+            $content = [
+                "errors" => [[
+                    "code" => 88,
+                    "message" => "Rate limit exceeded"
+                 ]]
+            ];
+
+            return response($content, 200)
+                ->header('Content-Type', 'application/json');
         }
 
         return parent::render($request, $e);

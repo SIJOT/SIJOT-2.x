@@ -154,6 +154,7 @@ return [
         Illuminate\Html\HtmlServiceProvider::class,
         App\Providers\AnnotationsServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        GrahamCampbell\Throttle\ThrottleServiceProvider::class,
     ],
 
     /*
@@ -211,6 +212,7 @@ return [
         'Form'  => Illuminate\Html\FormFacade::class,
         'HTML'  => Illuminate\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Throttle' => GrahamCampbell\Throttle\Facades\Throttle::class,
     ],
 
 ];
