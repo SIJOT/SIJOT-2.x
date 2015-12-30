@@ -32,7 +32,6 @@ class apiVerhuurController extends Controller
      * @return \Illuminate\Http\Response
      *
      * @get("/api/v1/verhuring")
-     *
      */
     public function index()
     {
@@ -51,24 +50,39 @@ class apiVerhuurController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param RentalValidator|Request $request
      * @return \Illuminate\Http\Response
+     *
+     * @post("/api/v1/verhuring")
      */
-    public function store(Request $request)
+    public function store(RentalValidator $request)
     {
-        //
+        $rental = new Verhuring();
+        $rental->Start_Datum = $request->StartDatum;
+        $rental->Eind_datum  = $request->EindDatum;
+        $rental->Groep       = $request->Groep;
+        $rental->Email       = $request->Email;
+        $rental->Status      = 0;
+        $rental->GSM         = $request->Gsm;
+        $rental->save();
+
+        $content = [
+            'status' => 'success',
+                'data' => [[
+                    'StartDatum' => $request->StartDatum,
+                    'EindDatum'  => $request->EindDatum,
+                    'Groep'      => $request->Groep,
+                    'Email'      => $request->Email,
+                    'Gsm'        => $request->Gsm
+                ]],
+            ];
+
+        $response = response($content, 200);
+        $response->header('Content-Type', 'application/json');
+
+        return $response;
     }
 
     /**
@@ -141,12 +155,12 @@ class apiVerhuurController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param RentalValidator $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
     }
 
     /**

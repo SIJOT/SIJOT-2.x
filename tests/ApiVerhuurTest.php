@@ -80,19 +80,14 @@ class ApiVerhuurTest extends TestCase
      * @group all
      * @group api
      */
-    public function testApiRentalUpdate()
+    public function testApiRentalInsert()
     {
-        // Database seed.
-        $rental = factory(App\Verhuring::class, 1)->create([
-            'id' => 1,
-            'Email' => 'test@domain.be',
-        ]);
+        $rental = factory(App\Verhuring::class, 1)->create();
 
-        // Request data.
         $data['StartDatum'] = '11-12-2016';
         $data['EindDatum']  = '10-10-2016';
         $data['Groep']      = 'ScoutsGroep';
-        $data['Email']      = 'domain@example.net';
+        $data['Email']      = 'DOmain@example.com';
         $data['Gsm']        = '0474853880';
 
         // Database Validation.
@@ -103,10 +98,11 @@ class ApiVerhuurTest extends TestCase
         $Database['Status']      = 0;
         $Database['GSM']         = $data['Gsm'];
 
-        // Make the request.
-        $this->put('/api/v1/verhuring/'. $rental->id, $data)
+        $this->post('/api/v1/verhuring', $data)
             ->seeJson($data)
             ->seeInDatabase('Verhuur', $Database)
+            ->seeStatusCode(200)
             ->seeStatusCode(200);
     }
+
 }
