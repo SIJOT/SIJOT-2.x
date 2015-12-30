@@ -155,12 +155,30 @@ class apiVerhuurController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param RentalValidator $request
      * @param  int $id
      * @return \Illuminate\Http\Response
+     *
+     * @delete("/api/v1/verhuring/{id}")
      */
     public function destroy($id)
     {
+        if(count(Verhuring::find($id)) == 1) {
+            Verhuring::destroy($id);
+
+            $content = [
+                'status'  => 'success',
+                'message' => 'De verhuring is verwijderd',
+            ];
+        } else {
+            $content = [
+                'errors' => [[
+                    'message' => 'Er is geen verhuring met die ID.',
+                ]],
+            ];
+        }
+
+        return response($content, 200)
+            ->header('Content-Type', 'application/json');
     }
 
     /**
