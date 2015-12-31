@@ -137,12 +137,6 @@
                                         {!! Form::file('avatar') !!}
                                         <br>
 
-                                        @can('leden-beheer', Auth::user()->permission->ledenbeheer)
-                                            {!! Form::label('tags', 'Gebruikergroepen:') !!}
-                                            {!! Form::select('groepen[]', $groepen, null, ['class' => 'form-control', 'multiple']) !!}
-                                            <br />
-                                        @endcan
-
                                         <button class="btn btn-success" type="submit">
                                             Wijzigen
                                         </button>
