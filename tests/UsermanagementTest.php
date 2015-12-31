@@ -32,14 +32,14 @@ class UsermanagementTest extends TestCase
         $users = factory(App\User::class, 3)
             ->create()
             ->each(function ($u) {
-                $u->permission()->save(factory(App\Permission::class)->make());
+                $u->permission()->save(factory(App\Permission::class)->make(['id' => 1]));
             })->load('permission');
 
         // $data['id']    = $users[0]->id;
         $data['email'] = $users[0]->email;
         $data['name'] = $users[0]->name;
 
-        $this->actingAs($users[0])->visit('/backend/acl/profile/'.$users[0]->id)
+        $this->actingAs($users[0])->visit('/backend/acl/profile/1')
             ->type($data['name'], 'name')
             ->type($data['email'], 'email')
             ->attach('testingAssets/avatar.jpg', 'avatar')
