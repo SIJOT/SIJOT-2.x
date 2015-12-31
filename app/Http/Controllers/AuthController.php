@@ -16,9 +16,13 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
 use Pusher;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
-class AuthorizationController extends Controller
+class AuthController extends Controller
 {
+    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+
     // TODO: set named routes.
 
     public $pusher;
