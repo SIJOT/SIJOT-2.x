@@ -42,7 +42,7 @@ class UsermanagementTest extends TestCase
         $data['name'] = $users[0]->name;
 
         $this->actingAs($users[0])->visit('/backend/acl/profile/'. $users[0]->id)
-            ->type($data['name'], 'name')
+            ->type($data['name'], 'gebruikers_naam')
             ->type($data['email'], 'email')
             ->attach('testingAssets/avatar.jpg', 'avatar')
             ->press('Wijzigen')
