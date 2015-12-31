@@ -126,8 +126,6 @@ class AuthController extends Controller
         if ($notifications->save() && $users->save() && $permissions->save()) {
             $user = User::findOrFail($users->id);
 
-            // dd($user);
-
             Mail::queue('emails.registration', ['users' => $user], function ($m) use ($user) {
                 // Load the sender details, from read operation into the config.
                 $m->to($user->email, $user->name)->subject('Registratie St-Joris Turnhout');
