@@ -29,8 +29,6 @@ class VerhuurController extends Controller
      */
     public function aanvragen()
     {
-        // TODO: Set validation errors to the view.
-
         $data['title'] = 'Verhuur | Aanvraag';
 
         return view('front-end.verhuurAanvraag', $data);
