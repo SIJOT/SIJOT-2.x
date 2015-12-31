@@ -32,7 +32,7 @@ class UsermanagementTest extends TestCase
         $users = factory(App\User::class, 3)
             ->create()
             ->each(function ($u) {
-                $u->permission()->save(factory(App\Permission::class)->make(['id' => 1]));
+                $u->permission()->save(factory(App\Permission::class)->make(['id' => 2]));
             })->load('permission');
 
         // $data['id']    = $users[0]->id;
