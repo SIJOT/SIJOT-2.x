@@ -24,7 +24,9 @@ class AnnotationsServiceProvider extends ServiceProvider {
         App\Http\Controllers\TakkenViewController::class,
         App\Http\Controllers\UserManagement::class,
         App\Http\Controllers\VerhuurBackendController::class,
-        App\Http\Controllers\VerhuurController::class
+        App\Http\Controllers\VerhuurController::class, 
+        App\Http\Controllers\apiController::class, 
+        App\Http\Controllers\apiVerhuurController::class
     ];
 
     /**
