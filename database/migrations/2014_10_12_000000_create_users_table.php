@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->integer('role');
             $table->string('blocked');
             $table->string('avatar');
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });
