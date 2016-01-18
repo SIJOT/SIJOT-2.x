@@ -17,6 +17,7 @@ class TakkenActiviteiten extends Migration
             $t->string('URI_fragment', 255);
             $t->string('Naam', 255);
             $t->string('Datum', 255);
+            $t->softDeletes();
             $t->timestamps();
         });
     }
