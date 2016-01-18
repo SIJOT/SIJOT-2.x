@@ -27,7 +27,7 @@ script:
 # code coverage
 before_install:
   - pip install --user codecov
-  - mysql -e "create database IF NOT EXISTS laravel5_test;" -uroot  # Create database laravel5_test for phpunit
+  - mysql -e "create database IF NOT EXISTS testing;" -uroot        # Create database laravel5_test for phpunit
   - mysql -e "create database IF NOT EXISTS test;" -uroot           # Create database test for production 
 after_success:
     - bash <(curl -s https://codecov.io/bash)                       # Push statistics to http://www.codecov.io
