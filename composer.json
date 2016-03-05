@@ -9,24 +9,28 @@
   "type": "project",
   "require": {
     "php": ">=5.5.9",
-    "laravel/framework": "5.1.*",
-    "pusher/pusher-php-server": "~2.0",
-    "barryvdh/laravel-dompdf": "0.6.*",
+    "laravel/framework": "5.2.*",
+    "pusher/pusher-php-server": "*",
+    "barryvdh/laravel-dompdf": "*",
     "barryvdh/laravel-ide-helper": "^2.1",
     "intervention/image": "^2.3",
-    "illuminate/html": "*",
-    "laravelcollective/annotations": "5.1.*",
+    "laravelcollective/annotations": "*",
     "barryvdh/laravel-debugbar": "^2.0",
     "league/fractal": "^0.13.0",
-    "graham-campbell/throttle": "^5.1"
+    "graham-campbell/throttle": "^5.1",
+    "laravelcollective/html": "^5.2"
   },
   "require-dev": {
-    "fzaninotto/faker": "~1.4",
-    "mockery/mockery": "0.9.*",
+    "symfony/dom-crawler": "*",
+    "symfony/css-selector": "*",
+    "fzaninotto/faker": "*",
+    "mockery/mockery": "*",
     "phpunit/phpunit": "~4.0",
-    "phpspec/phpspec": "~2.1",
-    "johnkary/phpunit-speedtrap": "^1.0",
-    "laravel/homestead": "^2.1"
+    "phpspec/phpspec": "*",
+    "johnkary/phpunit-speedtrap": "*",
+    "laravel/homestead": "*",
+    "mybuilder/phpunit-accelerator": "*",
+    "atrapalo/phpunit-memory-and-time-usage-listener": "dev-master"
   },
   "autoload": {
     "classmap": [

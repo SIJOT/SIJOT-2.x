@@ -5,7 +5,7 @@
     @include('partials.header')
 
     {{-- Costum stylesheet dedicated to this page only. --}}
-    <link rel="stylesheet" href="{{URL::to('/')}}/css/frontpage.css" />
+    <link rel="stylesheet" href="{{ URL::to('/css/frontpage.css') }}" />
 </head>
 <body>
 {{-- Load the navbar --}}
