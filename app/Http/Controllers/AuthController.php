@@ -173,11 +173,9 @@ class AuthController extends Controller
 
         if ($user->save()) {
             $logging = Lang::get('logging.', ['name' => Auth::user()->name]);
-        } else {
-            $logging = Lang::get('logging.', ['name' => Auth::user()->name]);
+            Log::info($logging);
         }
 
-        Log::info($logging);
         return Redirect::back();
     }
 
@@ -195,11 +193,9 @@ class AuthController extends Controller
 
         if ($user->save()) {
             $logging = Lang::get('logging.unblockUserSuccess', ['name' => Auth::user()->name]);
-        } else {
-            $logging = Lang::get('logging.unblockUserFailure', ['name' => Auth::user()->name]);
+            Log::info($logging);
         }
 
-        Log::info($logging);
         return Redirect::back();
     }
 
