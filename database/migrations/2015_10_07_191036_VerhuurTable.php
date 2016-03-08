@@ -20,6 +20,7 @@ class VerhuurTable extends Migration
             $t->string('Email', 255);
             $t->integer('Status');
             $t->string('GSM');
+            $t->softDeletes();
             $t->timestamps();
         });
     }
