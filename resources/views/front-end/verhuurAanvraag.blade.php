@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    <div style="margin-top: -20px;" class="page-header">
+    <div class="header-margin" class="page-header">
         <h2 style="margin-bottom: -5px;">Verhuur aanvraag</h2>
     </div>
 
